@@ -11,83 +11,83 @@ const data = {
     // -------------------
     // Generation 1
     // -------------------
-    { "id": 1, "label": "Anthony the Great", "image": "images/anthony.png", "bio": "Anthony (c. 251–356) is considered the father of monasticism. He lived as a hermit in the Egyptian desert and inspired countless disciples.", "link": "https://en.wikipedia.org/wiki/Anthony_the_Great" },
-    { "id": 2, "label": "Palamon", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 3, "label": "Paul of Thebes", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 1, "label": "Anthony the Great", "level": 0, "image": "images/anthony.png", "bio": "Anthony (c. 251–356) is considered the father of monasticism. He lived as a hermit in the Egyptian desert and inspired countless disciples.", "link": "https://en.wikipedia.org/wiki/Anthony_the_Great" },
+    { "id": 2, "label": "Palamon", "level": 0, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 3, "label": "Paul of Thebes", "level": 0, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
     // -------------------
     // Generation 2
     // -------------------
-    { "id": 4, "label": "Pachomius the Great", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 5, "label": "Macarius the Great", "image": "images/anthony.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
-    { "id": 6, "label": "Macarius the Younger", "image": "images/anthony.png", "bio": "Macarius of Alexandria, known as 'the Younger', was a contemporary of Macarius the Great.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Alexandria" },
-    { "id": 7, "label": "Ammonas", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 8, "label": "Paphnutius of Thebes", "image": "images/anthony.png", "bio": "Paphnutius was a spiritual child of Macarius the Great.", "link": "https://orthodoxwiki.org/Paphnutius" },
-    { "id": 9, "label": "Athanasius the Great", "image": "images/anthony.png", "bio": "Evagrius (c. 345–399) was a disciple of Macarius and a major spiritual writer.", "link": "https://en.wikipedia.org/wiki/Evagrius_Ponticus" },
-    { "id": 10, "label": "Serapion the Great", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 11, "label": "Amoun", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 12, "label": "Isidore", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 13, "label": "Chronius", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 14, "label": "Isaac of Fayoum", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 15, "label": "Pambo", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 16, "label": "Paul the Simple", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 4, "label": "Pachomius the Great", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 5, "label": "Macarius the Great", "level": 1, "image": "images/anthony.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
+    { "id": 6, "label": "Macarius the Younger", "level": 1, "image": "images/anthony.png", "bio": "Macarius of Alexandria, known as 'the Younger', was a contemporary of Macarius the Great.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Alexandria" },
+    { "id": 7, "label": "Ammonas", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 8, "label": "Paphnutius of Thebes", "level": 1, "image": "images/anthony.png", "bio": "Paphnutius was a spiritual child of Macarius the Great.", "link": "https://orthodoxwiki.org/Paphnutius" },
+    { "id": 9, "label": "Athanasius the Great", "level": 1, "image": "images/anthony.png", "bio": "Evagrius (c. 345–399) was a disciple of Macarius and a major spiritual writer.", "link": "https://en.wikipedia.org/wiki/Evagrius_Ponticus" },
+    { "id": 10, "label": "Serapion the Great", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 11, "label": "Amoun", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 12, "label": "Isidore", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 13, "label": "Chronius", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 14, "label": "Isaac of Fayoum", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 15, "label": "Pambo", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 16, "label": "Paul the Simple", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
     // -------------------
     // Generation 3
     // -------------------
-    { "id": 17, "label": "Theodore", "image": "images/anthony.png", "bio": "A devoted monk of Scetis.", "link": "#" },
-    { "id": 18, "label": "Evagrius of Pontus", "image": "images/anthony.png", "bio": "Follower in the footsteps of Macarius.", "link": "#" },
-    { "id": 19, "label": "Paphnutius the Ascetic", "image": "images/anthony.png", "bio": "Early ascetic in the Nitrian desert.", "link": "#" },
-    { "id": 20, "label": "Onuphrius", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 21, "label": "Moses the Black", "image": "images/anthony.png", "bio": "Hermit living near Kellia.", "link": "#" },
-    { "id": 22, "label": "Bessarion the Great", "image": "images/anthony.png", "bio": "Student of Evagrius' teachings.", "link": "#" },
-    { "id": 23, "label": "Isaac of the Cells", "image": "images/anthony.png", "bio": "A humble hermit in Scetis.", "link": "#" },
-    { "id": 24, "label": "Joseph", "image": "images/anthony.png", "bio": "Practiced silence and prayer.", "link": "#" },
-    { "id": 25, "label": "Achilles", "image": "images/anthony.png", "bio": "Continued the Macarian tradition.", "link": "#" },
-    { "id": 26, "label": "Or", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 27, "label": "Pishoy", "image": "images/anthony.png", "bio": "Lived in the Nitrian caves.", "link": "#" },
-    { "id": 28, "label": "Paul of Tammah", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 29, "label": "John the Short", "image": "images/anthony.png", "bio": "Practitioner of unceasing prayer.", "link": "#" },
-    { "id": 30, "label": "The Tall Brothers", "image": "images/anthony.png", "bio": "Hermit near Lake Mareotis.", "link": "#" },
-    { "id": 31, "label": "Melania the Elder", "image": "images/anthony.png", "bio": "Student of Evagrian thought.", "link": "#" },
+    { "id": 17, "label": "Theodore", "level": 2, "image": "images/anthony.png", "bio": "A devoted monk of Scetis.", "link": "#" },
+    { "id": 18, "label": "Evagrius of Pontus", "level": 2, "image": "images/anthony.png", "bio": "Follower in the footsteps of Macarius.", "link": "#" },
+    { "id": 19, "label": "Paphnutius the Ascetic", "level": 2, "image": "images/anthony.png", "bio": "Early ascetic in the Nitrian desert.", "link": "#" },
+    { "id": 20, "label": "Onuphrius", "level": 2, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 21, "label": "Moses the Black", "level": 2, "image": "images/anthony.png", "bio": "Hermit living near Kellia.", "link": "#" },
+    { "id": 22, "label": "Bessarion the Great", "level": 2, "image": "images/anthony.png", "bio": "Student of Evagrius' teachings.", "link": "#" },
+    { "id": 23, "label": "Isaac of the Cells", "level": 2, "image": "images/anthony.png", "bio": "A humble hermit in Scetis.", "link": "#" },
+    { "id": 24, "label": "Joseph", "level": 2, "image": "images/anthony.png", "bio": "Practiced silence and prayer.", "link": "#" },
+    { "id": 25, "label": "Achilles", "level": 2, "image": "images/anthony.png", "bio": "Continued the Macarian tradition.", "link": "#" },
+    { "id": 26, "label": "Or", "level": 2, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 27, "label": "Pishoy", "level": 2, "image": "images/anthony.png", "bio": "Lived in the Nitrian caves.", "link": "#" },
+    { "id": 28, "label": "Paul of Tammah", "level": 2, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 29, "label": "John the Short", "level": 2, "image": "images/anthony.png", "bio": "Practitioner of unceasing prayer.", "link": "#" },
+    { "id": 30, "label": "The Tall Brothers", "level": 2, "image": "images/anthony.png", "bio": "Hermit near Lake Mareotis.", "link": "#" },
+    { "id": 31, "label": "Melania the Elder", "level": 2, "image": "images/anthony.png", "bio": "Student of Evagrian thought.", "link": "#" },
 
     // -------------------
     // Generation 4
     // -------------------
 
-    { "id": 34, "label": "John Cassian", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 35, "label": "Germanus", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 36, "label": "Lot", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 37, "label": "Poemen the Great", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 38, "label": "Anoub", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 39, "label": "Paisius", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 40, "label": "Isaiah", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 41, "label": "Sisoes the Great", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 42, "label": "Paul", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 43, "label": "Athre", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 44, "label": "Arsenius the Great", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 34, "label": "John Cassian", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 35, "label": "Germanus", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 36, "label": "Lot", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 37, "label": "Poemen the Great", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 38, "label": "Anoub", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 39, "label": "Paisius", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 40, "label": "Isaiah", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 41, "label": "Sisoes the Great", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 42, "label": "Paul", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 43, "label": "Athre", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 44, "label": "Arsenius the Great", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
 
     // -------------------
     // Generation 5
     // -------------------
 
-    { "id": 45, "label": "Peter the Pionite", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 46, "label": "Agathon", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 47, "label": "Alexander", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 48, "label": "Zoilus", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 49, "label": "Daniel", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 50, "label": "Pharan", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 45, "label": "Peter the Pionite", "level": 4, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 46, "label": "Agathon", "level": 4, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 47, "label": "Alexander", "level": 4, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 48, "label": "Zoilus", "level": 4, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 49, "label": "Daniel", "level": 4, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 50, "label": "Pharan", "level": 4, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
 
     // -------------------
     // Generation 6
     // -------------------
 
-    { "id": 51, "label": "Abraham", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 52, "label": "Ammoes", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 51, "label": "Abraham", "level": 5, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 52, "label": "Ammoes", "level": 5, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
 
     // -------------------
     // Generation 7
     // -------------------
 
-    { "id": 53, "label": "John", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 53, "label": "John", "level": 6, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
 
 
   ],
@@ -146,7 +146,7 @@ const networkData = { nodes: nodesDataset, edges: edgesDataset };
 const options = {
   layout: {
     hierarchical: {
-      direction: 'DU',  // 👈 Flip the direction: Top → Down
+      direction: 'UD',
       sortMethod: 'directed',
       levelSeparation: 120,
       nodeSpacing: 200
