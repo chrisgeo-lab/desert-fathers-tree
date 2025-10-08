@@ -145,15 +145,24 @@ const networkData = { nodes: nodesDataset, edges: edgesDataset };
 // =====================
 const options = {
   layout: {
-    hierarchical: {
-      direction: 'UD',            // Top to bottom
-      sortMethod: 'directed',     // Order nodes by edge direction
-      levelSeparation: 120,       // Vertical distance between levels
-      nodeSpacing: 200,           // Horizontal spacing between siblings
-      parentCentralization: true  // ✅ Centers parent over children
-    }
-  },
-  physics: false,  // Disable floating nodes; tree stays structured
+  hierarchical: {
+    direction: 'UD',              // Top to bottom
+    sortMethod: 'directed',
+    levelSeparation: 120,
+    nodeSpacing: 200,
+    parentCentralization: true,   // ✅ ensure parents are centered
+    treeSpacing: 250,             // Add extra spacing between sibling trees (optional tweak)
+    shakeTowards: 'roots'         // Helps keep parent nodes centered over their children
+      }
+    },
+  physics: false,  // (already there)
+  configure: {
+  filter: (option, path) => {
+    // Hide vis.js UI but allow hierarchical tweaks internally
+    if (path.indexOf('layout.hierarchical') !== -1) return true;
+    return false;
+      }
+    },
 
   // =====================
   // NODE STYLE (MODERN RECTANGLES)
