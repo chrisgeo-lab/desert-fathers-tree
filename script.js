@@ -146,7 +146,7 @@ const networkData = { nodes: nodesDataset, edges: edgesDataset };
 const options = {
   layout: {
     hierarchical: {
-      direction: 'UD',
+      direction: 'DU',  // 👈 Flip the direction: Top → Down
       sortMethod: 'directed',
       levelSeparation: 120,
       nodeSpacing: 200
@@ -205,6 +205,7 @@ const options = {
 };
 
 const network = new vis.Network(container, networkData, options);
+network.fit({ animation: false });
 
 // =====================
 // 3. SCROLL TO PAN
