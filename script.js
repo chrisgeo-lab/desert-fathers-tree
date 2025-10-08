@@ -116,7 +116,9 @@ const data = {
     // Companion edges (dashed horizontal)
     { "from": 5, "to": 6, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
     { "from": 18, "to": 31, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
+    { "from": 19, "to": 20, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
     { "from": 23, "to": 30, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
+    { "from": 27, "to": 28, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
     { "from": 17, "to": 26, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
     { "from": 34, "to": 35, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
     { "from": 37, "to": 38, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
