@@ -1,6 +1,6 @@
-// === Desert Fathers Family Tree Script (Updated with Scroll Pan + Zoom Buttons) ===
-// Nodes display an image, short bio, and link. Clicking a node opens an info panel.
-// Companion relationships appear as dashed horizontal edges.
+// === Desert Fathers Family Tree Script (Updated with Scroll Pan + Zoom Buttons + Modern Nodes) ===
+// Nodes now appear as modern horizontal rounded rectangles with the monk's name.
+// Selected nodes are highlighted. Companion relationships remain dashed horizontal edges.
 // Scroll up/down moves the tree. Pinch or zoom buttons (+/-) zoom in/out.
 
 // =====================
@@ -46,7 +46,7 @@ const data = {
     { "from": 2, "to": 5 }, { "from": 2, "to": 6 }, { "from": 2, "to": 7 },
     { "from": 3, "to": 8 }, { "from": 4, "to": 9 }, { "from": 5, "to": 10 }, { "from": 6, "to": 11 },
 
-    // Companion edges example (dashed)
+    // Companion edges (dashed horizontal)
     { "from": 2, "to": 3, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
     { "from": 7, "to": 8, "dashes": true, "arrows": "none", "color": { "color": "#777" } }
 
@@ -63,6 +63,9 @@ let edgesDataset = new vis.DataSet(data.edges);
 const container = document.getElementById('tree-container');
 const networkData = { nodes: nodesDataset, edges: edgesDataset };
 
+// =====================
+// 2a. NETWORK OPTIONS
+// =====================
 const options = {
   layout: {
     hierarchical: {
@@ -72,22 +75,55 @@ const options = {
       nodeSpacing: 200
     }
   },
-  physics: false,
+  physics: false,  // Disable floating nodes; tree stays structured
+
+  // =====================
+  // NODE STYLE (MODERN RECTANGLES)
+  // =====================
   nodes: {
-    shape: 'circularImage',
-    size: 40,
+    shape: 'box',                 // Horizontal rectangle
+    color: {
+      background: '#f3eee4',      // Default background
+      border: '#8b6f47',          // Default border
+      highlight: {
+        background: '#f7f2e7',   // Highlight when selected
+        border: '#d49c3f'
+      },
+      hover: {
+        background: '#f7f2e7',   // Background when hovered
+        border: '#d49c3f'
+      }
+    },
+    font: {
+      face: 'Segoe UI',
+      size: 14,
+      color: '#333'
+    },
+    margin: 10,                   // Padding inside the box
+    widthConstraint: { maximum: 200 },
+    heightConstraint: { minimum: 40 },
     borderWidth: 2,
-    color: { border: '#8b6f47', background: '#f3eee4' },
-    font: { face: 'Segoe UI', size: 14, color: '#333' }
+    shapeProperties: {
+      borderRadius: 10            // Rounded corners for modern style
+    }
   },
+
+  // =====================
+  // EDGE STYLE
+  // =====================
   edges: {
     arrows: { to: { enabled: true, scaleFactor: 0.5 } },
     color: { color: '#8b6f47' },
     smooth: { type: 'cubicBezier', roundness: 0.4 }
   },
+
+  // =====================
+  // INTERACTION
+  // =====================
   interaction: {
-    dragView: false,  // ❌ Disable drag to pan
-    zoomView: false   // ❌ Disable scroll zoom
+    dragView: false,  // ❌ Disable drag to pan (we use scroll)
+    zoomView: false,  // ❌ Disable scroll zoom
+    hover: true
   }
 };
 
@@ -197,6 +233,8 @@ function hideInfoPanel() {
 // 7. COMMENTS: HOW TO ADD NEW NODES / EDGES
 // =====================
 // 1. Add a new node in data.nodes
+//    { "id": 51, "label": "New Monk", "image": "images/anthony.png", "bio": "Short bio.", "link": "#" }
 // 2. Add an edge connecting spiritual father or companion
-//    { "from": X, "to": Y }           // disciple
+//    { "from": X, "to": Y }                // disciple
 //    { "from": X, "to": Y, "dashes": true } // companion
+// 3. Save the file and refresh the page.
