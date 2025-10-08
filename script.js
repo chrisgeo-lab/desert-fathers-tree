@@ -199,24 +199,30 @@ btnOut.addEventListener('click', () => {
 });
 
 // =====================
-// 6. NODE CLICK INFO PANEL
+// 6. NODE CLICK INFO PANEL (Updated to Anchor to Node + Fade + Auto-Reposition)
 // =====================
+let activeNodeId = null; // track which node's panel is showing
+
 network.on('click', function (params) {
   if (params.nodes.length > 0) {
-    const nodeId = params.nodes[0];
-    const nodeData = nodesDataset.get(nodeId);
-    showInfoPanel(nodeData, params.pointer.DOM);
+    // Node clicked: show info panel
+    activeNodeId = params.nodes[0];
+    const nodeData = nodesDataset.get(activeNodeId);
+    showInfoPanel(nodeData, activeNodeId);
   } else {
+    // Blank space clicked: hide panel
+    activeNodeId = null;
     hideInfoPanel();
   }
 });
 
-function showInfoPanel(nodeData) {
+// ----------------------------
+// Show the info panel anchored to the node
+// ----------------------------
+function showInfoPanel(nodeData, nodeId) {
   const panel = document.getElementById('info-panel');
 
-  // ----------------------------
-  // 1. Set content
-  // ----------------------------
+  // Set content
   panel.innerHTML = `
     <img src="${nodeData.image}" alt="${nodeData.label}">
     <h2>${nodeData.label}</h2>
@@ -224,16 +230,13 @@ function showInfoPanel(nodeData) {
     <a href="${nodeData.link}" target="_blank">More info</a>
   `;
 
-  // ----------------------------
-  // 2. Make panel visible for measuring
-  // ----------------------------
-  panel.style.opacity = '0';       // start transparent for fade-in
+  panel.style.opacity = '0';
   panel.style.transition = 'opacity 0.25s ease';
   panel.style.display = 'block';
   panel.style.position = 'absolute';
-  panel.style.maxWidth = '300px';  // maximum width
-  panel.style.maxHeight = '80vh';  // max height relative to viewport
-  panel.style.overflowY = 'auto';  // scroll if too tall
+  panel.style.maxWidth = '300px';
+  panel.style.maxHeight = '80vh';
+  panel.style.overflowY = 'auto';
   panel.style.zIndex = '1000';
   panel.style.padding = '10px';
   panel.style.background = '#f3eee4';
@@ -241,69 +244,69 @@ function showInfoPanel(nodeData) {
   panel.style.borderRadius = '12px';
   panel.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
 
-  // ----------------------------
-  // 3. Measure panel dimensions
-  // ----------------------------
-  const panelRect = panel.getBoundingClientRect();
-  const panelWidth = panelRect.width;
-  const panelHeight = panelRect.height;
+  const buffer = 15; // distance from node
 
   // ----------------------------
-  // 4. Get node position in DOM coordinates
+  // Function to update panel position based on node
   // ----------------------------
-  const nodePos = network.getPositions([nodeData.id])[nodeData.id]; // network coords
-  const domPos = network.canvasToDOM(nodePos);                        // convert to DOM coords
+  function updatePanelPosition() {
+    if (!activeNodeId) return;
 
-  const buffer = 15;  // space between node and panel
+    const nodePos = network.getPositions([nodeId])[nodeId]; // network coords
+    const domPos = network.canvasToDOM(nodePos);            // convert to DOM coords
+    const panelRect = panel.getBoundingClientRect();
+    const panelWidth = panelRect.width;
+    const panelHeight = panelRect.height;
 
-  // ----------------------------
-  // 5. Determine horizontal placement
-  // ----------------------------
-  let left;
-  const isMobile = window.innerWidth < 500; // simple mobile detection
+    let left, top;
 
-  if (isMobile) {
-    // On small screens, center panel horizontally above node
-    left = Math.min(Math.max(domPos.x - panelWidth / 2, 5), window.innerWidth - panelWidth - 5);
-  } else {
-    // Desktop: try to show to the right, if not enough space, show left
-    if (domPos.x + buffer + panelWidth < window.innerWidth) {
-      left = domPos.x + buffer; // right side
+    const isMobile = window.innerWidth < 500;
+
+    // Horizontal placement
+    if (isMobile) {
+      left = Math.min(Math.max(domPos.x - panelWidth / 2, 5), window.innerWidth - panelWidth - 5);
     } else {
-      left = domPos.x - panelWidth - buffer; // left side
-      if (left < 5) left = 5;               // clamp to viewport left edge
+      if (domPos.x + buffer + panelWidth < window.innerWidth) {
+        left = domPos.x + buffer; // right side
+      } else {
+        left = domPos.x - panelWidth - buffer; // left side
+        if (left < 5) left = 5;
+      }
     }
+
+    // Vertical placement
+    top = domPos.y - panelHeight / 2;
+    if (top < 5) top = 5;
+    if (top + panelHeight > window.innerHeight - 5) {
+      top = window.innerHeight - panelHeight - 5;
+    }
+
+    panel.style.left = `${left}px`;
+    panel.style.top = `${top}px`;
   }
 
-  // ----------------------------
-  // 6. Determine vertical placement
-  // ----------------------------
-  let top = domPos.y - panelHeight / 2; // vertically centered
-  if (top < 5) top = 5;                 // clamp top
-  if (top + panelHeight > window.innerHeight - 5) {
-    top = window.innerHeight - panelHeight - 5; // clamp bottom
-  }
+  // Initial placement
+  updatePanelPosition();
 
-  // ----------------------------
-  // 7. Apply calculated position
-  // ----------------------------
-  panel.style.left = `${left}px`;
-  panel.style.top = `${top}px`;
-
-  // ----------------------------
-  // 8. Fade-in animation
-  // ----------------------------
+  // Fade in
   requestAnimationFrame(() => {
-    panel.style.opacity = '1';  // fade in
+    panel.style.opacity = '1';
   });
+
+  // Update panel on network zoom/pan
+  network.on('afterDrawing', updatePanelPosition);
 }
 
-
-
+// ----------------------------
+// Hide panel function remains largely the same
+// ----------------------------
 function hideInfoPanel() {
   const panel = document.getElementById('info-panel');
-  panel.classList.add('hidden');
+  panel.style.display = 'none';
+  panel.style.opacity = '0';
+  activeNodeId = null;
 }
+
 
 // =====================
 // 7. COMMENTS: HOW TO ADD NEW NODES / EDGES
