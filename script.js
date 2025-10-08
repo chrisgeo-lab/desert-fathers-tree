@@ -146,10 +146,11 @@ const networkData = { nodes: nodesDataset, edges: edgesDataset };
 const options = {
   layout: {
     hierarchical: {
-      direction: 'UD',
-      sortMethod: 'directed',
-      levelSeparation: 120,
-      nodeSpacing: 200
+      direction: 'UD',            // Top to bottom
+      sortMethod: 'directed',     // Order nodes by edge direction
+      levelSeparation: 120,       // Vertical distance between levels
+      nodeSpacing: 200            // Horizontal spacing between siblings
+      parentCentralization: true  // ✅ Centers parent over children
     }
   },
   physics: false,  // Disable floating nodes; tree stays structured
