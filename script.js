@@ -211,10 +211,12 @@ network.on('click', function (params) {
   }
 });
 
-function showInfoPanel(nodeData, pointerDOM) {
+function showInfoPanel(nodeData) {
   const panel = document.getElementById('info-panel');
-  
-  // Step 1: Set the content
+
+  // ----------------------------
+  // 1. Set content
+  // ----------------------------
   panel.innerHTML = `
     <img src="${nodeData.image}" alt="${nodeData.label}">
     <h2>${nodeData.label}</h2>
@@ -222,53 +224,80 @@ function showInfoPanel(nodeData, pointerDOM) {
     <a href="${nodeData.link}" target="_blank">More info</a>
   `;
 
-  // Step 2: Temporarily place offscreen to measure
-  panel.style.left = '0px';
-  panel.style.top = '0px';
-  panel.classList.remove('hidden'); // make it visible so we can get dimensions
+  // ----------------------------
+  // 2. Make panel visible for measuring
+  // ----------------------------
+  panel.style.opacity = '0';       // start transparent for fade-in
+  panel.style.transition = 'opacity 0.25s ease';
+  panel.style.display = 'block';
+  panel.style.position = 'absolute';
+  panel.style.maxWidth = '300px';  // maximum width
+  panel.style.maxHeight = '80vh';  // max height relative to viewport
+  panel.style.overflowY = 'auto';  // scroll if too tall
+  panel.style.zIndex = '1000';
+  panel.style.padding = '10px';
+  panel.style.background = '#f3eee4';
+  panel.style.border = '2px solid #8b6f47';
+  panel.style.borderRadius = '12px';
+  panel.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
 
+  // ----------------------------
+  // 3. Measure panel dimensions
+  // ----------------------------
   const panelRect = panel.getBoundingClientRect();
-  let panelWidth = panelRect.width;
-  let panelHeight = panelRect.height;
-  const padding = 10; // spacing from the node
+  const panelWidth = panelRect.width;
+  const panelHeight = panelRect.height;
 
-  // Step 3: Determine default position (right and below node)
-  let left = pointerDOM.x + padding;
-  let top = pointerDOM.y + padding;
+  // ----------------------------
+  // 4. Get node position in DOM coordinates
+  // ----------------------------
+  const nodePos = network.getPositions([nodeData.id])[nodeData.id]; // network coords
+  const domPos = network.canvasToDOM(nodePos);                        // convert to DOM coords
 
-  // Step 4: Adjust horizontal position if overflowing right edge
-  if (left + panelWidth > window.innerWidth) {
-    left = pointerDOM.x - panelWidth - padding; // move to left of node
-    // If still offscreen on left, clamp to 5px
-    if (left < 5) left = 5;
+  const buffer = 15;  // space between node and panel
+
+  // ----------------------------
+  // 5. Determine horizontal placement
+  // ----------------------------
+  let left;
+  const isMobile = window.innerWidth < 500; // simple mobile detection
+
+  if (isMobile) {
+    // On small screens, center panel horizontally above node
+    left = Math.min(Math.max(domPos.x - panelWidth / 2, 5), window.innerWidth - panelWidth - 5);
+  } else {
+    // Desktop: try to show to the right, if not enough space, show left
+    if (domPos.x + buffer + panelWidth < window.innerWidth) {
+      left = domPos.x + buffer; // right side
+    } else {
+      left = domPos.x - panelWidth - buffer; // left side
+      if (left < 5) left = 5;               // clamp to viewport left edge
+    }
   }
 
-  // Step 5: Adjust vertical position if overflowing bottom edge
-  if (top + panelHeight > window.innerHeight) {
-    top = pointerDOM.y - panelHeight - padding; // move above node
-    // If still offscreen on top, clamp to 5px
-    if (top < 5) top = 5;
+  // ----------------------------
+  // 6. Determine vertical placement
+  // ----------------------------
+  let top = domPos.y - panelHeight / 2; // vertically centered
+  if (top < 5) top = 5;                 // clamp top
+  if (top + panelHeight > window.innerHeight - 5) {
+    top = window.innerHeight - panelHeight - 5; // clamp bottom
   }
 
-  // Step 6: Mobile/small screen adjustment
-  // If panel width exceeds 90% of screen width, shrink it
-  const maxWidth = window.innerWidth * 0.9;
-  if (panelWidth > maxWidth) {
-    panel.style.width = `${maxWidth}px`;
-    panelWidth = maxWidth;
-  }
-  // If panel height exceeds 90% of screen height, shrink it
-  const maxHeight = window.innerHeight * 0.9;
-  if (panelHeight > maxHeight) {
-    panel.style.height = `${maxHeight}px`;
-    panel.style.overflowY = 'auto'; // allow scrolling inside panel
-    panelHeight = maxHeight;
-  }
-
-  // Step 7: Set final position
+  // ----------------------------
+  // 7. Apply calculated position
+  // ----------------------------
   panel.style.left = `${left}px`;
   panel.style.top = `${top}px`;
+
+  // ----------------------------
+  // 8. Fade-in animation
+  // ----------------------------
+  requestAnimationFrame(() => {
+    panel.style.opacity = '1';  // fade in
+  });
 }
+
 
 
 function hideInfoPanel() {
