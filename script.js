@@ -213,16 +213,63 @@ network.on('click', function (params) {
 
 function showInfoPanel(nodeData, pointerDOM) {
   const panel = document.getElementById('info-panel');
+  
+  // Step 1: Set the content
   panel.innerHTML = `
     <img src="${nodeData.image}" alt="${nodeData.label}">
     <h2>${nodeData.label}</h2>
     <p>${nodeData.bio}</p>
     <a href="${nodeData.link}" target="_blank">More info</a>
   `;
-  panel.style.left = pointerDOM.x + 15 + 'px';
-  panel.style.top = pointerDOM.y + 15 + 'px';
-  panel.classList.remove('hidden');
+
+  // Step 2: Temporarily place offscreen to measure
+  panel.style.left = '0px';
+  panel.style.top = '0px';
+  panel.classList.remove('hidden'); // make it visible so we can get dimensions
+
+  const panelRect = panel.getBoundingClientRect();
+  let panelWidth = panelRect.width;
+  let panelHeight = panelRect.height;
+  const padding = 10; // spacing from the node
+
+  // Step 3: Determine default position (right and below node)
+  let left = pointerDOM.x + padding;
+  let top = pointerDOM.y + padding;
+
+  // Step 4: Adjust horizontal position if overflowing right edge
+  if (left + panelWidth > window.innerWidth) {
+    left = pointerDOM.x - panelWidth - padding; // move to left of node
+    // If still offscreen on left, clamp to 5px
+    if (left < 5) left = 5;
+  }
+
+  // Step 5: Adjust vertical position if overflowing bottom edge
+  if (top + panelHeight > window.innerHeight) {
+    top = pointerDOM.y - panelHeight - padding; // move above node
+    // If still offscreen on top, clamp to 5px
+    if (top < 5) top = 5;
+  }
+
+  // Step 6: Mobile/small screen adjustment
+  // If panel width exceeds 90% of screen width, shrink it
+  const maxWidth = window.innerWidth * 0.9;
+  if (panelWidth > maxWidth) {
+    panel.style.width = `${maxWidth}px`;
+    panelWidth = maxWidth;
+  }
+  // If panel height exceeds 90% of screen height, shrink it
+  const maxHeight = window.innerHeight * 0.9;
+  if (panelHeight > maxHeight) {
+    panel.style.height = `${maxHeight}px`;
+    panel.style.overflowY = 'auto'; // allow scrolling inside panel
+    panelHeight = maxHeight;
+  }
+
+  // Step 7: Set final position
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
 }
+
 
 function hideInfoPanel() {
   const panel = document.getElementById('info-panel');
