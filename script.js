@@ -12,43 +12,118 @@ const data = {
     // Generation 1
     // -------------------
     { "id": 1, "label": "Anthony the Great", "image": "images/anthony.png", "bio": "Anthony (c. 251–356) is considered the father of monasticism. He lived as a hermit in the Egyptian desert and inspired countless disciples.", "link": "https://en.wikipedia.org/wiki/Anthony_the_Great" },
-    { "id": 2, "label": "Macarius the Great", "image": "images/anthony.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
-    { "id": 3, "label": "Macarius the Younger", "image": "images/anthony.png", "bio": "Macarius of Alexandria, known as 'the Younger', was a contemporary of Macarius the Great.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Alexandria" },
-    { "id": 4, "label": "Ammonas", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 5, "label": "Paphnutius", "image": "images/anthony.png", "bio": "Paphnutius was a spiritual child of Macarius the Great.", "link": "https://orthodoxwiki.org/Paphnutius" },
-    { "id": 6, "label": "Evagrius Ponticus", "image": "images/anthony.png", "bio": "Evagrius (c. 345–399) was a disciple of Macarius and a major spiritual writer.", "link": "https://en.wikipedia.org/wiki/Evagrius_Ponticus" },
+    { "id": 2, "label": "Palamon", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 3, "label": "Paul of Thebes", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    // -------------------
+    // Generation 2
+    // -------------------
+    { "id": 4, "label": "Pachomius the Great", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 5, "label": "Macarius the Great", "image": "images/anthony.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
+    { "id": 6, "label": "Macarius the Younger", "image": "images/anthony.png", "bio": "Macarius of Alexandria, known as 'the Younger', was a contemporary of Macarius the Great.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Alexandria" },
+    { "id": 7, "label": "Ammonas", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 8, "label": "Paphnutius of Thebes", "image": "images/anthony.png", "bio": "Paphnutius was a spiritual child of Macarius the Great.", "link": "https://orthodoxwiki.org/Paphnutius" },
+    { "id": 9, "label": "Athanasius the Great", "image": "images/anthony.png", "bio": "Evagrius (c. 345–399) was a disciple of Macarius and a major spiritual writer.", "link": "https://en.wikipedia.org/wiki/Evagrius_Ponticus" },
+    { "id": 10, "label": "Serapion the Great", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 11, "label": "Amoun", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 12, "label": "Isidore", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 13, "label": "Chronius", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 14, "label": "Isaac of Fayoum", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 15, "label": "Pambo", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 16, "label": "Paul the Simple", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    // -------------------
+    // Generation 3
+    // -------------------
+    { "id": 17, "label": "Theodore", "image": "images/anthony.png", "bio": "A devoted monk of Scetis.", "link": "#" },
+    { "id": 18, "label": "Evagrius of Pontus", "image": "images/anthony.png", "bio": "Follower in the footsteps of Macarius.", "link": "#" },
+    { "id": 19, "label": "Paphnutius the Ascetic", "image": "images/anthony.png", "bio": "Early ascetic in the Nitrian desert.", "link": "#" },
+    { "id": 20, "label": "Onuphrius", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 21, "label": "Moses the Black", "image": "images/anthony.png", "bio": "Hermit living near Kellia.", "link": "#" },
+    { "id": 22, "label": "Bessarion the Great", "image": "images/anthony.png", "bio": "Student of Evagrius' teachings.", "link": "#" },
+    { "id": 23, "label": "Isaac of the Cells", "image": "images/anthony.png", "bio": "A humble hermit in Scetis.", "link": "#" },
+    { "id": 24, "label": "Joseph", "image": "images/anthony.png", "bio": "Practiced silence and prayer.", "link": "#" },
+    { "id": 25, "label": "Achilles", "image": "images/anthony.png", "bio": "Continued the Macarian tradition.", "link": "#" },
+    { "id": 26, "label": "Or", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 27, "label": "Pishoy", "image": "images/anthony.png", "bio": "Lived in the Nitrian caves.", "link": "#" },
+    { "id": 28, "label": "Paul of Tammah", "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 29, "label": "John the Short", "image": "images/anthony.png", "bio": "Practitioner of unceasing prayer.", "link": "#" },
+    { "id": 30, "label": "The Tall Brothers", "image": "images/anthony.png", "bio": "Hermit near Lake Mareotis.", "link": "#" },
+    { "id": 31, "label": "Melania the Elder", "image": "images/anthony.png", "bio": "Student of Evagrian thought.", "link": "#" },
 
     // -------------------
-    // Generations 2–8 (fictional/filler)
+    // Generation 4
     // -------------------
-    { "id": 7, "label": "Disciple of Macarius I", "image": "images/anthony.png", "bio": "A devoted monk of Scetis.", "link": "#" },
-    { "id": 8, "label": "Disciple of Macarius II", "image": "images/anthony.png", "bio": "Follower in the footsteps of Macarius.", "link": "#" },
-    { "id": 9, "label": "Disciple of Ammonas I", "image": "images/anthony.png", "bio": "Early ascetic in the Nitrian desert.", "link": "#" },
-    { "id": 10, "label": "Disciple of Paphnutius I", "image": "images/anthony.png", "bio": "Hermit living near Kellia.", "link": "#" },
-    { "id": 11, "label": "Disciple of Evagrius I", "image": "images/anthony.png", "bio": "Student of Evagrius' teachings.", "link": "#" },
-    { "id": 12, "label": "Hermit of Scetis I", "image": "images/anthony.png", "bio": "A humble hermit in Scetis.", "link": "#" },
-    { "id": 13, "label": "Hermit of Scetis II", "image": "images/anthony.png", "bio": "Practiced silence and prayer.", "link": "#" },
-    { "id": 14, "label": "Disciple of Disciple 7", "image": "images/anthony.png", "bio": "Continued the Macarian tradition.", "link": "#" },
-    { "id": 15, "label": "Disciple of Disciple 8", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 16, "label": "Hermit of Nitria I", "image": "images/anthony.png", "bio": "Lived in the Nitrian caves.", "link": "#" },
-    { "id": 17, "label": "Disciple of Disciple 9", "image": "images/anthony.png", "bio": "Practitioner of unceasing prayer.", "link": "#" },
-    { "id": 18, "label": "Disciple of Disciple 10", "image": "images/anthony.png", "bio": "Hermit near Lake Mareotis.", "link": "#" },
-    { "id": 19, "label": "Disciple of Disciple 11", "image": "images/anthony.png", "bio": "Student of Evagrian thought.", "link": "#" },
-    { "id": 20, "label": "Hermit of Nitria II", "image": "images/anthony.png", "bio": "Practiced solitude.", "link": "#" },
-    { "id": 21, "label": "Hermit of Nitria III", "image": "images/anthony.png", "bio": "A wise desert elder.", "link": "#" }
 
-    // ✍️ Continue adding nodes 22–50 here
+    { "id": 34, "label": "John Cassian", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 35, "label": "Germanus", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 36, "label": "Lot", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 37, "label": "Poemen the Great", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 38, "label": "Anoub", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 39, "label": "Paisius", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 40, "label": "Isaiah", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 41, "label": "Sisoes the Great", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 42, "label": "Paul", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 43, "label": "Athre", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 44, "label": "Arsenius the Great", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+
+    // -------------------
+    // Generation 5
+    // -------------------
+
+    { "id": 45, "label": "Peter the Pionite", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 46, "label": "Agathon", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 47, "label": "Alexander", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 48, "label": "Zoilus", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 49, "label": "Daniel", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 50, "label": "Pharan", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+
+    // -------------------
+    // Generation 6
+    // -------------------
+
+    { "id": 51, "label": "Abraham", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 52, "label": "Ammoes", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+
+    // -------------------
+    // Generation 7
+    // -------------------
+
+    { "id": 53, "label": "John", "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+
+
   ],
 
   "edges": [
     // Vertical disciple edges
-    { "from": 1, "to": 2 }, { "from": 1, "to": 3 }, { "from": 1, "to": 4 },
-    { "from": 2, "to": 5 }, { "from": 2, "to": 6 }, { "from": 2, "to": 7 },
-    { "from": 3, "to": 8 }, { "from": 4, "to": 9 }, { "from": 5, "to": 10 }, { "from": 6, "to": 11 },
+    { "from": 2, "to": 4 }, 
+    { "from": 1, "to": 5 }, { "from": 1, "to": 7 }, { "from": 1, "to": 8 }, { "from": 1, "to": 9 }, { "from": 1, "to": 10 },
+    { "from": 1, "to": 11 }, { "from": 1, "to": 12 }, { "from": 1, "to": 13 }, { "from": 1, "to": 14 }, { "from": 1, "to": 15 },
+    { "from": 1, "to": 16 },
+    
+    { "from": 11, "to": 17 }, { "from": 5, "to": 18 }, { "from": 6, "to": 18 }, { "from": 5, "to": 19 }, { "from": 5, "to": 21 },
+    { "from": 12, "to": 21 }, { "from": 12, "to": 22 }, { "from": 13, "to": 23 }, { "from": 14, "to": 24 }, { "from": 14, "to": 25 },
+    { "from": 14, "to": 26 }, { "from": 15, "to": 27 }, { "from": 15, "to": 29 }, { "from": 15, "to": 30 },
 
+    { "from": 18, "to": 34 }, { "from": 24, "to": 36 }, { "from": 24, "to": 37 }, { "from": 24, "to": 38 }, { "from": 24, "to": 39 },
+    { "from": 25, "to": 40 }, { "from": 26, "to": 41 }, { "from": 26, "to": 42 }, { "from": 26, "to": 43 }, { "from": 29, "to": 44 },
+
+    { "from": 36, "to": 45 }, { "from": 36, "to": 46 }, { "from": 37, "to": 46 }, { "from": 44, "to": 47 }, { "from": 44, "to": 48 },
+    { "from": 44, "to": 49 }, { "from": 44, "to": 50 },
+
+    { "from": 46, "to": 51 }, { "from": 49, "to": 52 },
+
+    { "from": 52, "to": 53 },
+    
     // Companion edges (dashed horizontal)
-    { "from": 2, "to": 3, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
-    { "from": 7, "to": 8, "dashes": true, "arrows": "none", "color": { "color": "#777" } }
+    { "from": 5, "to": 6, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
+    { "from": 18, "to": 31, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
+    { "from": 23, "to": 30, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
+    { "from": 17, "to": 26, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
+    { "from": 34, "to": 35, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
+    { "from": 37, "to": 38, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
+    { "from": 38, "to": 39, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
+    { "from": 36, "to": 44, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
+    { "from": 46, "to": 47, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
+    { "from": 47, "to": 48, "dashes": true, "arrows": "none", "color": { "color": "#777" } }
 
     // ✍️ Add more edges as nodes are added
   ]
