@@ -216,6 +216,8 @@ const options = {
 
 const network = new vis.Network(container, networkData, options);
 network.fit({ animation: false });
+network.setOptions({ layout: { hierarchical: { enabled: true } } });
+
 
 // =====================
 // 3. SCROLL TO PAN
