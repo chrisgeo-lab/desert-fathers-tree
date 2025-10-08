@@ -145,24 +145,25 @@ const networkData = { nodes: nodesDataset, edges: edgesDataset };
 // =====================
 const options = {
   layout: {
-  hierarchical: {
-    direction: 'UD',              // Top to bottom
-    sortMethod: 'directed',
-    levelSeparation: 120,
-    nodeSpacing: 200,
-    parentCentralization: true,   // ✅ ensure parents are centered
-    treeSpacing: 250,             // Add extra spacing between sibling trees (optional tweak)
-    shakeTowards: 'roots'         // Helps keep parent nodes centered over their children
-      }
-    },
-  physics: false,  // (already there)
-  configure: {
-  filter: (option, path) => {
-    // Hide vis.js UI but allow hierarchical tweaks internally
-    if (path.indexOf('layout.hierarchical') !== -1) return true;
-    return false;
-      }
-    },
+    hierarchical: {
+      enabled: true,              // ✅ Make sure this is set at creation
+      direction: 'UD',            // Top (Up) to Down layout
+      sortMethod: 'directed',
+      levelSeparation: 200,       // Vertical spacing between levels
+      nodeSpacing: 300,           // Horizontal spacing between sibling nodes
+      parentCentralization: true, // Center parent above children
+      treeSpacing: 300,           // Space between different trees
+      shakeTowards: 'roots'
+    }
+  },
+  physics: {
+    enabled: false                // ✅ Turn off physics to prevent overlap drifting
+  },
+  interaction: {
+    zoomView: true,
+    dragView: true
+    }
+  };
 
   // =====================
   // NODE STYLE (MODERN RECTANGLES)
@@ -215,8 +216,9 @@ const options = {
 };
 
 const network = new vis.Network(container, networkData, options);
-network.fit({ animation: false });
-network.setOptions({ layout: { hierarchical: { enabled: true } } });
+network.once('stabilizationIterationsDone', function () {
+  network.fit({ animation: { duration: 800, easingFunction: 'easeInOutQuad' } });
+});
 
 
 // =====================
