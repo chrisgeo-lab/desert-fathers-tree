@@ -1,92 +1,64 @@
 /* === General page styling === */
 body {
-    /* Updated background to a warm, antique parchment/sand */
-    background: #E9E3D4; 
-    color: #4A3B2F; /* Deep sepia text */
-    /* ✅ NEW: Classical serif font for the body */
-    font-family: 'Times New Roman', serif; 
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f8f3;
+  color: #333;
 }
 
 header {
-    /* Deeper, more substantial ochre/camel color */
-    background: #B7A287; 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Enhance the depth/weight */
+  text-align: center;
+  padding: 1rem;
+  background: #e3d9c6;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 h1 {
-  margin: 0;
-  font-size: 1.8rem;
+  margin: 0;
+  font-size: 1.8rem;
 }
 
 /* === Tree container === */
 #tree-container {
-  width: 100%;
-  height: 85vh;
-  border-top: 1px solid #ccc;
+  width: 100%;
+  height: 85vh;
+  border-top: 1px solid #ccc;
 }
 
 /* === Info panel for node details === */
 #info-panel {
-  position: absolute;
-  /* ✅ Change: Keep background white/off-white for contrast */
-  background: white; 
-  /* ✅ Change: Deeper border to match the new color scheme */
-  border: 1px solid #6B5D4F; 
-  border-radius: 8px;
-  padding: 10px;
-  max-width: 300px;
-  z-index: 10;
-  /* ✅ Change: More prominent shadow */
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  position: absolute;
+  background: white;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  padding: 10px;
+  max-width: 300px;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 #info-panel img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 0.5em;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.5em;
 }
 
 #info-panel h2 {
-  margin: 0 0 0.3em 0;
-  font-size: 1.2rem;
+  margin: 0 0 0.3em 0;
+  font-size: 1.2rem;
 }
 
 #info-panel p {
-  font-size: 0.9rem;
-  line-height: 1.4;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 #info-panel a {
-  /* ✅ Change: Deep maroon/wine color for links */
-  color: #800000; 
-  text-decoration: none;
+  color: #2a5db0;
+  text-decoration: none;
 }
 
 #info-panel.hidden {
-  display: none;
-}
-
-/* === Zoom Controls === */
-.zoom-controls {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 20;
-}
-
-.zoom-controls button {
-    /* ✅ Change: Match the header color (ochre/camel) */
-    background: #B7A287; 
-    /* ✅ Change: Use the dark sepia color for the border */
-    border: 1px solid #4A3B2F; 
-    /* ✅ Change: Use the dark sepia color for the text/icon */
-    color: #4A3B2F; 
-    width: 30px;
-    height: 30px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-left: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: none;
 }
