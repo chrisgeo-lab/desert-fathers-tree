@@ -118,20 +118,19 @@ const data = {
     { "from": 34, "to": 35, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
     { "from": 37, "to": 38, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
     { "from": 38, "to": 39, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
-    { "from": 36, "to": 44, "dashes": true, "arrows": "none", "color": { "color": "#777" } }
+    { "from": 40, "to": 41, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
+    { "from": 42, "to": 43, "dashes": true, "arrows": "none", "color": { "color": "#777" } }
   ]
 };
 
 // =====================
-// 2. VIS-NETWORK INITIALIZATION
+// 2. NETWORK SETUP
 // =====================
-const levelCounts = {};
-data.nodes.forEach(node => {
-  if (!levelCounts[node.level]) levelCounts[node.level] = 0;
-  levelCounts[node.level]++;
-});
-const maxNodesInLevel = Math.max(...Object.values(levelCounts));
-const dynamicNodeSpacing = Math.max(150, maxNodesInLevel * 20);
+const container = document.getElementById('mynetwork');
+const nodes = new vis.DataSet(data.nodes);
+const edges = new vis.DataSet(data.edges);
+
+const networkData = { nodes, edges };
 
 const options = {
   layout: {
@@ -139,297 +138,126 @@ const options = {
       enabled: true,
       direction: 'UD',
       sortMethod: 'directed',
-      levelSeparation: 200,
-      nodeSpacing: dynamicNodeSpacing,
-      parentCentralization: false, // we'll handle centering manually
-      treeSpacing: 300
+      levelSeparation: 120,
+      nodeSpacing: 150
     }
   },
-
-  physics: { enabled: false },
-
   nodes: {
     shape: 'box',
-    color: {
-      background: '#f3eee4',
-      border: '#8b6f47',
-      highlight: { background: '#f7f2e7', border: '#d49c3f' },
-      hover: { background: '#f7f2e7', border: '#d49c3f' }
-    },
-    font: { face: 'Segoe UI', size: 14, color: '#333' },
+    color: { background: '#f5f5f5', border: '#888' },
+    font: { color: '#000', size: 14, face: 'Arial' },
     margin: 10,
-    widthConstraint: { maximum: 200 },
-    heightConstraint: { minimum: 40 },
-    borderWidth: 2,
-    shapeProperties: { borderRadius: 10 }
+    widthConstraint: { maximum: 160 }
   },
-
   edges: {
-    arrows: { to: { enabled: true, scaleFactor: 0.5 } },
-    color: { color: '#8b6f47' },
-    smooth: { type: 'cubicBezier', roundness: 0.4 }
+    smooth: { type: 'cubicBezier', forceDirection: 'vertical' },
+    color: { color: '#888' }
   },
-
   interaction: {
-    dragView: false,
-    zoomView: false,
-    hover: true
-  }
+    dragNodes: true,
+    dragView: true,
+    zoomView: true,
+    multiselect: false,
+    navigationButtons: false
+  },
+  physics: { enabled: false }
 };
 
-let nodesDataset = new vis.DataSet(data.nodes);
-let edgesDataset = new vis.DataSet(data.edges);
-const container = document.getElementById('tree-container');
-const networkData = { nodes: nodesDataset, edges: edgesDataset };
 const network = new vis.Network(container, networkData, options);
 
 // =====================
-// 3. CENTER PARENTS OVER CHILDREN WITH SPACING
+// 3. INFO PANEL
 // =====================
-function centerParentsOverChildrenWithSpacing(network, nodesDataset, edgesDataset, minSpacing = 150) {
-  const nodes = nodesDataset.get();
-  const edges = edgesDataset.get();
-
-  // Build parent -> children map
-  const parentToChildren = {};
-  edges.forEach(edge => {
-    if (!edge.dashes) {
-      if (!parentToChildren[edge.from]) parentToChildren[edge.from] = [];
-      parentToChildren[edge.from].push(edge.to);
-    }
-  });
-
-  // recursive centering logic...
-  function centerNode(nodeId) { ... }
-
-  // Find root nodes
-  const childSet = new Set(edges.filter(e => !e.dashes).map(e => e.to));
-  const rootNodes = nodes.filter(n => !childSet.has(n.id));
-  rootNodes.forEach(n => centerNode(n.id));
-}
-
-// =====================
-// Helper: enforce horizontal spacing at each level
-// =====================
-function enforceLevelSpacing(network, nodesDataset, minSpacing = 160) {
-  const nodes = nodesDataset.get();
-  // Group nodes by level
-  const levels = {};
-  nodes.forEach(node => {
-    if (!levels[node.level]) levels[node.level] = [];
-    levels[node.level].push(node.id);
-  });
-
-  Object.values(levels).forEach(levelNodes => {
-    // Sort nodes by current x
-    let positions = network.getPositions(levelNodes);
-    let sortedNodes = levelNodes.slice().sort((a, b) => positions[a].x - positions[b].x);
-
-    // Apply spacing
-    for (let i = 1; i < sortedNodes.length; i++) {
-      const prev = sortedNodes[i - 1];
-      const curr = sortedNodes[i];
-      positions = network.getPositions([prev, curr]);
-      const dx = positions[curr].x - positions[prev].x;
-      if (dx < minSpacing) {
-        const shift = minSpacing - dx;
-        // move current and all subsequent nodes
-        for (let j = i; j < sortedNodes.length; j++) {
-          const id = sortedNodes[j];
-          const pos = network.getPositions([id])[id];
-          network.moveNode(id, pos.x + shift, pos.y);
-        }
-      }
-    }
-  });
-}
-
-
-  
-  // recursive centering
-  function centerNode(nodeId) {
-    const children = parentToChildren[nodeId];
-    if (!children || children.length === 0) return;
-
-    // center children first
-    children.forEach(c => centerNode(c));
-
-    // get current positions of children
-    const childPositions = network.getPositions(children);
-
-    // sort children by x
-    const sortedChildren = children.slice().sort((a, b) => childPositions[a].x - childPositions[b].x);
-
-    // apply horizontal spacing to siblings
-    for (let i = 1; i < sortedChildren.length; i++) {
-      const prev = sortedChildren[i - 1];
-      const curr = sortedChildren[i];
-      if (childPositions[curr].x - childPositions[prev].x < minSpacing) {
-        const shift = minSpacing - (childPositions[curr].x - childPositions[prev].x);
-        network.moveNode(curr, childPositions[curr].x + shift, childPositions[curr].y);
-        childPositions[curr].x += shift;
-      }
-    }
-
-    // move parent node to avg x of children (after spacing)
-    const avgX = sortedChildren.reduce((sum, cid) => sum + network.getPositions([cid])[cid].x, 0) / sortedChildren.length;
-    const nodePos = network.getPositions([nodeId])[nodeId];
-    network.moveNode(nodeId, avgX, nodePos.y);
-  }
-
-  // Find all root nodes (no incoming edges)
-  const childSet = new Set(edges.filter(e => !e.dashes).map(e => e.to));
-  const rootNodes = nodes.filter(n => !childSet.has(n.id));
-  rootNodes.forEach(n => centerNode(n.id));
-}
-
-
-// =====================
-// 4. INITIAL NETWORK FIT & CENTERING WITH SPACING
-// =====================
-network.once('afterDrawing', () => {
-  network.fit({ animation: { duration: 800, easingFunction: 'easeInOutQuad' } });
-  centerParentsOverChildrenWithSpacing(network, nodesDataset, edgesDataset, 160); // parent centering
-  enforceLevelSpacing(network, nodesDataset, 160); // prevent level overlaps
-});
-
-
-// =====================
-// 5. SCROLL TO PAN
-// =====================
-container.addEventListener('wheel', (event) => {
-  if (event.ctrlKey) return;
-  event.preventDefault();
-  const currentView = network.getViewPosition();
-  const scale = network.getScale();
-  const panSpeed = 1 / scale;
-  network.moveTo({
-    position: { x: currentView.x + event.deltaX * panSpeed, y: currentView.y + event.deltaY * panSpeed },
-    scale: scale,
-    animation: false
-  });
-}, { passive: false });
-
-// =====================
-// 6. PINCH ZOOM (TRACKPAD / TOUCH)
-// =====================
-container.addEventListener('wheel', (event) => {
-  if (!event.ctrlKey) return;
-  event.preventDefault();
-  const scale = network.getScale();
-  const zoomFactor = Math.exp(-event.deltaY / 500);
-  network.moveTo({ scale: scale * zoomFactor });
-}, { passive: false });
-
-// =====================
-// 7. ZOOM BUTTONS
-// =====================
-const zoomControls = document.createElement('div');
-zoomControls.style.position = 'fixed';
-zoomControls.style.top = '20px';
-zoomControls.style.right = '20px';
-zoomControls.style.display = 'flex';
-zoomControls.style.flexDirection = 'column';
-zoomControls.style.gap = '5px';
-zoomControls.style.zIndex = '1000';
-
-const btnIn = document.createElement('button');
-btnIn.textContent = '+';
-const btnOut = document.createElement('button');
-btnOut.textContent = '−';
-[btnIn, btnOut].forEach(btn => {
-  btn.style.width = '35px';
-  btn.style.height = '35px';
-  btn.style.fontSize = '20px';
-  btn.style.cursor = 'pointer';
-});
-zoomControls.appendChild(btnIn);
-zoomControls.appendChild(btnOut);
-document.body.appendChild(zoomControls);
-
-btnIn.addEventListener('click', () => {
-  const scale = network.getScale();
-  network.moveTo({ scale: scale * 1.2 });
-});
-btnOut.addEventListener('click', () => {
-  const scale = network.getScale();
-  network.moveTo({ scale: scale / 1.2 });
-});
-
-// =====================
-// 8. NODE CLICK INFO PANEL
-// =====================
+const panel = document.getElementById('infoPanel');
 let activeNodeId = null;
+
+function showInfoPanel(node) {
+  activeNodeId = node.id;
+  panel.innerHTML = `
+    <h3>${node.label}</h3>
+    <p>${node.bio}</p>
+    <a href="${node.link}" target="_blank">More info</a>
+  `;
+  panel.style.display = 'block';
+  updatePanelPosition();
+}
+
+function hideInfoPanel() {
+  panel.style.display = 'none';
+  activeNodeId = null;
+}
+
+// Update panel position relative to node
+function updatePanelPosition() {
+  if (!activeNodeId) return;
+  const nodePosition = network.getPositions([activeNodeId])[activeNodeId];
+  const canvasPos = network.canvasToDOM(nodePosition);
+  panel.style.left = `${canvasPos.x + 20}px`;
+  panel.style.top = `${canvasPos.y - 40}px`;
+}
+
 network.on('click', function (params) {
   if (params.nodes.length > 0) {
-    activeNodeId = params.nodes[0];
-    const nodeData = nodesDataset.get(activeNodeId);
-    showInfoPanel(nodeData, activeNodeId);
+    const nodeId = params.nodes[0];
+    showInfoPanel(nodes.get(nodeId));
   } else {
-    activeNodeId = null;
     hideInfoPanel();
   }
 });
 
-function showInfoPanel(nodeData, nodeId) {
-  const panel = document.getElementById('info-panel');
-  panel.innerHTML = `
-    <img src="${nodeData.image}" alt="${nodeData.label}">
-    <h2>${nodeData.label}</h2>
-    <p>${nodeData.bio}</p>
-    <a href="${nodeData.link}" target="_blank">More info</a>
-  `;
-  panel.style.opacity = '0';
-  panel.style.transition = 'opacity 0.25s ease';
-  panel.style.display = 'block';
-  panel.style.position = 'absolute';
-  panel.style.maxWidth = '300px';
-  panel.style.maxHeight = '80vh';
-  panel.style.overflowY = 'auto';
-  panel.style.zIndex = '1000';
-  panel.style.padding = '10px';
-  panel.style.background = '#f3eee4';
-  panel.style.border = '2px solid #8b6f47';
-  panel.style.borderRadius = '12px';
-  panel.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+// Single afterDrawing listener for panel positioning
+network.on('afterDrawing', updatePanelPosition);
 
-  const buffer = 15;
-  function updatePanelPosition() {
-    if (!activeNodeId) return;
-    const nodePos = network.getPositions([nodeId])[nodeId];
-    const domPos = network.canvasToDOM(nodePos);
-    const panelRect = panel.getBoundingClientRect();
-    const panelWidth = panelRect.width;
-    const panelHeight = panelRect.height;
+// =====================
+// 4. ZOOM BUTTONS
+// =====================
+document.getElementById('zoomIn').addEventListener('click', () => network.moveTo({ scale: network.getScale() * 1.2 }));
+document.getElementById('zoomOut').addEventListener('click', () => network.moveTo({ scale: network.getScale() / 1.2 }));
 
-    let left, top;
-    const isMobile = window.innerWidth < 500;
-    if (isMobile) {
-      left = Math.min(Math.max(domPos.x - panelWidth / 2, 5), window.innerWidth - panelWidth - 5);
-    } else {
-      if (domPos.x + buffer + panelWidth < window.innerWidth) {
-        left = domPos.x + buffer;
-      } else {
-        left = domPos.x - panelWidth - buffer;
-        if (left < 5) left = 5;
-      }
-    }
-    top = domPos.y - panelHeight / 2;
-    if (top < 5) top = 5;
-    if (top + panelHeight > window.innerHeight - 5) top = window.innerHeight - panelHeight - 5;
+// =====================
+// 5. SCROLL + PINCH PAN
+// =====================
+let isCtrlPressed = false;
+document.addEventListener('keydown', e => isCtrlPressed = e.ctrlKey);
+document.addEventListener('keyup', e => isCtrlPressed = false);
 
-    panel.style.left = `${left}px`;
-    panel.style.top = `${top}px`;
+container.addEventListener('wheel', (event) => {
+  if (isCtrlPressed) {
+    // Zoom
+    event.preventDefault();
+    const factor = event.deltaY > 0 ? 0.9 : 1.1;
+    network.moveTo({ scale: network.getScale() * factor });
+  } else {
+    // Scroll pan
+    event.preventDefault();
+    network.moveBy({ x: -event.deltaX, y: -event.deltaY });
   }
+}, { passive: false });
 
-  updatePanelPosition();
-  requestAnimationFrame(() => { panel.style.opacity = '1'; });
-  network.on('afterDrawing', updatePanelPosition);
+// =====================
+// 6. UTILITY: CENTER PARENTS OVER CHILDREN
+// =====================
+function centerParentsOverChildrenWithSpacing() {
+  const positions = network.getPositions();
+  const levels = {};
+  nodes.forEach(node => {
+    const level = node.level || 0;
+    if (!levels[level]) levels[level] = [];
+    levels[level].push(node.id);
+  });
+
+  Object.keys(levels).forEach(level => {
+    const ids = levels[level];
+    ids.forEach(id => {
+      const children = edges.get().filter(e => e.from === id).map(e => e.to);
+      if (children.length > 0) {
+        const childPositions = children.map(c => positions[c].x);
+        const avgX = childPositions.reduce((a, b) => a + b, 0) / childPositions.length;
+        network.moveNode(id, avgX, positions[id].y);
+      }
+    });
+  });
 }
 
-function hideInfoPanel() {
-  const panel = document.getElementById('info-panel');
-  panel.style.display = 'none';
-  panel.style.opacity = '0';
-  activeNodeId = null;
-}
+// Call it once after drawing
+network.once('afterDrawing', centerParentsOverChildrenWithSpacing);
