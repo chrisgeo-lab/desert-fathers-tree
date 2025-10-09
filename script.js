@@ -127,7 +127,7 @@ const options = {
       levelSeparation: 150,
       nodeSpacing: 200,
       treeSpacing: 220,
-      blockShifting: true,
+      blockShifting: false,
       edgeMinimization: false,
       parentCentralization: false
     }
