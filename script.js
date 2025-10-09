@@ -184,9 +184,9 @@ const networkData = { nodes: nodesDataset, edges: edgesDataset };
 const network = new vis.Network(container, networkData, options);
 
 // =====================
-// 3. CENTER PARENTS OVER CHILDREN (CORRECTED)
+// 3. CENTER PARENTS OVER CHILDREN WITH SPACING
 // =====================
-function centerParentsOverChildren(network, nodesDataset, edgesDataset) {
+function centerParentsOverChildrenWithSpacing(network, nodesDataset, edgesDataset, minSpacing = 150) {
   const nodes = nodesDataset.get();
   const edges = edgesDataset.get();
 
@@ -209,9 +209,23 @@ function centerParentsOverChildren(network, nodesDataset, edgesDataset) {
 
     // get current positions of children
     const childPositions = network.getPositions(children);
-    const avgX = children.reduce((sum, cid) => sum + childPositions[cid].x, 0) / children.length;
 
-    // move parent node to avg x of children
+    // sort children by x
+    const sortedChildren = children.slice().sort((a, b) => childPositions[a].x - childPositions[b].x);
+
+    // apply horizontal spacing to siblings
+    for (let i = 1; i < sortedChildren.length; i++) {
+      const prev = sortedChildren[i - 1];
+      const curr = sortedChildren[i];
+      if (childPositions[curr].x - childPositions[prev].x < minSpacing) {
+        const shift = minSpacing - (childPositions[curr].x - childPositions[prev].x);
+        network.moveNode(curr, childPositions[curr].x + shift, childPositions[curr].y);
+        childPositions[curr].x += shift;
+      }
+    }
+
+    // move parent node to avg x of children (after spacing)
+    const avgX = sortedChildren.reduce((sum, cid) => sum + network.getPositions([cid])[cid].x, 0) / sortedChildren.length;
     const nodePos = network.getPositions([nodeId])[nodeId];
     network.moveNode(nodeId, avgX, nodePos.y);
   }
@@ -222,14 +236,15 @@ function centerParentsOverChildren(network, nodesDataset, edgesDataset) {
   rootNodes.forEach(n => centerNode(n.id));
 }
 
+
 // =====================
-// 4. INITIAL NETWORK FIT & CENTERING (CORRECTED)
+// 4. INITIAL NETWORK FIT & CENTERING WITH SPACING
 // =====================
 network.once('afterDrawing', () => {
-  // Fit and center parents
   network.fit({ animation: { duration: 800, easingFunction: 'easeInOutQuad' } });
-  centerParentsOverChildren(network, nodesDataset, edgesDataset);
+  centerParentsOverChildrenWithSpacing(network, nodesDataset, edgesDataset, 160); // 160px minimum spacing
 });
+
 
 
 // =====================
