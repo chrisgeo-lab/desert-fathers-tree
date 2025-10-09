@@ -39,14 +39,14 @@ const data = {
     { "id": 21, "label": "Moses the Black", "level": 2, "x": -500, "image": "images/moses.png", "bio": "Moses the Black (c. 330–405) was a reformed robber who became a great desert father.", "link": "https://en.wikipedia.org/wiki/Moses_the_Black" },
     { "id": 22, "label": "Bessarion the Great", "level": 2, "x": -300, "image": "images/bessarion.png", "bio": "Bessarion was known for his wandering life and miraculous works.", "link": "#" },
     { "id": 24, "label": "Joseph", "level": 2, "x": -100, "image": "images/joseph.png", "bio": "Joseph practiced silence and unceasing prayer in the desert.", "link": "#" },
-    { "id": 25, "label": "Achilles", "level": 2, "x": 100, "image": "images/achilles.png", "bio": "Achilles continued the spiritual tradition of his teachers.", "link": "#" },
-    { "id": 26, "label": "Or", "level": 2, "x": 300, "image": "images/or.png", "bio": "Or was renowned for his hospitality and kindness to visitors.", "link": "#" },
-    { "id": 17, "label": "Theodore", "level": 2, "x": 700, "image": "images/theodore.png", "bio": "Theodore was a devoted monk and successor to Pachomius.", "link": "#" },
-    { "id": 28, "label": "Paul of Tammah", "level": 2, "x": 1000, "image": "images/paul-tammah.png", "bio": "Paul of Tammah was a hermit known for his ascetic practices.", "link": "#" },
-    { "id": 27, "label": "Pishoy", "level": 2, "x": 1200, "image": "images/pishoy.png", "bio": "Pishoy was a beloved monk who lived in the Scetis desert.", "link": "#" },
-    { "id": 29, "label": "John the Short", "level": 2, "x": 1400, "image": "images/john-short.png", "bio": "John the Short (c. 339–405) was famous for his humility and obedience.", "link": "https://en.wikipedia.org/wiki/John_the_Dwarf" },
-    { "id": 30, "label": "The Tall Brothers", "level": 2, "x": 1600, "image": "images/tall-brothers.png", "bio": "Four brothers known for their height and spiritual wisdom.", "link": "#" },
-    { "id": 23, "label": "Isaac of the Cells", "level": 2, "x": 1900, "image": "images/isaac-cells.png", "bio": "Isaac was a humble hermit known for his teachings on prayer.", "link": "#" },
+    { "id": 25, "label": "Achilles", "level": 2, "x": 150, "image": "images/achilles.png", "bio": "Achilles continued the spiritual tradition of his teachers.", "link": "#" },
+    { "id": 26, "label": "Or", "level": 2, "x": 400, "image": "images/or.png", "bio": "Or was renowned for his hospitality and kindness to visitors.", "link": "#" },
+    { "id": 17, "label": "Theodore", "level": 2, "x": 800, "image": "images/theodore.png", "bio": "Theodore was a devoted monk and successor to Pachomius.", "link": "#" },
+    { "id": 28, "label": "Paul of Tammah", "level": 2, "x": 1100, "image": "images/paul-tammah.png", "bio": "Paul of Tammah was a hermit known for his ascetic practices.", "link": "#" },
+    { "id": 27, "label": "Pishoy", "level": 2, "x": 1300, "image": "images/pishoy.png", "bio": "Pishoy was a beloved monk who lived in the Scetis desert.", "link": "#" },
+    { "id": 29, "label": "John the Short", "level": 2, "x": 1500, "image": "images/john-short.png", "bio": "John the Short (c. 339–405) was famous for his humility and obedience.", "link": "https://en.wikipedia.org/wiki/John_the_Dwarf" },
+    { "id": 30, "label": "The Tall Brothers", "level": 2, "x": 1700, "image": "images/tall-brothers.png", "bio": "Four brothers known for their height and spiritual wisdom.", "link": "#" },
+    { "id": 23, "label": "Isaac of the Cells", "level": 2, "x": 1950, "image": "images/isaac-cells.png", "bio": "Isaac was a humble hermit known for his teachings on prayer.", "link": "#" },
 
     // Generation 4 (level 3)
     { "id": 34, "label": "John Cassian", "level": 3, "x": -1200, "image": "images/cassian.png", "bio": "John Cassian (c. 360–435) brought desert spirituality to the West.", "link": "https://en.wikipedia.org/wiki/John_Cassian" },
@@ -59,22 +59,22 @@ const data = {
     { "id": 41, "label": "Sisoes the Great", "level": 3, "x": 400, "image": "images/sisoes.png", "bio": "Sisoes (d. 429) lived in Anthony's former cell and was known for humility.", "link": "#" },
     { "id": 42, "label": "Paul", "level": 3, "x": 600, "image": "images/paul-3.png", "bio": "Paul was a hermit who practiced extreme asceticism.", "link": "#" },
     { "id": 43, "label": "Athre", "level": 3, "x": 800, "image": "images/athre.png", "bio": "Athre was a monk known for his gentle spirit.", "link": "#" },
-    { "id": 44, "label": "Arsenius the Great", "level": 3, "x": 1100, "image": "images/arsenius.png", "bio": "Arsenius (c. 350–445) left the imperial court to become a desert hermit.", "link": "https://en.wikipedia.org/wiki/Arsenius_the_Great" },
+    { "id": 44, "label": "Arsenius the Great", "level": 3, "x": 1400, "image": "images/arsenius.png", "bio": "Arsenius (c. 350–445) left the imperial court to become a desert hermit.", "link": "https://en.wikipedia.org/wiki/Arsenius_the_Great" },
 
     // Generation 5 (level 4)
     { "id": 45, "label": "Peter the Pionite", "level": 4, "x": -700, "image": "images/peter.png", "bio": "Peter was a disciple known for his simplicity.", "link": "#" },
     { "id": 46, "label": "Agathon", "level": 4, "x": -500, "image": "images/agathon.png", "bio": "Agathon was famous for his control over his tongue.", "link": "#" },
-    { "id": 47, "label": "Alexander", "level": 4, "x": 800, "image": "images/alexander.png", "bio": "Alexander served Arsenius with great devotion.", "link": "#" },
-    { "id": 48, "label": "Zoilus", "level": 4, "x": 1000, "image": "images/zoilus.png", "bio": "Zoilus was another faithful disciple of Arsenius.", "link": "#" },
-    { "id": 49, "label": "Daniel", "level": 4, "x": 1200, "image": "images/daniel.png", "bio": "Daniel was Arsenius's closest disciple and successor.", "link": "#" },
-    { "id": 50, "label": "Pharan", "level": 4, "x": 1400, "image": "images/pharan.png", "bio": "Pharan learned desert wisdom from Arsenius.", "link": "#" },
+    { "id": 47, "label": "Alexander", "level": 4, "x": 1100, "image": "images/alexander.png", "bio": "Alexander served Arsenius with great devotion.", "link": "#" },
+    { "id": 48, "label": "Zoilus", "level": 4, "x": 1300, "image": "images/zoilus.png", "bio": "Zoilus was another faithful disciple of Arsenius.", "link": "#" },
+    { "id": 49, "label": "Daniel", "level": 4, "x": 1500, "image": "images/daniel.png", "bio": "Daniel was Arsenius's closest disciple and successor.", "link": "#" },
+    { "id": 50, "label": "Pharan", "level": 4, "x": 1700, "image": "images/pharan.png", "bio": "Pharan learned desert wisdom from Arsenius.", "link": "#" },
 
     // Generation 6 (level 5)
     { "id": 51, "label": "Abraham", "level": 5, "x": -500, "image": "images/abraham.png", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
-    { "id": 52, "label": "Ammoes", "level": 5, "x": 1200, "image": "images/ammoes.png", "bio": "Ammoes was a wise elder in the later desert generation.", "link": "#" },
+    { "id": 52, "label": "Ammoes", "level": 5, "x": 1450, "image": "images/ammoes.png", "bio": "Ammoes was a wise elder in the later desert generation.", "link": "#" },
 
     // Generation 7 (level 6)
-    { "id": 53, "label": "John", "level": 6, "x": 1200, "image": "images/john.png", "bio": "John carried on the desert tradition into later centuries.", "link": "#" }
+    { "id": 53, "label": "John", "level": 6, "x": 1400, "image": "images/john.png", "bio": "John carried on the desert tradition into later centuries.", "link": "#" }
   ],
 
   "edges": [
