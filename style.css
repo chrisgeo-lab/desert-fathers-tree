@@ -80,20 +80,18 @@ h1 {
     z-index: 20;
 }
 
-/* * The rest of the styling for .zoom-controls button (which is already good) 
-* remains the same:
-* * .zoom-controls button {
-* background: #B7A287; 
-* border: 1px solid #4A3B2F; 
-* color: #4A3B2F; 
-* width: 30px;
-* height: 30px;
-* border-radius: 5px;
-* font-size: 1.2rem;
-* cursor: pointer;
-* margin-left: 5px;
-* box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-* }
-*/
+.zoom-controls button {
+ background: #B7A287; 
+ border: 1px solid #4A3B2F; 
+ color: #4A3B2F; 
+ width: 30px;
+ height: 30px;
+ border-radius: 5px;
+ font-size: 1.2rem;
+ cursor: pointer;
+ margin-left: 5px;
+ box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 
 
