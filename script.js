@@ -138,10 +138,9 @@ const options = {
     hierarchical: {
       enabled: true,
       direction: 'UD',
-      sortMethod: 'hubsize',
+      sortMethod: 'directed',
       levelSeparation: 120,
       nodeSpacing: 180,
-      nodeIncrementalSort: false,
       parentCentralization: true
     }
   },
