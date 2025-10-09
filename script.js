@@ -1,7 +1,5 @@
-// === Desert Fathers Family Tree Script (Updated with Scroll Pan + Zoom Buttons + Modern Nodes) ===
-// Nodes now appear as modern horizontal rounded rectangles with the monk's name.
-// Selected nodes are highlighted. Companion relationships remain dashed horizontal edges.
-// Scroll up/down moves the tree. Pinch or zoom buttons (+/-) zoom in/out.
+// === Desert Fathers Family Tree Script (Debugged Version) ===
+// Fixed: Missing node references, improved centering, better panel positioning
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -10,87 +8,74 @@ document.addEventListener('DOMContentLoaded', function() {
 // =====================
 const data = {
   "nodes": [
-    // -------------------
     // Generation 1
-    // -------------------
     { "id": 1, "label": "Anthony the Great", "level": 0, "image": "images/anthony.png", "bio": "Anthony (c. 251–356) is considered the father of monasticism. He lived as a hermit in the Egyptian desert and inspired countless disciples.", "link": "https://en.wikipedia.org/wiki/Anthony_the_Great" },
-    { "id": 2, "label": "Palamon", "level": 0, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 3, "label": "Paul of Thebes", "level": 0, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    // -------------------
+    { "id": 2, "label": "Palamon", "level": 0, "image": "images/palamon.png", "bio": "Palamon was an early hermit and teacher who guided young monks in the desert.", "link": "#" },
+    { "id": 3, "label": "Paul of Thebes", "level": 0, "image": "images/paul.png", "bio": "Paul of Thebes (c. 227–341) is traditionally considered the first Christian hermit.", "link": "https://en.wikipedia.org/wiki/Paul_of_Thebes" },
+    
     // Generation 2
-    // -------------------
-    { "id": 4, "label": "Pachomius the Great", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 5, "label": "Macarius the Great", "level": 1, "image": "images/anthony.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
-    { "id": 6, "label": "Macarius the Younger", "level": 1, "image": "images/anthony.png", "bio": "Macarius of Alexandria, known as 'the Younger', was a contemporary of Macarius the Great.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Alexandria" },
-    { "id": 7, "label": "Ammonas", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 8, "label": "Paphnutius of Thebes", "level": 1, "image": "images/anthony.png", "bio": "Paphnutius was a spiritual child of Macarius the Great.", "link": "https://orthodoxwiki.org/Paphnutius" },
-    { "id": 9, "label": "Athanasius the Great", "level": 1, "image": "images/anthony.png", "bio": "Evagrius (c. 345–399) was a disciple of Macarius and a major spiritual writer.", "link": "https://en.wikipedia.org/wiki/Evagrius_Ponticus" },
-    { "id": 10, "label": "Serapion the Great", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 11, "label": "Amoun", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 12, "label": "Isidore", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 13, "label": "Chronius", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 14, "label": "Isaac of Fayoum", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 15, "label": "Pambo", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 16, "label": "Paul the Simple", "level": 1, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 4, "label": "Pachomius the Great", "level": 1, "image": "images/pachomius.png", "bio": "Pachomius (c. 292–348) founded the first Christian cenobitic monastery and wrote the first monastic rule.", "link": "https://en.wikipedia.org/wiki/Pachomius_the_Great" },
+    { "id": 5, "label": "Macarius the Great", "level": 1, "image": "images/macarius.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
+    { "id": 6, "label": "Macarius the Younger", "level": 1, "image": "images/macarius2.png", "bio": "Macarius of Alexandria, known as 'the Younger', was a contemporary of Macarius the Great.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Alexandria" },
+    { "id": 7, "label": "Ammonas", "level": 1, "image": "images/ammonas.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 8, "label": "Paphnutius of Thebes", "level": 1, "image": "images/paphnutius.png", "bio": "Paphnutius was a confessor and spiritual father to many desert monks.", "link": "https://orthodoxwiki.org/Paphnutius" },
+    { "id": 9, "label": "Athanasius the Great", "level": 1, "image": "images/athanasius.png", "bio": "Athanasius (c. 296–373) was bishop of Alexandria and biographer of Anthony.", "link": "https://en.wikipedia.org/wiki/Athanasius_of_Alexandria" },
+    { "id": 10, "label": "Serapion the Great", "level": 1, "image": "images/serapion.png", "bio": "Serapion was known for his humility and travels among the desert fathers.", "link": "#" },
+    { "id": 11, "label": "Amoun", "level": 1, "image": "images/amoun.png", "bio": "Amoun (c. 295–356) founded the monastic community at Nitria.", "link": "https://en.wikipedia.org/wiki/Amoun" },
+    { "id": 12, "label": "Isidore", "level": 1, "image": "images/isidore.png", "bio": "Isidore was a hospitable monk and leader in the desert communities.", "link": "#" },
+    { "id": 13, "label": "Chronius", "level": 1, "image": "images/chronius.png", "bio": "Chronius was known for his wisdom and teachings on prayer.", "link": "#" },
+    { "id": 14, "label": "Isaac of Fayoum", "level": 1, "image": "images/isaac.png", "bio": "Isaac was a spiritual father who emphasized stillness and contemplation.", "link": "#" },
+    { "id": 15, "label": "Pambo", "level": 1, "image": "images/pambo.png", "bio": "Pambo (c. 303–373) was known for his silence and profound spiritual wisdom.", "link": "https://en.wikipedia.org/wiki/Pambo" },
+    { "id": 16, "label": "Paul the Simple", "level": 1, "image": "images/paul-simple.png", "bio": "Paul the Simple was renowned for his childlike faith and obedience to Anthony.", "link": "#" },
 
-    // -------------------
     // Generation 3
-    // -------------------
-    { "id": 17, "label": "Theodore", "level": 2, "image": "images/anthony.png", "bio": "A devoted monk of Scetis.", "link": "#" },
-    { "id": 18, "label": "Evagrius of Pontus", "level": 2, "image": "images/anthony.png", "bio": "Follower in the footsteps of Macarius.", "link": "#" },
-    { "id": 19, "label": "Paphnutius the Ascetic", "level": 2, "image": "images/anthony.png", "bio": "Early ascetic in the Nitrian desert.", "link": "#" },
-    { "id": 20, "label": "Onuphrius", "level": 2, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 21, "label": "Moses the Black", "level": 2, "image": "images/anthony.png", "bio": "Hermit living near Kellia.", "link": "#" },
-    { "id": 22, "label": "Bessarion the Great", "level": 2, "image": "images/anthony.png", "bio": "Student of Evagrius' teachings.", "link": "#" },
-    { "id": 23, "label": "Isaac of the Cells", "level": 2, "image": "images/anthony.png", "bio": "A humble hermit in Scetis.", "link": "#" },
-    { "id": 24, "label": "Joseph", "level": 2, "image": "images/anthony.png", "bio": "Practiced silence and prayer.", "link": "#" },
-    { "id": 25, "label": "Achilles", "level": 2, "image": "images/anthony.png", "bio": "Continued the Macarian tradition.", "link": "#" },
-    { "id": 26, "label": "Or", "level": 2, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 27, "label": "Pishoy", "level": 2, "image": "images/anthony.png", "bio": "Lived in the Nitrian caves.", "link": "#" },
-    { "id": 28, "label": "Paul of Tammah", "level": 2, "image": "images/anthony.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 29, "label": "John the Short", "level": 2, "image": "images/anthony.png", "bio": "Practitioner of unceasing prayer.", "link": "#" },
-    { "id": 30, "label": "The Tall Brothers", "level": 2, "image": "images/anthony.png", "bio": "Hermit near Lake Mareotis.", "link": "#" },
-    { "id": 31, "label": "Melania the Elder", "level": 2, "image": "images/anthony.png", "bio": "Student of Evagrian thought.", "link": "#" },
+    { "id": 17, "label": "Theodore", "level": 2, "image": "images/theodore.png", "bio": "Theodore was a devoted monk and successor to Pachomius.", "link": "#" },
+    { "id": 18, "label": "Evagrius of Pontus", "level": 2, "image": "images/evagrius.png", "bio": "Evagrius (c. 345–399) was a major spiritual writer and theologian of the desert.", "link": "https://en.wikipedia.org/wiki/Evagrius_Ponticus" },
+    { "id": 19, "label": "Paphnutius the Ascetic", "level": 2, "image": "images/paphnutius2.png", "bio": "Paphnutius the Ascetic was an early hermit in the Nitrian desert.", "link": "#" },
+    { "id": 20, "label": "Onuphrius", "level": 2, "image": "images/onuphrius.png", "bio": "Onuphrius was a hermit who lived in complete solitude for sixty years.", "link": "https://en.wikipedia.org/wiki/Onuphrius" },
+    { "id": 21, "label": "Moses the Black", "level": 2, "image": "images/moses.png", "bio": "Moses the Black (c. 330–405) was a reformed robber who became a great desert father.", "link": "https://en.wikipedia.org/wiki/Moses_the_Black" },
+    { "id": 22, "label": "Bessarion the Great", "level": 2, "image": "images/bessarion.png", "bio": "Bessarion was known for his wandering life and miraculous works.", "link": "#" },
+    { "id": 23, "label": "Isaac of the Cells", "level": 2, "image": "images/isaac-cells.png", "bio": "Isaac was a humble hermit known for his teachings on prayer.", "link": "#" },
+    { "id": 24, "label": "Joseph", "level": 2, "image": "images/joseph.png", "bio": "Joseph practiced silence and unceasing prayer in the desert.", "link": "#" },
+    { "id": 25, "label": "Achilles", "level": 2, "image": "images/achilles.png", "bio": "Achilles continued the spiritual tradition of his teachers.", "link": "#" },
+    { "id": 26, "label": "Or", "level": 2, "image": "images/or.png", "bio": "Or was renowned for his hospitality and kindness to visitors.", "link": "#" },
+    { "id": 27, "label": "Pishoy", "level": 2, "image": "images/pishoy.png", "bio": "Pishoy was a beloved monk who lived in the Scetis desert.", "link": "#" },
+    { "id": 28, "label": "Paul of Tammah", "level": 2, "image": "images/paul-tammah.png", "bio": "Paul of Tammah was a hermit known for his ascetic practices.", "link": "#" },
+    { "id": 29, "label": "John the Short", "level": 2, "image": "images/john-short.png", "bio": "John the Short (c. 339–405) was famous for his humility and obedience.", "link": "https://en.wikipedia.org/wiki/John_the_Dwarf" },
+    { "id": 30, "label": "The Tall Brothers", "level": 2, "image": "images/tall-brothers.png", "bio": "Four brothers known for their height and spiritual wisdom.", "link": "#" },
+    { "id": 31, "label": "Melania the Elder", "level": 2, "image": "images/melania.png", "bio": "Melania (c. 350–410) was a Roman noblewoman who became a desert ascetic.", "link": "https://en.wikipedia.org/wiki/Melania_the_Elder" },
 
-    // -------------------
     // Generation 4
-    // -------------------
-    { "id": 34, "label": "John Cassian", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 35, "label": "Germanus", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 36, "label": "Lot", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 37, "label": "Poemen the Great", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 38, "label": "Anoub", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 39, "label": "Paisius", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 40, "label": "Isaiah", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 41, "label": "Sisoes the Great", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 42, "label": "Paul", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 43, "label": "Athre", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 44, "label": "Arsenius the Great", "level": 3, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 34, "label": "John Cassian", "level": 3, "image": "images/cassian.png", "bio": "John Cassian (c. 360–435) brought desert spirituality to the West.", "link": "https://en.wikipedia.org/wiki/John_Cassian" },
+    { "id": 35, "label": "Germanus", "level": 3, "image": "images/germanus.png", "bio": "Germanus was Cassian's companion in the desert journeys.", "link": "#" },
+    { "id": 36, "label": "Lot", "level": 3, "image": "images/lot.png", "bio": "Lot was a disciple known for his devotion to prayer.", "link": "#" },
+    { "id": 37, "label": "Poemen the Great", "level": 3, "image": "images/poemen.png", "bio": "Poemen (c. 340–450) was one of the most quoted desert fathers.", "link": "https://en.wikipedia.org/wiki/Poemen" },
+    { "id": 38, "label": "Anoub", "level": 3, "image": "images/anoub.png", "bio": "Anoub was a monk of Scetis known for his patience.", "link": "#" },
+    { "id": 39, "label": "Paisius", "level": 3, "image": "images/paisius.png", "bio": "Paisius was a contemplative monk devoted to silence.", "link": "#" },
+    { "id": 40, "label": "Isaiah", "level": 3, "image": "images/isaiah.png", "bio": "Isaiah of Scetis was an influential spiritual writer.", "link": "#" },
+    { "id": 41, "label": "Sisoes the Great", "level": 3, "image": "images/sisoes.png", "bio": "Sisoes (d. 429) lived in Anthony's former cell and was known for humility.", "link": "#" },
+    { "id": 42, "label": "Paul", "level": 3, "image": "images/paul-3.png", "bio": "Paul was a hermit who practiced extreme asceticism.", "link": "#" },
+    { "id": 43, "label": "Athre", "level": 3, "image": "images/athre.png", "bio": "Athre was a monk known for his gentle spirit.", "link": "#" },
+    { "id": 44, "label": "Arsenius the Great", "level": 3, "image": "images/arsenius.png", "bio": "Arsenius (c. 350–445) left the imperial court to become a desert hermit.", "link": "https://en.wikipedia.org/wiki/Arsenius_the_Great" },
 
-    // -------------------
     // Generation 5
-    // -------------------
-    { "id": 45, "label": "Peter the Pionite", "level": 4, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 46, "label": "Agathon", "level": 4, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 47, "label": "Alexander", "level": 4, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 48, "label": "Zoilus", "level": 4, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 49, "label": "Daniel", "level": 4, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 50, "label": "Pharan", "level": 4, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 45, "label": "Peter the Pionite", "level": 4, "image": "images/peter.png", "bio": "Peter was a disciple known for his simplicity.", "link": "#" },
+    { "id": 46, "label": "Agathon", "level": 4, "image": "images/agathon.png", "bio": "Agathon was famous for his control over his tongue.", "link": "#" },
+    { "id": 47, "label": "Alexander", "level": 4, "image": "images/alexander.png", "bio": "Alexander served Arsenius with great devotion.", "link": "#" },
+    { "id": 48, "label": "Zoilus", "level": 4, "image": "images/zoilus.png", "bio": "Zoilus was another faithful disciple of Arsenius.", "link": "#" },
+    { "id": 49, "label": "Daniel", "level": 4, "image": "images/daniel.png", "bio": "Daniel was Arsenius's closest disciple and successor.", "link": "#" },
+    { "id": 50, "label": "Pharan", "level": 4, "image": "images/pharan.png", "bio": "Pharan learned desert wisdom from Arsenius.", "link": "#" },
 
-    // -------------------
     // Generation 6
-    // -------------------
-    { "id": 51, "label": "Abraham", "level": 5, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
-    { "id": 52, "label": "Ammoes", "level": 5, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" },
+    { "id": 51, "label": "Abraham", "level": 5, "image": "images/abraham.png", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
+    { "id": 52, "label": "Ammoes", "level": 5, "image": "images/ammoes.png", "bio": "Ammoes was a wise elder in the later desert generation.", "link": "#" },
 
-    // -------------------
     // Generation 7
-    // -------------------
-    { "id": 53, "label": "John", "level": 6, "image": "images/anthony.png", "bio": "Known for hospitality.", "link": "#" }
+    { "id": 53, "label": "John", "level": 6, "image": "images/john.png", "bio": "John carried on the desert tradition into later centuries.", "link": "#" }
   ],
 
   "edges": [
-    // Vertical disciple edges
+    // Vertical disciple edges (teacher -> student relationships)
     { "from": 2, "to": 4 }, 
     { "from": 1, "to": 5 }, { "from": 1, "to": 7 }, { "from": 1, "to": 8 }, { "from": 1, "to": 9 }, { "from": 1, "to": 10 },
     { "from": 1, "to": 11 }, { "from": 1, "to": 12 }, { "from": 1, "to": 13 }, { "from": 1, "to": 14 }, { "from": 1, "to": 15 },
@@ -110,18 +95,18 @@ const data = {
 
     { "from": 52, "to": 53 },
     
-    // Companion edges (dashed horizontal)
-    { "from": 5, "to": 6, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
-    { "from": 18, "to": 31, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
-    { "from": 19, "to": 20, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
-    { "from": 23, "to": 30, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
-    { "from": 27, "to": 28, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
-    { "from": 17, "to": 26, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
-    { "from": 34, "to": 35, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
-    { "from": 37, "to": 38, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
-    { "from": 38, "to": 39, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
-    { "from": 40, "to": 41, "dashes": true, "arrows": "none", "color": { "color": "#777" } },
-    { "from": 42, "to": 43, "dashes": true, "arrows": "none", "color": { "color": "#777" } }
+    // Companion edges (dashed horizontal for contemporaries)
+    { "from": 5, "to": 6, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
+    { "from": 18, "to": 31, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
+    { "from": 19, "to": 20, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
+    { "from": 23, "to": 30, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
+    { "from": 27, "to": 28, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
+    { "from": 17, "to": 26, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
+    { "from": 34, "to": 35, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
+    { "from": 37, "to": 38, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
+    { "from": 38, "to": 39, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
+    { "from": 40, "to": 41, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
+    { "from": 42, "to": 43, "dashes": true, "arrows": "none", "color": { "color": "#999" } }
   ]
 };
 
@@ -139,36 +124,52 @@ const options = {
       enabled: true,
       direction: 'UD',
       sortMethod: 'directed',
-      levelSeparation: 120,
-      nodeSpacing: 180,
+      levelSeparation: 150,
+      nodeSpacing: 200,
+      treeSpacing: 220,
+      blockShifting: true,
+      edgeMinimization: true,
       parentCentralization: true
     }
   },
   nodes: {
     shape: 'box',
-    color: { background: '#f5f5f5', border: '#888' },
-    font: { color: '#000', size: 14 },
-    margin: 10,
-    widthConstraint: { maximum: 160 },
+    color: { 
+      background: '#f5f5f5', 
+      border: '#6b5d4f',
+      highlight: {
+        background: '#e3d9c6',
+        border: '#8b7355'
+      }
+    },
+    font: { color: '#333', size: 15, face: 'Georgia, serif' },
+    margin: { top: 12, right: 15, bottom: 12, left: 15 },
+    widthConstraint: { minimum: 140, maximum: 180 },
     borderWidth: 2,
-    shadow: true,
-    shapeProperties: { borderRadius: 10 }
+    shadow: { enabled: true, color: 'rgba(0,0,0,0.15)', size: 8, x: 2, y: 2 },
+    shapeProperties: { borderRadius: 12 }
   },
   edges: {
-    smooth: { type: 'cubicBezier', forceDirection: 'vertical' },
-    color: { color: '#888' }
+    smooth: { 
+      type: 'cubicBezier', 
+      forceDirection: 'vertical',
+      roundness: 0.5 
+    },
+    color: { color: '#8b7355', highlight: '#6b5d4f' },
+    width: 2
   },
   interaction: {
-    dragNodes: true,
+    dragNodes: false,
     dragView: true,
     zoomView: true,
     multiselect: false,
-    navigationButtons: false
+    navigationButtons: false,
+    hover: true
   },
   physics: { enabled: false }
 };
 
-const network = new vis.Network(document.getElementById('tree-container'), networkData, options);
+const network = new vis.Network(container, networkData, options);
 
 // =====================
 // 3. INFO PANEL
@@ -181,23 +182,34 @@ function showInfoPanel(node) {
   panel.innerHTML = `
     <h3>${node.label}</h3>
     <p>${node.bio}</p>
-    <a href="${node.link}" target="_blank">More info</a>
+    ${node.link !== '#' ? `<a href="${node.link}" target="_blank">Learn more →</a>` : ''}
   `;
-  panel.style.display = 'block';
+  panel.classList.remove('hidden');
   updatePanelPosition();
 }
 
 function hideInfoPanel() {
-  panel.style.display = 'none';
+  panel.classList.add('hidden');
   activeNodeId = null;
 }
 
 function updatePanelPosition() {
   if (!activeNodeId) return;
   const pos = network.getPositions([activeNodeId])[activeNodeId];
+  if (!pos) return;
+  
   const canvasPos = network.canvasToDOM(pos);
-  panel.style.left = `${canvasPos.x + 20}px`;
-  panel.style.top = `${canvasPos.y - 40}px`;
+  const panelWidth = panel.offsetWidth || 300;
+  const viewportWidth = window.innerWidth;
+  
+  // Position to the right of node, or left if too close to edge
+  let leftPos = canvasPos.x + 25;
+  if (leftPos + panelWidth > viewportWidth - 20) {
+    leftPos = canvasPos.x - panelWidth - 25;
+  }
+  
+  panel.style.left = `${Math.max(10, leftPos)}px`;
+  panel.style.top = `${Math.max(10, canvasPos.y - 50)}px`;
 }
 
 network.on('click', (params) => {
@@ -208,28 +220,49 @@ network.on('click', (params) => {
   }
 });
 
-network.on('afterDrawing', updatePanelPosition);
+// Update panel position when view changes
+network.on('zoom', updatePanelPosition);
+network.on('dragEnd', updatePanelPosition);
 
 // =====================
 // 4. ZOOM BUTTONS
 // =====================
-document.getElementById('zoomIn').addEventListener('click', () => network.moveTo({ scale: network.getScale() * 1.2 }));
-document.getElementById('zoomOut').addEventListener('click', () => network.moveTo({ scale: network.getScale() / 1.2 }));
+document.getElementById('zoomIn').addEventListener('click', () => {
+  const currentScale = network.getScale();
+  network.moveTo({ scale: currentScale * 1.2, animation: { duration: 300, easingFunction: 'easeInOutQuad' } });
+});
+
+document.getElementById('zoomOut').addEventListener('click', () => {
+  const currentScale = network.getScale();
+  network.moveTo({ scale: currentScale / 1.2, animation: { duration: 300, easingFunction: 'easeInOutQuad' } });
+});
 
 // =====================
 // 5. SCROLL + PINCH PAN
 // =====================
-  
-// The pinch/touch zoom is handled automatically by vis.Network zoomView: true.
-// This function forces the scroll wheel/trackpad action to pan (move the view).
 container.addEventListener('wheel', (event) => {
-  event.preventDefault();
-  
-  // network.moveBy uses positive x/y to move the view left/down.
-  // event.deltaX/Y represents scroll direction, so we invert it for panning.
-  network.moveBy({ x: -event.deltaX, y: -event.deltaY });
-  
+  event.preventDefault();
+  
+  // Smooth panning with scroll/trackpad
+  const panSpeed = 1.5;
+  network.moveTo({
+    position: {
+      x: network.getViewPosition().x + (event.deltaX * panSpeed),
+      y: network.getViewPosition().y + (event.deltaY * panSpeed)
+    },
+    animation: false
+  });
+  
+  // Update panel position after panning
+  updatePanelPosition();
 }, { passive: false });
 
+// =====================
+// 6. INITIAL VIEW
+// =====================
+// Center on Anthony the Great initially
+network.once('stabilizationIterationsDone', () => {
+  network.focus(1, { scale: 0.8, animation: { duration: 1000, easingFunction: 'easeInOutQuad' } });
 });
 
+});
