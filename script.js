@@ -126,7 +126,7 @@ const data = {
 // =====================
 // 2. NETWORK SETUP
 // =====================
-const container = document.getElementById('mynetwork');
+const container = document.getElementById('tree-container');
 const nodes = new vis.DataSet(data.nodes);
 const edges = new vis.DataSet(data.edges);
 const networkData = { nodes, edges };
@@ -170,7 +170,7 @@ const network = new vis.Network(container, networkData, options);
 // =====================
 // 3. INFO PANEL
 // =====================
-const panel = document.getElementById('infoPanel');
+const panel = document.getElementById('info-panel');
 let activeNodeId = null;
 
 function showInfoPanel(node) {
