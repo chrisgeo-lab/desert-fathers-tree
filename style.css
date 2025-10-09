@@ -63,3 +63,37 @@ h1 {
 #info-panel.hidden {
   display: none;
 }
+
+/* === Zoom Controls === */
+.zoom-controls {
+    /* Changed from 'fixed' (bottom: 20px, right: 20px) */
+    position: fixed;
+    
+    /* ✅ NEW POSITION: Align to the top-right corner */
+    top: 100px; /* Adjust this value down slightly so they are below the header */
+    right: 20px;
+    
+    /* ❌ Remove/override bottom and left if they were set */
+    bottom: auto;
+    left: auto;
+    
+    z-index: 20;
+}
+
+/* * The rest of the styling for .zoom-controls button (which is already good) 
+* remains the same:
+* * .zoom-controls button {
+* background: #B7A287; 
+* border: 1px solid #4A3B2F; 
+* color: #4A3B2F; 
+* width: 30px;
+* height: 30px;
+* border-radius: 5px;
+* font-size: 1.2rem;
+* cursor: pointer;
+* margin-left: 5px;
+* box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+* }
+*/
+
+
