@@ -71,14 +71,7 @@ const data = {
     { "id": 52, "label": "Ammoes", "level": 5, "x": 1600, "fixed": { x: true, y: false }, "image": "images/ammoes.png", "bio": "Ammoes was a wise elder in the later desert generation.", "link": "#" },
 
     // Generation 7
-    { "id": 53, "label": "John", "level": 6, "x": 1600, "fixed": { x: true, y: false }, "image": "images/john.png", "bio": "John carried on the desert tradition into later centuries.", "link": "#" } "id": 50, "label": "Pharan", "level": 4, "x": 1800, "image": "images/pharan.png", "bio": "Pharan learned desert wisdom from Arsenius.", "link": "#" },
-
-    // Generation 6
-    { "id": 51, "label": "Abraham", "level": 5, "x": -100, "image": "images/abraham.png", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
-    { "id": 52, "label": "Ammoes", "level": 5, "x": 1600, "image": "images/ammoes.png", "bio": "Ammoes was a wise elder in the later desert generation.", "link": "#" },
-
-    // Generation 7
-    { "id": 53, "label": "John", "level": 6, "x": 1600, "image": "images/john.png", "bio": "John carried on the desert tradition into later centuries.", "link": "#" }
+    { "id": 53, "label": "John", "level": 6, "x": 1600, "fixed": { x: true, y: false }, "image": "images/john.png", "bio": "John carried on the desert tradition into later centuries.", "link": "#" } 
   ],
 
   "edges": [
