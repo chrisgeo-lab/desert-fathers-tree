@@ -184,7 +184,7 @@ const networkData = { nodes: nodesDataset, edges: edgesDataset };
 const network = new vis.Network(container, networkData, options);
 
 // =====================
-// 3. CENTER PARENTS OVER CHILDREN
+// 3. CENTER PARENTS OVER CHILDREN (CORRECTED)
 // =====================
 function centerParentsOverChildren(network, nodesDataset, edgesDataset) {
   const nodes = nodesDataset.get();
@@ -199,7 +199,7 @@ function centerParentsOverChildren(network, nodesDataset, edgesDataset) {
     }
   });
 
-  // Recursive function to center parents over all descendants
+  // recursive centering
   function centerNode(nodeId) {
     const children = parentToChildren[nodeId];
     if (!children || children.length === 0) return;
@@ -207,26 +207,30 @@ function centerParentsOverChildren(network, nodesDataset, edgesDataset) {
     // center children first
     children.forEach(c => centerNode(c));
 
-    // average x of children
+    // get current positions of children
     const childPositions = network.getPositions(children);
     const avgX = children.reduce((sum, cid) => sum + childPositions[cid].x, 0) / children.length;
+
+    // move parent node to avg x of children
     const nodePos = network.getPositions([nodeId])[nodeId];
     network.moveNode(nodeId, avgX, nodePos.y);
   }
 
-  // find all top-level nodes (no incoming disciple edges)
+  // Find all root nodes (no incoming edges)
   const childSet = new Set(edges.filter(e => !e.dashes).map(e => e.to));
-  const topNodes = nodes.filter(n => !childSet.has(n.id));
-  topNodes.forEach(n => centerNode(n.id));
+  const rootNodes = nodes.filter(n => !childSet.has(n.id));
+  rootNodes.forEach(n => centerNode(n.id));
 }
 
 // =====================
-// 4. INITIAL NETWORK FIT & CENTERING
+// 4. INITIAL NETWORK FIT & CENTERING (CORRECTED)
 // =====================
-network.once('stabilizationIterationsDone', () => {
+network.once('afterDrawing', () => {
+  // Fit and center parents
   network.fit({ animation: { duration: 800, easingFunction: 'easeInOutQuad' } });
   centerParentsOverChildren(network, nodesDataset, edgesDataset);
 });
+
 
 // =====================
 // 5. SCROLL TO PAN
