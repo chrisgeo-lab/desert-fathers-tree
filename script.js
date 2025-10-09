@@ -231,8 +231,6 @@ container.addEventListener('wheel', (event) => {
     network.moveBy({ x: -event.deltaX, y: -event.deltaY });
   }
 }, { passive: false });
-</script>
 
-</body>
-</html>
-                          
+});
+
