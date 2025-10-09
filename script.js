@@ -141,7 +141,7 @@ const options = {
       sortMethod: 'hubsize',
       levelSeparation: 120,
       nodeSpacing: 180,
-      nodeIcrementalSort: false
+      nodeIncrementalSort: false
     }
   },
   nodes: {
