@@ -199,6 +199,40 @@ function centerParentsOverChildrenWithSpacing(network, nodesDataset, edgesDatase
     }
   });
 
+  function enforceLevelSpacing(network, nodesDataset, minSpacing = 160) {
+  const nodes = nodesDataset.get();
+  // Group nodes by level
+  const levels = {};
+  nodes.forEach(node => {
+    if (!levels[node.level]) levels[node.level] = [];
+    levels[node.level].push(node.id);
+  });
+
+  Object.values(levels).forEach(levelNodes => {
+    // Sort nodes by current x
+    let positions = network.getPositions(levelNodes);
+    let sortedNodes = levelNodes.slice().sort((a, b) => positions[a].x - positions[b].x);
+
+    // Apply spacing
+    for (let i = 1; i < sortedNodes.length; i++) {
+      const prev = sortedNodes[i - 1];
+      const curr = sortedNodes[i];
+      positions = network.getPositions([prev, curr]);
+      const dx = positions[curr].x - positions[prev].x;
+      if (dx < minSpacing) {
+        const shift = minSpacing - dx;
+        // move current and all subsequent nodes
+        for (let j = i; j < sortedNodes.length; j++) {
+          const id = sortedNodes[j];
+          const pos = network.getPositions([id])[id];
+          network.moveNode(id, pos.x + shift, pos.y);
+          }
+        }
+      }
+    });
+  }
+
+  
   // recursive centering
   function centerNode(nodeId) {
     const children = parentToChildren[nodeId];
@@ -242,9 +276,9 @@ function centerParentsOverChildrenWithSpacing(network, nodesDataset, edgesDatase
 // =====================
 network.once('afterDrawing', () => {
   network.fit({ animation: { duration: 800, easingFunction: 'easeInOutQuad' } });
-  centerParentsOverChildrenWithSpacing(network, nodesDataset, edgesDataset, 160); // 160px minimum spacing
+  centerParentsOverChildrenWithSpacing(network, nodesDataset, edgesDataset, 160); // parent centering
+  enforceLevelSpacing(network, nodesDataset, 160); // prevent level overlaps
 });
-
 
 
 // =====================
