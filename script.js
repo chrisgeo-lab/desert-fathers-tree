@@ -1,5 +1,5 @@
 // === Desert Fathers Family Tree Script (Debugged Version) ===
-// Fixed: Missing node references, improved centering, better panel positioning
+// Fixed: Missing node references, improved centering, better panel positioning, fixed node ordering
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -9,42 +9,41 @@ document.addEventListener('DOMContentLoaded', function() {
 const data = {
   "nodes": [
     // Generation 1
-    { "id": 1, "label": "Anthony the Great", "level": 0, "image": "images/anthony.png", "bio": "Anthony (c. 251–356) is considered the father of monasticism. He lived as a hermit in the Egyptian desert and inspired countless disciples.", "link": "https://en.wikipedia.org/wiki/Anthony_the_Great" },
-    { "id": 2, "label": "Palamon", "level": 0, "image": "images/palamon.png", "bio": "Palamon was an early hermit and teacher who guided young monks in the desert.", "link": "#" },
-    { "id": 3, "label": "Paul of Thebes", "level": 0, "image": "images/paul.png", "bio": "Paul of Thebes (c. 227–341) is traditionally considered the first Christian hermit.", "link": "https://en.wikipedia.org/wiki/Paul_of_Thebes" },
+    { "id": 1, "label": "Anthony the Great", "level": 0, "x": 0, "image": "images/anthony.png", "bio": "Anthony (c. 251–356) is considered the father of monasticism. He lived as a hermit in the Egyptian desert and inspired countless disciples.", "link": "https://en.wikipedia.org/wiki/Anthony_the_Great" },
+    { "id": 2, "label": "Palamon", "level": 0, "x": -600, "image": "images/palamon.png", "bio": "Palamon was an early hermit and teacher who guided young monks in the desert.", "link": "#" },
+    { "id": 3, "label": "Paul of Thebes", "level": 0, "x": 600, "image": "images/paul.png", "bio": "Paul of Thebes (c. 227–341) is traditionally considered the first Christian hermit.", "link": "https://en.wikipedia.org/wiki/Paul_of_Thebes" },
     
-    // Generation 2
-    { "id": 4, "label": "Pachomius the Great", "level": 1, "image": "images/pachomius.png", "bio": "Pachomius (c. 292–348) founded the first Christian cenobitic monastery and wrote the first monastic rule.", "link": "https://en.wikipedia.org/wiki/Pachomius_the_Great" },
-    { "id": 6, "label": "Macarius the Younger", "level": 1, "image": "images/macarius2.png", "bio": "Macarius of Alexandria, known as 'the Younger', was a contemporary of Macarius the Great.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Alexandria" },
-    { "id": 5, "label": "Macarius the Great", "level": 1, "image": "images/macarius.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
-    { "id": 7, "label": "Ammonas", "level": 1, "image": "images/ammonas.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
-    { "id": 12, "label": "Isidore", "level": 1, "image": "images/isidore.png", "bio": "Isidore was a hospitable monk and leader in the desert communities.", "link": "#" },
-    { "id": 9, "label": "Athanasius the Great", "level": 1, "image": "images/athanasius.png", "bio": "Athanasius (c. 296–373) was bishop of Alexandria and biographer of Anthony.", "link": "https://en.wikipedia.org/wiki/Athanasius_of_Alexandria" },
-    { "id": 8, "label": "Paphnutius of Thebes", "level": 1, "image": "images/paphnutius.png", "bio": "Paphnutius was a confessor and spiritual father to many desert monks.", "link": "https://orthodoxwiki.org/Paphnutius" },
-    { "id": 10, "label": "Serapion the Great", "level": 1, "image": "images/serapion.png", "bio": "Serapion was known for his humility and travels among the desert fathers.", "link": "#" },
-    { "id": 14, "label": "Isaac of Fayoum", "level": 1, "image": "images/isaac.png", "bio": "Isaac was a spiritual father who emphasized stillness and contemplation.", "link": "#" },
-    { "id": 11, "label": "Amoun", "level": 1, "image": "images/amoun.png", "bio": "Amoun (c. 295–356) founded the monastic community at Nitria.", "link": "https://en.wikipedia.org/wiki/Amoun" },
-    { "id": 16, "label": "Paul the Simple", "level": 1, "image": "images/paul-simple.png", "bio": "Paul the Simple was renowned for his childlike faith and obedience to Anthony.", "link": "#" },
-    { "id": 15, "label": "Pambo", "level": 1, "image": "images/pambo.png", "bio": "Pambo (c. 303–373) was known for his silence and profound spiritual wisdom.", "link": "https://en.wikipedia.org/wiki/Pambo" },
-    { "id": 13, "label": "Chronius", "level": 1, "image": "images/chronius.png", "bio": "Chronius was known for his wisdom and teachings on prayer.", "link": "#" },
+    // Generation 2 - Order based on your arrangement
+    { "id": 4, "label": "Pachomius the Great", "level": 1, "x": -1300, "image": "images/pachomius.png", "bio": "Pachomius (c. 292–348) founded the first Christian cenobitic monastery and wrote the first monastic rule.", "link": "https://en.wikipedia.org/wiki/Pachomius_the_Great" },
+    { "id": 6, "label": "Macarius the Younger", "level": 1, "x": -1050, "image": "images/macarius2.png", "bio": "Macarius of Alexandria, known as 'the Younger', was a contemporary of Macarius the Great.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Alexandria" },
+    { "id": 5, "label": "Macarius the Great", "level": 1, "x": -800, "image": "images/macarius.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
+    { "id": 7, "label": "Ammonas", "level": 1, "x": -550, "image": "images/ammonas.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
+    { "id": 12, "label": "Isidore", "level": 1, "x": -300, "image": "images/isidore.png", "bio": "Isidore was a hospitable monk and leader in the desert communities.", "link": "#" },
+    { "id": 9, "label": "Athanasius the Great", "level": 1, "x": -50, "image": "images/athanasius.png", "bio": "Athanasius (c. 296–373) was bishop of Alexandria and biographer of Anthony.", "link": "https://en.wikipedia.org/wiki/Athanasius_of_Alexandria" },
+    { "id": 8, "label": "Paphnutius of Thebes", "level": 1, "x": 200, "image": "images/paphnutius.png", "bio": "Paphnutius was a confessor and spiritual father to many desert monks.", "link": "https://orthodoxwiki.org/Paphnutius" },
+    { "id": 10, "label": "Serapion the Great", "level": 1, "x": 450, "image": "images/serapion.png", "bio": "Serapion was known for his humility and travels among the desert fathers.", "link": "#" },
+    { "id": 14, "label": "Isaac of Fayoum", "level": 1, "x": 700, "image": "images/isaac.png", "bio": "Isaac was a spiritual father who emphasized stillness and contemplation.", "link": "#" },
+    { "id": 11, "label": "Amoun", "level": 1, "x": 950, "image": "images/amoun.png", "bio": "Amoun (c. 295–356) founded the monastic community at Nitria.", "link": "https://en.wikipedia.org/wiki/Amoun" },
+    { "id": 16, "label": "Paul the Simple", "level": 1, "x": 1200, "image": "images/paul-simple.png", "bio": "Paul the Simple was renowned for his childlike faith and obedience to Anthony.", "link": "#" },
+    { "id": 15, "label": "Pambo", "level": 1, "x": 1450, "image": "images/pambo.png", "bio": "Pambo (c. 303–373) was known for his silence and profound spiritual wisdom.", "link": "https://en.wikipedia.org/wiki/Pambo" },
+    { "id": 13, "label": "Chronius", "level": 1, "x": 1700, "image": "images/chronius.png", "bio": "Chronius was known for his wisdom and teachings on prayer.", "link": "#" },
 
-    // Generation 3
-    { "id": 31, "label": "Melania the Elder", "level": 2, "image": "images/melania.png", "bio": "Melania (c. 350–410) was a Roman noblewoman who became a desert ascetic.", "link": "https://en.wikipedia.org/wiki/Melania_the_Elder" },
-    { "id": 18, "label": "Evagrius of Pontus", "level": 2, "image": "images/evagrius.png", "bio": "Evagrius (c. 345–399) was a major spiritual writer and theologian of the desert.", "link": "https://en.wikipedia.org/wiki/Evagrius_Ponticus" },
-    { "id": 19, "label": "Paphnutius the Ascetic", "level": 2, "image": "images/paphnutius2.png", "bio": "Paphnutius the Ascetic was an early hermit in the Nitrian desert.", "link": "#" },
-    { "id": 20, "label": "Onuphrius", "level": 2, "image": "images/onuphrius.png", "bio": "Onuphrius was a hermit who lived in complete solitude for sixty years.", "link": "https://en.wikipedia.org/wiki/Onuphrius" },
-    { "id": 21, "label": "Moses the Black", "level": 2, "image": "images/moses.png", "bio": "Moses the Black (c. 330–405) was a reformed robber who became a great desert father.", "link": "https://en.wikipedia.org/wiki/Moses_the_Black" },
-    { "id": 22, "label": "Bessarion the Great", "level": 2, "image": "images/bessarion.png", "bio": "Bessarion was known for his wandering life and miraculous works.", "link": "#" },
-    { "id": 24, "label": "Joseph", "level": 2, "image": "images/joseph.png", "bio": "Joseph practiced silence and unceasing prayer in the desert.", "link": "#" },
-    { "id": 25, "label": "Achilles", "level": 2, "image": "images/achilles.png", "bio": "Achilles continued the spiritual tradition of his teachers.", "link": "#" },
-    { "id": 26, "label": "Or", "level": 2, "image": "images/or.png", "bio": "Or was renowned for his hospitality and kindness to visitors.", "link": "#" },
-    { "id": 17, "label": "Theodore", "level": 2, "image": "images/theodore.png", "bio": "Theodore was a devoted monk and successor to Pachomius.", "link": "#" },
-    { "id": 28, "label": "Paul of Tammah", "level": 2, "image": "images/paul-tammah.png", "bio": "Paul of Tammah was a hermit known for his ascetic practices.", "link": "#" },
-    { "id": 27, "label": "Pishoy", "level": 2, "image": "images/pishoy.png", "bio": "Pishoy was a beloved monk who lived in the Scetis desert.", "link": "#" },
-    { "id": 29, "label": "John the Short", "level": 2, "image": "images/john-short.png", "bio": "John the Short (c. 339–405) was famous for his humility and obedience.", "link": "https://en.wikipedia.org/wiki/John_the_Dwarf" },
-    { "id": 30, "label": "The Tall Brothers", "level": 2, "image": "images/tall-brothers.png", "bio": "Four brothers known for their height and spiritual wisdom.", "link": "#" },
-    { "id": 23, "label": "Isaac of the Cells", "level": 2, "image": "images/isaac-cells.png", "bio": "Isaac was a humble hermit known for his teachings on prayer.", "link": "#" },
-
+    // Generation 3 - Order based on your arrangement
+    { "id": 31, "label": "Melania the Elder", "level": 2, "x": -1300, "image": "images/melania.png", "bio": "Melania (c. 350–410) was a Roman noblewoman who became a desert ascetic.", "link": "https://en.wikipedia.org/wiki/Melania_the_Elder" },
+    { "id": 18, "label": "Evagrius of Pontus", "level": 2, "x": -1100, "image": "images/evagrius.png", "bio": "Evagrius (c. 345–399) was a major spiritual writer and theologian of the desert.", "link": "https://en.wikipedia.org/wiki/Evagrius_Ponticus" },
+    { "id": 19, "label": "Paphnutius the Ascetic", "level": 2, "x": -900, "image": "images/paphnutius2.png", "bio": "Paphnutius the Ascetic was an early hermit in the Nitrian desert.", "link": "#" },
+    { "id": 20, "label": "Onuphrius", "level": 2, "x": -700, "image": "images/onuphrius.png", "bio": "Onuphrius was a hermit who lived in complete solitude for sixty years.", "link": "https://en.wikipedia.org/wiki/Onuphrius" },
+    { "id": 21, "label": "Moses the Black", "level": 2, "x": -500, "image": "images/moses.png", "bio": "Moses the Black (c. 330–405) was a reformed robber who became a great desert father.", "link": "https://en.wikipedia.org/wiki/Moses_the_Black" },
+    { "id": 22, "label": "Bessarion the Great", "level": 2, "x": -300, "image": "images/bessarion.png", "bio": "Bessarion was known for his wandering life and miraculous works.", "link": "#" },
+    { "id": 24, "label": "Joseph", "level": 2, "x": -100, "image": "images/joseph.png", "bio": "Joseph practiced silence and unceasing prayer in the desert.", "link": "#" },
+    { "id": 25, "label": "Achilles", "level": 2, "x": 100, "image": "images/achilles.png", "bio": "Achilles continued the spiritual tradition of his teachers.", "link": "#" },
+    { "id": 26, "label": "Or", "level": 2, "x": 300, "image": "images/or.png", "bio": "Or was renowned for his hospitality and kindness to visitors.", "link": "#" },
+    { "id": 17, "label": "Theodore", "level": 2, "x": 500, "image": "images/theodore.png", "bio": "Theodore was a devoted monk and successor to Pachomius.", "link": "#" },
+    { "id": 28, "label": "Paul of Tammah", "level": 2, "x": 700, "image": "images/paul-tammah.png", "bio": "Paul of Tammah was a hermit known for his ascetic practices.", "link": "#" },
+    { "id": 27, "label": "Pishoy", "level": 2, "x": 900, "image": "images/pishoy.png", "bio": "Pishoy was a beloved monk who lived in the Scetis desert.", "link": "#" },
+    { "id": 29, "label": "John the Short", "level": 2, "x": 1100, "image": "images/john-short.png", "bio": "John the Short (c. 339–405) was famous for his humility and obedience.", "link": "https://en.wikipedia.org/wiki/John_the_Dwarf" },
+    { "id": 30, "label": "The Tall Brothers", "level": 2, "x": 1300, "image": "images/tall-brothers.png", "bio": "Four brothers known for their height and spiritual wisdom.", "link": "#" },
+    { "id": 23, "label": "Isaac of the Cells", "level": 2, "x": 1500, "image": "images/isaac-cells.png", "bio": "Isaac was a humble hermit known for his teachings on prayer.", "link": "#" },
 
     // Generation 4
     { "id": 34, "label": "John Cassian", "level": 3, "image": "images/cassian.png", "bio": "John Cassian (c. 360–435) brought desert spirituality to the West.", "link": "https://en.wikipedia.org/wiki/John_Cassian" },
@@ -128,9 +127,9 @@ const options = {
       levelSeparation: 150,
       nodeSpacing: 200,
       treeSpacing: 220,
-      blockShifting: true,
-      edgeMinimization: true,
-      parentCentralization: true
+      blockShifting: false,
+      edgeMinimization: false,
+      parentCentralization: false
     }
   },
   nodes: {
@@ -148,7 +147,8 @@ const options = {
     widthConstraint: { minimum: 140, maximum: 180 },
     borderWidth: 2,
     shadow: { enabled: true, color: 'rgba(0,0,0,0.15)', size: 8, x: 2, y: 2 },
-    shapeProperties: { borderRadius: 12 }
+    shapeProperties: { borderRadius: 12 },
+    fixed: { x: true, y: false }
   },
   edges: {
     smooth: { 
