@@ -172,6 +172,13 @@ const options = {
 
 const network = new vis.Network(container, networkData, options);
 
+// Force update node positions
+nodes.forEach(node => {
+  if (node.x !== undefined) {
+    network.moveNode(node.id, node.x, undefined);
+  }
+});
+
 // =====================
 // 3. INFO PANEL
 // =====================
