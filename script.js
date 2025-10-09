@@ -167,7 +167,7 @@ const options = {
   physics: { enabled: false }
 };
 
-const network = new vis.Network(container, networkData, options);
+const network = new vis.Network(document.getElementById('tree-container'), networkData, options);
 
 // =====================
 // 3. INFO PANEL
