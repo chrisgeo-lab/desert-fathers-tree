@@ -70,7 +70,7 @@ h1 {
     position: fixed;
     
     /* ✅ NEW POSITION: Align to the top-right corner */
-    top: 100px; /* Adjust this value down slightly so they are below the header */
+    top: 120px; /* Adjust this value down slightly so they are below the header */
     right: 20px;
     
     /* ❌ Remove/override bottom and left if they were set */
