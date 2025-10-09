@@ -17,7 +17,7 @@ const data = {
     { "id": 3, "label": "Paul of Thebes", "level": 0, "x": 2000, "image": "images/paul.png", "bio": "Paul of Thebes (c. 227–341) is traditionally considered the first Christian hermit.", "link": "https://en.wikipedia.org/wiki/Paul_of_Thebes" },
     
     // Generation 2 (level 1)
-    { "id": 4, "label": "Pachomius the Great", "level": 1, "x": -1300, "image": "images/pachomius.png", "bio": "Pachomius (c. 292–348) founded the first Christian cenobitic monastery and wrote the first monastic rule.", "link": "https://en.wikipedia.org/wiki/Pachomius_the_Great" },
+    { "id": 4, "label": "Pachomius the Great", "level": 1, "x": -1350, "image": "images/pachomius.png", "bio": "Pachomius (c. 292–348) founded the first Christian cenobitic monastery and wrote the first monastic rule.", "link": "https://en.wikipedia.org/wiki/Pachomius_the_Great" },
     { "id": 6, "label": "Macarius the Younger", "level": 1, "x": -1050, "image": "images/macarius2.png", "bio": "Macarius of Alexandria, known as 'the Younger', was a contemporary of Macarius the Great.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Alexandria" },
     { "id": 5, "label": "Macarius the Great", "level": 1, "x": -800, "image": "images/macarius.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
     { "id": 7, "label": "Ammonas", "level": 1, "x": -550, "image": "images/ammonas.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
@@ -70,7 +70,7 @@ const data = {
     { "id": 50, "label": "Pharan", "level": 4, "x": 1700, "image": "images/pharan.png", "bio": "Pharan learned desert wisdom from Arsenius.", "link": "#" },
 
     // Generation 6 (level 5)
-    { "id": 51, "label": "Abraham", "level": 5, "x": -500, "image": "images/abraham.png", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
+    { "id": 51, "label": "Abraham", "level": 5, "x": -450, "image": "images/abraham.png", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
     { "id": 52, "label": "Ammoes", "level": 5, "x": 1450, "image": "images/ammoes.png", "bio": "Ammoes was a wise elder in the later desert generation.", "link": "#" },
 
     // Generation 7 (level 6)
