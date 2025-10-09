@@ -3,6 +3,8 @@
 // Selected nodes are highlighted. Companion relationships remain dashed horizontal edges.
 // Scroll up/down moves the tree. Pinch or zoom buttons (+/-) zoom in/out.
 
+document.addEventListener('DOMContentLoaded', function() {
+
 // =====================
 // 1. DATA: NODES & EDGES
 // =====================
@@ -233,3 +235,6 @@ container.addEventListener('wheel', (event) => {
 
 </body>
 </html>
+
+});
+                          
