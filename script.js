@@ -32,7 +32,7 @@ const data = {
     { "id": 13, "label": "Chronius", "level": 1, "x": 1700, "image": "images/chronius.png", "bio": "Chronius was known for his wisdom and teachings on prayer.", "link": "#" },
 
     // Generation 3 (level 2)
-    { "id": 31, "label": "Melania the Elder", "level": 2, "x": -1300, "image": "images/melania.png", "bio": "Melania (c. 350–410) was a Roman noblewoman who became a desert ascetic.", "link": "https://en.wikipedia.org/wiki/Melania_the_Elder" },
+    { "id": 31, "label": "Melania the Elder", "level": 2, "x": -1350, "image": "images/melania.png", "bio": "Melania (c. 350–410) was a Roman noblewoman who became a desert ascetic.", "link": "https://en.wikipedia.org/wiki/Melania_the_Elder" },
     { "id": 18, "label": "Evagrius of Pontus", "level": 2, "x": -1100, "image": "images/evagrius.png", "bio": "Evagrius (c. 345–399) was a major spiritual writer and theologian of the desert.", "link": "https://en.wikipedia.org/wiki/Evagrius_Ponticus" },
     { "id": 19, "label": "Paphnutius the Ascetic", "level": 2, "x": -900, "image": "images/paphnutius2.png", "bio": "Paphnutius the Ascetic was an early hermit in the Nitrian desert.", "link": "#" },
     { "id": 20, "label": "Onuphrius", "level": 2, "x": -700, "image": "images/onuphrius.png", "bio": "Onuphrius was a hermit who lived in complete solitude for sixty years.", "link": "https://en.wikipedia.org/wiki/Onuphrius" },
@@ -42,7 +42,7 @@ const data = {
     { "id": 25, "label": "Achilles", "level": 2, "x": 150, "image": "images/achilles.png", "bio": "Achilles continued the spiritual tradition of his teachers.", "link": "#" },
     { "id": 26, "label": "Or", "level": 2, "x": 400, "image": "images/or.png", "bio": "Or was renowned for his hospitality and kindness to visitors.", "link": "#" },
     { "id": 17, "label": "Theodore", "level": 2, "x": 800, "image": "images/theodore.png", "bio": "Theodore was a devoted monk and successor to Pachomius.", "link": "#" },
-    { "id": 28, "label": "Paul of Tammah", "level": 2, "x": 1100, "image": "images/paul-tammah.png", "bio": "Paul of Tammah was a hermit known for his ascetic practices.", "link": "#" },
+    { "id": 28, "label": "Paul of Tammah", "level": 2, "x": 1050, "image": "images/paul-tammah.png", "bio": "Paul of Tammah was a hermit known for his ascetic practices.", "link": "#" },
     { "id": 27, "label": "Pishoy", "level": 2, "x": 1300, "image": "images/pishoy.png", "bio": "Pishoy was a beloved monk who lived in the Scetis desert.", "link": "#" },
     { "id": 29, "label": "John the Short", "level": 2, "x": 1500, "image": "images/john-short.png", "bio": "John the Short (c. 339–405) was famous for his humility and obedience.", "link": "https://en.wikipedia.org/wiki/John_the_Dwarf" },
     { "id": 30, "label": "The Tall Brothers", "level": 2, "x": 1700, "image": "images/tall-brothers.png", "bio": "Four brothers known for their height and spiritual wisdom.", "link": "#" },
@@ -50,15 +50,15 @@ const data = {
 
     // Generation 4 (level 3)
     { "id": 34, "label": "John Cassian", "level": 3, "x": -1200, "image": "images/cassian.png", "bio": "John Cassian (c. 360–435) brought desert spirituality to the West.", "link": "https://en.wikipedia.org/wiki/John_Cassian" },
-    { "id": 35, "label": "Germanus", "level": 3, "x": -1000, "image": "images/germanus.png", "bio": "Germanus was Cassian's companion in the desert journeys.", "link": "#" },
+    { "id": 35, "label": "Germanus", "level": 3, "x": -950, "image": "images/germanus.png", "bio": "Germanus was Cassian's companion in the desert journeys.", "link": "#" },
     { "id": 36, "label": "Lot", "level": 3, "x": -600, "image": "images/lot.png", "bio": "Lot was a disciple known for his devotion to prayer.", "link": "#" },
     { "id": 37, "label": "Poemen the Great", "level": 3, "x": -400, "image": "images/poemen.png", "bio": "Poemen (c. 340–450) was one of the most quoted desert fathers.", "link": "https://en.wikipedia.org/wiki/Poemen" },
     { "id": 38, "label": "Anoub", "level": 3, "x": -200, "image": "images/anoub.png", "bio": "Anoub was a monk of Scetis known for his patience.", "link": "#" },
     { "id": 39, "label": "Paisius", "level": 3, "x": 0, "image": "images/paisius.png", "bio": "Paisius was a contemplative monk devoted to silence.", "link": "#" },
     { "id": 40, "label": "Isaiah", "level": 3, "x": 200, "image": "images/isaiah.png", "bio": "Isaiah of Scetis was an influential spiritual writer.", "link": "#" },
-    { "id": 41, "label": "Sisoes the Great", "level": 3, "x": 400, "image": "images/sisoes.png", "bio": "Sisoes (d. 429) lived in Anthony's former cell and was known for humility.", "link": "#" },
-    { "id": 42, "label": "Paul", "level": 3, "x": 600, "image": "images/paul-3.png", "bio": "Paul was a hermit who practiced extreme asceticism.", "link": "#" },
-    { "id": 43, "label": "Athre", "level": 3, "x": 800, "image": "images/athre.png", "bio": "Athre was a monk known for his gentle spirit.", "link": "#" },
+    { "id": 41, "label": "Sisoes the Great", "level": 3, "x": 450, "image": "images/sisoes.png", "bio": "Sisoes (d. 429) lived in Anthony's former cell and was known for humility.", "link": "#" },
+    { "id": 42, "label": "Paul", "level": 3, "x": 650, "image": "images/paul-3.png", "bio": "Paul was a hermit who practiced extreme asceticism.", "link": "#" },
+    { "id": 43, "label": "Athre", "level": 3, "x": 850, "image": "images/athre.png", "bio": "Athre was a monk known for his gentle spirit.", "link": "#" },
     { "id": 44, "label": "Arsenius the Great", "level": 3, "x": 1400, "image": "images/arsenius.png", "bio": "Arsenius (c. 350–445) left the imperial court to become a desert hermit.", "link": "https://en.wikipedia.org/wiki/Arsenius_the_Great" },
 
     // Generation 5 (level 4)
