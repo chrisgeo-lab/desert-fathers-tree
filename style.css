@@ -1,16 +1,16 @@
 /* === General page styling === */
 body {
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f9f8f3;
-  color: #333;
+  font-family: "Times New Roman", serif;
+  background: #E9E3D4;
+  color: #4A3B2F;
 }
 
 header {
   text-align: center;
   padding: 1rem;
-  background: #e3d9c6;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: #B7A287;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 h1 {
