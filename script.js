@@ -161,7 +161,7 @@ const options = {
   interaction: {
     dragNodes: true,
     dragView: false,
-    zoomView: true,
+    zoomView: false,
     multiselect: false,
     navigationButtons: false,
     hover: true
