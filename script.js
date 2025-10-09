@@ -134,36 +134,79 @@ const data = {
 // =====================
 // 2. VIS-NETWORK INITIALIZATION
 // =====================
-let nodesDataset = new vis.DataSet(data.nodes);
-let edgesDataset = new vis.DataSet(data.edges);
-
-const container = document.getElementById('tree-container');
-const networkData = { nodes: nodesDataset, edges: edgesDataset };
-
 // =====================
-// 2a. NETWORK OPTIONS
+// 2a. NETWORK OPTIONS (UPDATED)
 // =====================
+
+// Compute max nodes per level to dynamically adjust spacing
+const levelCounts = {};
+data.nodes.forEach(node => {
+  if (!levelCounts[node.level]) levelCounts[node.level] = 0;
+  levelCounts[node.level]++;
+});
+const maxNodesInLevel = Math.max(...Object.values(levelCounts));
+const dynamicNodeSpacing = Math.max(150, maxNodesInLevel * 20); // minimum 150
+
 const options = {
   layout: {
     hierarchical: {
-      enabled: true,              // ✅ Make sure this is set at creation
-      direction: 'UD',            // Top (Up) to Down layout
+      enabled: true,
+      direction: 'UD',
       sortMethod: 'directed',
-      levelSeparation: 200,       // Vertical spacing between levels
-      nodeSpacing: 300,           // Horizontal spacing between sibling nodes
-      parentCentralization: true, // Center parent above children
-      treeSpacing: 300,           // Space between different trees
+      levelSeparation: 200,
+      nodeSpacing: dynamicNodeSpacing,    // dynamic sibling spacing
+      parentCentralization: true,
+      treeSpacing: 300,
       shakeTowards: 'roots'
     }
   },
-  physics: {
-    enabled: false                // ✅ Turn off physics to prevent overlap drifting
+
+  physics: { enabled: false },  // prevent layout drift
+
+  nodes: {
+    shape: 'box',
+    color: {
+      background: '#f3eee4',
+      border: '#8b6f47',
+      highlight: { background: '#f7f2e7', border: '#d49c3f' },
+      hover: { background: '#f7f2e7', border: '#d49c3f' }
+    },
+    font: { face: 'Segoe UI', size: 14, color: '#333' },
+    margin: 10,
+    widthConstraint: { maximum: 200 },
+    heightConstraint: { minimum: 40 },
+    borderWidth: 2,
+    shapeProperties: { borderRadius: 10 }
   },
+
+  edges: {
+    arrows: { to: { enabled: true, scaleFactor: 0.5 } },
+    color: { color: '#8b6f47' },
+    smooth: { type: 'cubicBezier', roundness: 0.4 }
+  },
+
   interaction: {
-    zoomView: true,
-    dragView: true
-    }
-  };
+    dragView: true,   // allow scroll pan
+    zoomView: true,   // allow scroll zoom
+    hover: true
+  }
+};
+
+// =====================
+// 2b. INITIALIZE NETWORK
+// =====================
+let nodesDataset = new vis.DataSet(data.nodes);
+let edgesDataset = new vis.DataSet(data.edges);
+const container = document.getElementById('tree-container');
+const networkData = { nodes: nodesDataset, edges: edgesDataset };
+
+const network = new vis.Network(container, networkData, options);
+
+// Fit network on load
+network.once('stabilizationIterationsDone', () => {
+  network.fit({ animation: { duration: 800, easingFunction: 'easeInOutQuad' } });
+});
+
 
   // =====================
   // NODE STYLE (MODERN RECTANGLES)
