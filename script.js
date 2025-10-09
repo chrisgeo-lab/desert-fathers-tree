@@ -41,12 +41,12 @@ const data = {
     { "id": 24, "label": "Joseph", "level": 2, "x": -100, "image": "images/joseph.png", "bio": "Joseph practiced silence and unceasing prayer in the desert.", "link": "#" },
     { "id": 25, "label": "Achilles", "level": 2, "x": 100, "image": "images/achilles.png", "bio": "Achilles continued the spiritual tradition of his teachers.", "link": "#" },
     { "id": 26, "label": "Or", "level": 2, "x": 300, "image": "images/or.png", "bio": "Or was renowned for his hospitality and kindness to visitors.", "link": "#" },
-    { "id": 17, "label": "Theodore", "level": 2, "x": 500, "image": "images/theodore.png", "bio": "Theodore was a devoted monk and successor to Pachomius.", "link": "#" },
-    { "id": 28, "label": "Paul of Tammah", "level": 2, "x": 700, "image": "images/paul-tammah.png", "bio": "Paul of Tammah was a hermit known for his ascetic practices.", "link": "#" },
-    { "id": 27, "label": "Pishoy", "level": 2, "x": 900, "image": "images/pishoy.png", "bio": "Pishoy was a beloved monk who lived in the Scetis desert.", "link": "#" },
-    { "id": 29, "label": "John the Short", "level": 2, "x": 1100, "image": "images/john-short.png", "bio": "John the Short (c. 339–405) was famous for his humility and obedience.", "link": "https://en.wikipedia.org/wiki/John_the_Dwarf" },
-    { "id": 30, "label": "The Tall Brothers", "level": 2, "x": 1300, "image": "images/tall-brothers.png", "bio": "Four brothers known for their height and spiritual wisdom.", "link": "#" },
-    { "id": 23, "label": "Isaac of the Cells", "level": 2, "x": 1500, "image": "images/isaac-cells.png", "bio": "Isaac was a humble hermit known for his teachings on prayer.", "link": "#" },
+    { "id": 17, "label": "Theodore", "level": 2, "x": 700, "image": "images/theodore.png", "bio": "Theodore was a devoted monk and successor to Pachomius.", "link": "#" },
+    { "id": 28, "label": "Paul of Tammah", "level": 2, "x": 1000, "image": "images/paul-tammah.png", "bio": "Paul of Tammah was a hermit known for his ascetic practices.", "link": "#" },
+    { "id": 27, "label": "Pishoy", "level": 2, "x": 1200, "image": "images/pishoy.png", "bio": "Pishoy was a beloved monk who lived in the Scetis desert.", "link": "#" },
+    { "id": 29, "label": "John the Short", "level": 2, "x": 1400, "image": "images/john-short.png", "bio": "John the Short (c. 339–405) was famous for his humility and obedience.", "link": "https://en.wikipedia.org/wiki/John_the_Dwarf" },
+    { "id": 30, "label": "The Tall Brothers", "level": 2, "x": 1600, "image": "images/tall-brothers.png", "bio": "Four brothers known for their height and spiritual wisdom.", "link": "#" },
+    { "id": 23, "label": "Isaac of the Cells", "level": 2, "x": 1900, "image": "images/isaac-cells.png", "bio": "Isaac was a humble hermit known for his teachings on prayer.", "link": "#" },
 
     // Generation 4 (level 3)
     { "id": 34, "label": "John Cassian", "level": 3, "x": -1200, "image": "images/cassian.png", "bio": "John Cassian (c. 360–435) brought desert spirituality to the West.", "link": "https://en.wikipedia.org/wiki/John_Cassian" },
