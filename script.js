@@ -165,8 +165,7 @@ const options = {
       roundness: 0.5 
     },
     color: { color: '#4A3B2F', highlight: '#6B5D4F' },
-    width: 3,
-    dashes: [8, 4]
+    width: 3
   },
   interaction: {
     dragNodes: true,
