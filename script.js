@@ -129,7 +129,6 @@ const data = {
 const container = document.getElementById('mynetwork');
 const nodes = new vis.DataSet(data.nodes);
 const edges = new vis.DataSet(data.edges);
-
 const networkData = { nodes, edges };
 
 const options = {
@@ -139,15 +138,18 @@ const options = {
       direction: 'UD',
       sortMethod: 'directed',
       levelSeparation: 120,
-      nodeSpacing: 150
+      nodeSpacing: 180
     }
   },
   nodes: {
     shape: 'box',
     color: { background: '#f5f5f5', border: '#888' },
-    font: { color: '#000', size: 14, face: 'Arial' },
+    font: { color: '#000', size: 14 },
     margin: 10,
-    widthConstraint: { maximum: 160 }
+    widthConstraint: { maximum: 160 },
+    borderWidth: 2,
+    shadow: true,
+    shapeProperties: { borderRadius: 10 }
   },
   edges: {
     smooth: { type: 'cubicBezier', forceDirection: 'vertical' },
@@ -187,25 +189,22 @@ function hideInfoPanel() {
   activeNodeId = null;
 }
 
-// Update panel position relative to node
 function updatePanelPosition() {
   if (!activeNodeId) return;
-  const nodePosition = network.getPositions([activeNodeId])[activeNodeId];
-  const canvasPos = network.canvasToDOM(nodePosition);
+  const pos = network.getPositions([activeNodeId])[activeNodeId];
+  const canvasPos = network.canvasToDOM(pos);
   panel.style.left = `${canvasPos.x + 20}px`;
   panel.style.top = `${canvasPos.y - 40}px`;
 }
 
-network.on('click', function (params) {
+network.on('click', (params) => {
   if (params.nodes.length > 0) {
-    const nodeId = params.nodes[0];
-    showInfoPanel(nodes.get(nodeId));
+    showInfoPanel(nodes.get(params.nodes[0]));
   } else {
     hideInfoPanel();
   }
 });
 
-// Single afterDrawing listener for panel positioning
 network.on('afterDrawing', updatePanelPosition);
 
 // =====================
@@ -222,42 +221,15 @@ document.addEventListener('keydown', e => isCtrlPressed = e.ctrlKey);
 document.addEventListener('keyup', e => isCtrlPressed = false);
 
 container.addEventListener('wheel', (event) => {
+  event.preventDefault();
   if (isCtrlPressed) {
-    // Zoom
-    event.preventDefault();
     const factor = event.deltaY > 0 ? 0.9 : 1.1;
     network.moveTo({ scale: network.getScale() * factor });
   } else {
-    // Scroll pan
-    event.preventDefault();
     network.moveBy({ x: -event.deltaX, y: -event.deltaY });
   }
 }, { passive: false });
+</script>
 
-// =====================
-// 6. UTILITY: CENTER PARENTS OVER CHILDREN
-// =====================
-function centerParentsOverChildrenWithSpacing() {
-  const positions = network.getPositions();
-  const levels = {};
-  nodes.forEach(node => {
-    const level = node.level || 0;
-    if (!levels[level]) levels[level] = [];
-    levels[level].push(node.id);
-  });
-
-  Object.keys(levels).forEach(level => {
-    const ids = levels[level];
-    ids.forEach(id => {
-      const children = edges.get().filter(e => e.from === id).map(e => e.to);
-      if (children.length > 0) {
-        const childPositions = children.map(c => positions[c].x);
-        const avgX = childPositions.reduce((a, b) => a + b, 0) / childPositions.length;
-        network.moveNode(id, avgX, positions[id].y);
-      }
-    });
-  });
-}
-
-// Call it once after drawing
-network.once('afterDrawing', centerParentsOverChildrenWithSpacing);
+</body>
+</html>
