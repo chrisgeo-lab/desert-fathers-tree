@@ -140,7 +140,8 @@ const options = {
       direction: 'UD',
       sortMethod: 'hubsize',
       levelSeparation: 120,
-      nodeSpacing: 180
+      nodeSpacing: 180,
+      nodeIcrementalSort: false
     }
   },
   nodes: {
