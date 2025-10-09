@@ -161,7 +161,7 @@ const options = {
   interaction: {
     dragNodes: true,
     dragView: false,
-    zoomView: false,
+    zoomView: true,
     multiselect: false,
     navigationButtons: false,
     hover: true
@@ -241,6 +241,12 @@ document.getElementById('zoomOut').addEventListener('click', () => {
 // 5. SCROLL + PINCH PAN
 // =====================
 container.addEventListener('wheel', (event) => {
+  // Check if this is a pinch gesture (ctrlKey is set during pinch on most browsers)
+  if (event.ctrlKey) {
+    // This is a pinch-to-zoom gesture - allow it
+    return;
+  }
+  
   event.preventDefault();
   
   // Pan both horizontally and vertically with scroll/trackpad
