@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
 // Define the vertical separation distance between levels
-const LEVEL_SEPARATION = 150; 
+const LEVEL_SEPARATION = 200; 
 
 // =====================
 // 1. DATA: NODES & EDGES
@@ -150,7 +150,7 @@ const options = {
         border: '#8b7355'
       }
     },
-    font: { color: '#333', size: 15, face: 'Georgia, serif' },
+    font: { color: '#333', size: 16, face: 'Georgia, serif' },
     margin: { top: 12, right: 15, bottom: 12, left: 15 },
     widthConstraint: { minimum: 140, maximum: 180 },
     borderWidth: 2,
