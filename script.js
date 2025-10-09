@@ -219,18 +219,16 @@ document.getElementById('zoomOut').addEventListener('click', () => network.moveT
 // =====================
 // 5. SCROLL + PINCH PAN
 // =====================
-let isCtrlPressed = false;
-document.addEventListener('keydown', e => isCtrlPressed = e.ctrlKey);
-document.addEventListener('keyup', e => isCtrlPressed = false);
-
+  
+// The pinch/touch zoom is handled automatically by vis.Network zoomView: true.
+// This function forces the scroll wheel/trackpad action to pan (move the view).
 container.addEventListener('wheel', (event) => {
-  event.preventDefault();
-  if (isCtrlPressed) {
-    const factor = event.deltaY > 0 ? 0.9 : 1.1;
-    network.moveTo({ scale: network.getScale() * factor });
-  } else {
-    network.moveBy({ x: -event.deltaX, y: -event.deltaY });
-  }
+  event.preventDefault();
+  
+  // network.moveBy uses positive x/y to move the view left/down.
+  // event.deltaX/Y represents scroll direction, so we invert it for panning.
+  network.moveBy({ x: -event.deltaX, y: -event.deltaY });
+  
 }, { passive: false });
 
 });
