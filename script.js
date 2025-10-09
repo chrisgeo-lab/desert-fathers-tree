@@ -159,8 +159,8 @@ const options = {
     width: 2
   },
   interaction: {
-    dragNodes: false,
-    dragView: true,
+    dragNodes: true,
+    dragView: false,
     zoomView: true,
     multiselect: false,
     navigationButtons: false,
@@ -243,7 +243,7 @@ document.getElementById('zoomOut').addEventListener('click', () => {
 container.addEventListener('wheel', (event) => {
   event.preventDefault();
   
-  // Smooth panning with scroll/trackpad
+  // Pan both horizontally and vertically with scroll/trackpad
   const panSpeed = 1.5;
   network.moveTo({
     position: {
