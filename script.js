@@ -235,6 +235,4 @@ container.addEventListener('wheel', (event) => {
 
 </body>
 </html>
-
-});
                           
