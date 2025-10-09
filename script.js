@@ -164,8 +164,9 @@ const options = {
       forceDirection: 'vertical',
       roundness: 0.5 
     },
-    color: { color: '#8b7355', highlight: '#6b5d4f' },
-    width: 2
+    color: { color: '#4A3B2F', highlight: '#6B5D4F' },
+    width: 3,
+    dashes: [8, 4]
   },
   interaction: {
     dragNodes: true,
