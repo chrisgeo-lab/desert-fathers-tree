@@ -161,7 +161,7 @@ const options = {
   interaction: {
     dragNodes: true,
     dragView: false,
-    zoomView: true,
+    zoomView: false,
     multiselect: false,
     navigationButtons: false,
     hover: true
@@ -238,18 +238,28 @@ document.getElementById('zoomOut').addEventListener('click', () => {
 });
 
 // =====================
-// 5. SCROLL + PINCH PAN
+// 5. SCROLL + PINCH ZOOM
 // =====================
 container.addEventListener('wheel', (event) => {
+  event.preventDefault();
+  
   // Check if this is a pinch gesture (ctrlKey is set during pinch on most browsers)
   if (event.ctrlKey) {
-    // This is a pinch-to-zoom gesture - allow it
+    // This is a pinch-to-zoom gesture - handle zoom
+    const zoomSpeed = 0.002;
+    const currentScale = network.getScale();
+    const delta = -event.deltaY;
+    const newScale = currentScale * (1 + delta * zoomSpeed);
+    
+    network.moveTo({
+      scale: newScale,
+      animation: false
+    });
+    updatePanelPosition();
     return;
   }
   
-  event.preventDefault();
-  
-  // Pan both horizontally and vertically with scroll/trackpad
+  // Regular scroll - pan both horizontally and vertically
   const panSpeed = 1.5;
   network.moveTo({
     position: {
