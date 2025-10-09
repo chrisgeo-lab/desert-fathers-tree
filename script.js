@@ -199,7 +199,19 @@ function centerParentsOverChildrenWithSpacing(network, nodesDataset, edgesDatase
     }
   });
 
-  function enforceLevelSpacing(network, nodesDataset, minSpacing = 160) {
+  // recursive centering logic...
+  function centerNode(nodeId) { ... }
+
+  // Find root nodes
+  const childSet = new Set(edges.filter(e => !e.dashes).map(e => e.to));
+  const rootNodes = nodes.filter(n => !childSet.has(n.id));
+  rootNodes.forEach(n => centerNode(n.id));
+}
+
+// =====================
+// Helper: enforce horizontal spacing at each level
+// =====================
+function enforceLevelSpacing(network, nodesDataset, minSpacing = 160) {
   const nodes = nodesDataset.get();
   // Group nodes by level
   const levels = {};
@@ -226,11 +238,12 @@ function centerParentsOverChildrenWithSpacing(network, nodesDataset, edgesDatase
           const id = sortedNodes[j];
           const pos = network.getPositions([id])[id];
           network.moveNode(id, pos.x + shift, pos.y);
-          }
         }
       }
-    });
-  }
+    }
+  });
+}
+
 
   
   // recursive centering
