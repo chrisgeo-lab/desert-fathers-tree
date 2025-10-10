@@ -68,17 +68,16 @@ const data = {
     { "id": 45, "label": "Peter the Pionite", "level": 4, "x": -700, "image": "images/peter.png", "bio": "Peter was a disciple known for his simplicity.", "link": "#" },
     { "id": 46, "label": "Agathon", "level": 4, "x": -500, "image": "images/agathon.png", "bio": "Agathon was famous for his control over his tongue.", "link": "#" },
     { "id": 54, "label": "Abraham", "level": 4, "x": 550, "image": "images/abraham.png", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
-    { "id": 47, "label": "Alexander", "level": 4, "x": 1100, "image": "images/alexander.png", "bio": "Alexander served Arsenius with great devotion.", "link": "#" },
-    { "id": 48, "label": "Zoilus", "level": 4, "x": 1300, "image": "images/zoilus.png", "bio": "Zoilus was another faithful disciple of Arsenius.", "link": "#" },
-    { "id": 49, "label": "Daniel", "level": 4, "x": 1500, "image": "images/daniel.png", "bio": "Daniel was Arsenius's closest disciple and successor.", "link": "#" },
-    { "id": 50, "label": "Pharan", "level": 4, "x": 1700, "image": "images/pharan.png", "bio": "Pharan learned desert wisdom from Arsenius.", "link": "#" },
+    { "id": 47, "label": "Alexander", "level": 4, "x": 1150, "image": "images/alexander.png", "bio": "Alexander served Arsenius with great devotion.", "link": "#" },
+    { "id": 48, "label": "Zoilus", "level": 4, "x": 1350, "image": "images/zoilus.png", "bio": "Zoilus was another faithful disciple of Arsenius.", "link": "#" },
+    { "id": 49, "label": "Daniel", "level": 4, "x": 1550, "image": "images/daniel.png", "bio": "Daniel was Arsenius's closest disciple and successor.", "link": "#" },
 
     // Generation 6 (level 5)
     { "id": 51, "label": "Abraham", "level": 5, "x": -450, "image": "images/abraham.png", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
-    { "id": 52, "label": "Ammoes", "level": 5, "x": 1450, "image": "images/ammoes.png", "bio": "Ammoes was a wise elder in the later desert generation.", "link": "#" },
+    { "id": 52, "label": "Ammoes", "level": 5, "x": 1500, "image": "images/ammoes.png", "bio": "Ammoes was a wise elder in the later desert generation.", "link": "#" },
 
     // Generation 7 (level 6)
-    { "id": 53, "label": "John", "level": 6, "x": 1400, "image": "images/john.png", "bio": "John carried on the desert tradition into later centuries.", "link": "#" }
+    { "id": 53, "label": "John", "level": 6, "x": 1450, "image": "images/john.png", "bio": "John carried on the desert tradition into later centuries.", "link": "#" }
   ],
 
   "edges": [
