@@ -194,6 +194,9 @@ let activeNodeId = null;
 function showInfoPanel(node) {
   activeNodeId = node.id;
   panel.innerHTML = `
+  <div class="panel-image-container">
+        <img src="${node.image}" alt="${node.label}" class="panel-image">
+    </div>
     <h3>${node.label}</h3>
     <p>${node.bio}</p>
     ${node.link !== '#' ? `<a href="${node.link}" target="_blank">Learn more →</a>` : ''}
