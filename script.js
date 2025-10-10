@@ -44,7 +44,7 @@ const data = {
     { "id": 26, "label": "Or", "level": 2, "x": 450, "image": "images/or.png", "bio": "Or was renowned for his hospitality and kindness to visitors.", "link": "#" },
     { "id": 17, "label": "Theodore", "level": 2, "x": 800, "image": "images/theodore.png", "bio": "Theodore was a devoted monk and successor to Pachomius.", "link": "#" },
     { "id": 28, "label": "Paul of Tammah", "level": 2, "x": 1050, "image": "images/paul-tammah.png", "bio": "Paul of Tammah was a hermit known for his ascetic practices.", "link": "#" },
-    { "id": 27, "label": "Pishoy", "level": 2, "x": 1300, "image": "images/pishoy.png", "bio": "Pishoy was a beloved monk who lived in the Scetis desert.", "link": "#" },
+    { "id": 27, "label": "Paisius the Great", "level": 2, "x": 1300, "image": "images/pishoy.png", "bio": "Pishoy was a beloved monk who lived in the Scetis desert.", "link": "#" },
     { "id": 29, "label": "John the Short", "level": 2, "x": 1500, "image": "images/john-short.png", "bio": "John the Short (c. 339–405) was famous for his humility and obedience.", "link": "https://en.wikipedia.org/wiki/John_the_Dwarf" },
     { "id": 30, "label": "The Tall Brothers", "level": 2, "x": 1700, "image": "images/tall-brothers.png", "bio": "Four brothers known for their height and spiritual wisdom.", "link": "#" },
     { "id": 23, "label": "Isaac of the Cells", "level": 2.5, "x": -600, "image": "images/isaac-cells.png", "bio": "Isaac was a humble hermit known for his teachings on prayer.", "link": "#" },
