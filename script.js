@@ -25,7 +25,7 @@ const data = {
     { "id": 12, "label": "Isidore", "level": 1, "x": -300, "image": "images/isidore.png", "bio": "Isidore was a hospitable monk and leader in the desert communities.", "link": "#" },
     { "id": 9, "label": "Athanasius the Great", "level": 1, "x": -50, "image": "images/athanasius.png", "bio": "Athanasius (c. 296–373) was bishop of Alexandria and biographer of Anthony.", "link": "https://en.wikipedia.org/wiki/Athanasius_of_Alexandria" },
     { "id": 8, "label": "Paphnutius of Thebes", "level": 1, "x": 700, "image": "images/paphnutius.png", "bio": "Paphnutius was a confessor and spiritual father to many desert monks.", "link": "https://orthodoxwiki.org/Paphnutius" },
-    { "id": 10, "label": "Serapion the Great", "level": 1, "x": 450, "image": "images/serapion.png", "bio": "Serapion was known for his humility and travels among the desert fathers.", "link": "#" },
+    { "id": 10, "label": "Serapion of Thmuis", "level": 1, "x": 450, "image": "images/serapion.png", "bio": "Serapion was known for his humility and travels among the desert fathers.", "link": "#" },
    // { "id": 14, "label": "Isaac of Fayoum", "level": 1, "x": 200, "image": "images/isaac.png", "bio": "Isaac was a spiritual father who emphasized stillness and contemplation.", "link": "#" },
     { "id": 11, "label": "Amoun", "level": 1, "x": 950, "image": "images/amoun.png", "bio": "Amoun (c. 295–356) founded the monastic community at Nitria.", "link": "https://en.wikipedia.org/wiki/Amoun" },
     { "id": 16, "label": "Paul the Simple", "level": 1, "x": 1200, "image": "images/paul-simple.png", "bio": "Paul the Simple was renowned for his childlike faith and obedience to Anthony.", "link": "#" },
