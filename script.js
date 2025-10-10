@@ -1,4 +1,4 @@
-// === Desert Fathers Family Tree Script (Debugged Version) ===
+// === Desert Fathers Family Tree Script  ===
 // Fixed: Missing node references, improved centering, better panel positioning, fixed node ordering
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -19,7 +19,7 @@ const data = {
     // Generation 2 (level 1)
     { "id": 4, "label": "Pachomius the Great", "level": 1, "x": -1350, "image": "images/pachomius.png", "bio": "Pachomius (c. 292–348) founded the first Christian cenobitic monastery and wrote the first monastic rule.", "link": "https://en.wikipedia.org/wiki/Pachomius_the_Great" },
     { "id": 6, "label": "Macarius the Younger", "level": 0.5, "x": -1050, "image": "images/macarius2.png", "bio": "Macarius of Alexandria, known as 'the Younger', was a contemporary of Macarius the Great.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Alexandria" },
-    { "id": 5, "label": "Macarius the Great", "level": 0.5, "x": -800, "image": "images/macarius.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
+    { "id": 5, "label": "Macarius the Great", "level": 0.75, "x": -800, "image": "images/macarius.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
     { "id": 56, "label": "Thedore of Pherme", "level": 1.5, "x": -750, "image": "images/macarius.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
     { "id": 7, "label": "Ammonas", "level": 1, "x": 200, "image": "images/ammonas.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
     { "id": 12, "label": "Isidore", "level": 1, "x": -300, "image": "images/isidore.png", "bio": "Isidore was a hospitable monk and leader in the desert communities.", "link": "#" },
