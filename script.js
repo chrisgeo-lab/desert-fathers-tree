@@ -197,9 +197,10 @@ function showInfoPanel(node) {
   <div class="panel-image-container">
         <img src="${node.image}" alt="${node.label}" class="panel-image">
     </div>
-    <h3>${node.label}</h3>
-    <p>${node.bio}</p>
-    ${node.link !== '#' ? `<a href="${node.link}" target="_blank">Learn more →</a>` : ''}
+    <div class="panel-content">
+      <h3>${node.label}</h3>
+      <p>${node.bio}</p>
+      ${node.link !== '#' ? `<a href="${node.link}" target="_blank">Learn more →</a>` : ''}
     </div>
   `;
   panel.classList.remove('hidden');
