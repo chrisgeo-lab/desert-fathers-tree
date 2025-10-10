@@ -18,8 +18,9 @@ const data = {
     
     // Generation 2 (level 1)
     { "id": 4, "label": "Pachomius the Great", "level": 1, "x": -1350, "image": "images/pachomius.png", "bio": "Pachomius (c. 292–348) founded the first Christian cenobitic monastery and wrote the first monastic rule.", "link": "https://en.wikipedia.org/wiki/Pachomius_the_Great" },
-    { "id": 6, "label": "Macarius the Younger", "level": 1, "x": -1050, "image": "images/macarius2.png", "bio": "Macarius of Alexandria, known as 'the Younger', was a contemporary of Macarius the Great.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Alexandria" },
+    { "id": 6, "label": "Macarius the Younger", "level": 0.5, "x": -1050, "image": "images/macarius2.png", "bio": "Macarius of Alexandria, known as 'the Younger', was a contemporary of Macarius the Great.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Alexandria" },
     { "id": 5, "label": "Macarius the Great", "level": 0.5, "x": -800, "image": "images/macarius.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
+    { "id": 56, "label": "Thedore of Pherme", "level": 1.5, "x": -750, "image": "images/macarius.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
     { "id": 7, "label": "Ammonas", "level": 1, "x": 200, "image": "images/ammonas.png", "bio": "Ammonas was a disciple of Anthony who later became bishop of Scetis.", "link": "https://orthodoxwiki.org/Ammonas" },
     { "id": 12, "label": "Isidore", "level": 1, "x": -300, "image": "images/isidore.png", "bio": "Isidore was a hospitable monk and leader in the desert communities.", "link": "#" },
     { "id": 9, "label": "Athanasius the Great", "level": 1, "x": -50, "image": "images/athanasius.png", "bio": "Athanasius (c. 296–373) was bishop of Alexandria and biographer of Anthony.", "link": "https://en.wikipedia.org/wiki/Athanasius_of_Alexandria" },
@@ -46,8 +47,8 @@ const data = {
     { "id": 27, "label": "Pishoy", "level": 2, "x": 1300, "image": "images/pishoy.png", "bio": "Pishoy was a beloved monk who lived in the Scetis desert.", "link": "#" },
     { "id": 29, "label": "John the Short", "level": 2, "x": 1500, "image": "images/john-short.png", "bio": "John the Short (c. 339–405) was famous for his humility and obedience.", "link": "https://en.wikipedia.org/wiki/John_the_Dwarf" },
     { "id": 30, "label": "The Tall Brothers", "level": 2, "x": 1700, "image": "images/tall-brothers.png", "bio": "Four brothers known for their height and spiritual wisdom.", "link": "#" },
-    { "id": 23, "label": "Isaac of the Cells", "level": 2, "x": -650, "image": "images/isaac-cells.png", "bio": "Isaac was a humble hermit known for his teachings on prayer.", "link": "#" },
-    { "id": 55, "label": "Abraham", "level": 2.5, "x": -750, "image": "images/abraham.png", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
+    { "id": 23, "label": "Isaac of the Cells", "level": 2.5, "x": -600, "image": "images/isaac-cells.png", "bio": "Isaac was a humble hermit known for his teachings on prayer.", "link": "#" },
+    { "id": 55, "label": "Abraham", "level": 2.5, "x": -800, "image": "images/abraham.png", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
 
     // Generation 4 (level 3)
     { "id": 34, "label": "John Cassian", "level": 3, "x": -1200, "image": "images/cassian.png", "bio": "John Cassian (c. 360–435) brought desert spirituality to the West.", "link": "https://en.wikipedia.org/wiki/John_Cassian" },
@@ -84,10 +85,10 @@ const data = {
     { "from": 2, "to": 4 }, 
     { "from": 1, "to": 5 }, { "from": 1, "to": 7 }, { "from": 1, "to": 8 }, { "from": 1, "to": 9 }, { "from": 1, "to": 10 },
     { "from": 1, "to": 11 }, { "from": 1, "to": 12 }, { "from": 1, "to": 13 }, { "from": 1, "to": 15 },
-    { "from": 1, "to": 16 },
+    { "from": 1, "to": 16 }, 
     
     { "from": 11, "to": 17 }, { "from": 5, "to": 18 }, { "from": 6, "to": 18 }, { "from": 5, "to": 19 }, { "from": 5, "to": 21 },
-    { "from": 12, "to": 21 }, { "from": 12, "to": 22 }, { "from": 13, "to": 23 }, 
+    { "from": 12, "to": 21 }, { "from": 12, "to": 22 }, { "from": 13, "to": 23 }, { "from": 56, "to": 23 },
     { "from": 15, "to": 27 }, { "from": 15, "to": 29 }, { "from": 15, "to": 30 },
 
     { "from": 18, "to": 34 }, { "from": 24, "to": 36 }, { "from": 24, "to": 37 }, { "from": 24, "to": 38 }, { "from": 24, "to": 39 },
