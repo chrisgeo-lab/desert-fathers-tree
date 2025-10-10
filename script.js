@@ -57,7 +57,7 @@ const data = {
     { "id": 37, "label": "Poemen the Great", "level": 3, "x": -400, "image": "images/poemen.png", "bio": "Poemen (c. 340–450) was one of the most quoted desert fathers.", "link": "https://en.wikipedia.org/wiki/Poemen" },
     { "id": 38, "label": "Anoub", "level": 3, "x": -200, "image": "images/anoub.png", "bio": "Anoub was a monk of Scetis known for his patience.", "link": "#" },
     { "id": 39, "label": "Paisius", "level": 3, "x": 0, "image": "images/paisius.png", "bio": "Paisius was a contemplative monk devoted to silence.", "link": "#" },
-    { "id": 40, "label": "Isaiah", "level": 3, "x": 250, "image": "images/isaiah.png", "bio": "Isaiah of Scetis was an influential spiritual writer.", "link": "#" },
+    { "id": 40, "label": "Isaiah the Solitary", "level": 3, "x": 250, "image": "images/isaiah.png", "bio": "Isaiah of Scetis was an influential spiritual writer.", "link": "#" },
     { "id": 41, "label": "Sisoes the Great", "level": 3, "x": 500, "image": "images/sisoes.png", "bio": "Sisoes (d. 429) lived in Anthony's former cell and was known for humility.", "link": "#" },
     { "id": 42, "label": "Paul", "level": 3, "x": 700, "image": "images/paul-3.png", "bio": "Paul was a hermit who practiced extreme asceticism.", "link": "#" },
     { "id": 43, "label": "Athre", "level": 3, "x": 900, "image": "images/athre.png", "bio": "Athre was a monk known for his gentle spirit.", "link": "#" },
