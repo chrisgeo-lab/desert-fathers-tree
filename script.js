@@ -33,7 +33,7 @@ const data = {
     { "id": 13, "label": "Chronius", "level": 1, "x": -550, "image": "images/chronius.png", "bio": "Chronius was known for his wisdom and teachings on prayer.", "link": "#" },
 
     // Generation 3 (level 2)
-    { "id": 31, "label": "Melania the Elder", "level": 2, "x": -1500, "image": "images/melania.png", "bio": "Melania (c. 350–410) was a Roman noblewoman who became a desert ascetic.", "link": "https://en.wikipedia.org/wiki/Melania_the_Elder" },
+    { "id": 31, "label": "Melania the Elder", "level": 2, "x": -1450, "image": "images/melania.png", "bio": "Melania (c. 350–410) was a Roman noblewoman who became a desert ascetic.", "link": "https://en.wikipedia.org/wiki/Melania_the_Elder" },
     { "id": 18, "label": "Evagrius of Pontus", "level": 2, "x": -1250, "image": "images/evagrius.png", "bio": "Evagrius (c. 345–399) was a major spiritual writer and theologian of the desert.", "link": "https://en.wikipedia.org/wiki/Evagrius_Ponticus" },
     { "id": 19, "label": "Paphnutius the Ascetic", "level": 2, "x": -1050, "image": "images/paphnutius2.png", "bio": "Paphnutius the Ascetic was an early hermit in the Nitrian desert.", "link": "#" },
     { "id": 20, "label": "Onuphrius", "level": 2, "x": -850, "image": "images/onuphrius.png", "bio": "Onuphrius was a hermit who lived in complete solitude for sixty years.", "link": "https://en.wikipedia.org/wiki/Onuphrius" },
@@ -88,8 +88,8 @@ const data = {
     { "from": 1, "to": 16 }, 
     
     { "from": 11, "to": 17 }, { "from": 5, "to": 18 }, { "from": 6, "to": 18 }, { "from": 5, "to": 19 }, { "from": 5, "to": 21 },
-    { "from": 12, "to": 21 }, { "from": 12, "to": 22 }, { "from": 13, "to": 23 }, { "from": 56, "to": 23 },
-    { "from": 15, "to": 27 }, { "from": 15, "to": 29 }, { "from": 15, "to": 30 },
+    { "from": 12, "to": 21 }, { "from": 12, "to": 22 }, { "from": 13, "to": 23 }, { "from": 5, "to": 56 }, { "from": 56, "to": 23 },
+    { "from": 15, "to": 27 }, { "from": 15, "to": 29 }, { "from": 15, "to": 30 }, 
 
     { "from": 18, "to": 34 }, { "from": 24, "to": 36 }, { "from": 24, "to": 37 }, { "from": 24, "to": 38 }, { "from": 24, "to": 39 },
     { "from": 25, "to": 40 }, { "from": 26, "to": 41 }, { "from": 26, "to": 42 }, { "from": 26, "to": 43 }, { "from": 29, "to": 44 },
