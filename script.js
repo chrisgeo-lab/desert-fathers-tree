@@ -34,7 +34,7 @@ const data = {
 
     // Generation 3 (level 2)
     { "id": 31, "label": "Melania the Elder", "level": 2, "x": -1450, "image": "images/melaniatheelder.jpg", "bio": "Melania (c. 350–410) was a Roman noblewoman who became a desert ascetic.", "link": "https://en.wikipedia.org/wiki/Melania_the_Elder" },
-    { "id": 18, "label": "Evagrius of Pontus", "level": 2, "x": -1250, "image": "images/evagrius.jpg", "bio": "Evagrius (c. 345–399) was a major spiritual writer and theologian of the desert.", "link": "https://en.wikipedia.org/wiki/Evagrius_Ponticus" },
+    { "id": 18, "label": "Evagrius of Pontus", "level": 2, "x": -1250, "image": "images/evagrius.JPG", "bio": "Evagrius (c. 345–399) was a major spiritual writer and theologian of the desert.", "link": "https://en.wikipedia.org/wiki/Evagrius_Ponticus" },
     { "id": 19, "label": "Paphnutius the Ascetic", "level": 2, "x": -1050, "image": "images/monk.jpg", "bio": "Paphnutius the Ascetic was an early hermit in the Nitrian desert.", "link": "#" },
     { "id": 20, "label": "Onuphrius", "level": 2, "x": -850, "image": "images/onuphrius.jpg", "bio": "Onuphrius was a hermit who lived in complete solitude for sixty years.", "link": "https://en.wikipedia.org/wiki/Onuphrius" },
     { "id": 21, "label": "Moses the Black", "level": 2, "x": -450, "image": "images/moses.jpg", "bio": "Moses the Black (c. 330–405) was a reformed robber who became a great desert father.", "link": "https://en.wikipedia.org/wiki/Moses_the_Black" },
