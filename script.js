@@ -47,6 +47,7 @@ const data = {
     { "id": 29, "label": "John the Short", "level": 2, "x": 1500, "image": "images/john-short.png", "bio": "John the Short (c. 339–405) was famous for his humility and obedience.", "link": "https://en.wikipedia.org/wiki/John_the_Dwarf" },
     { "id": 30, "label": "The Tall Brothers", "level": 2, "x": 1700, "image": "images/tall-brothers.png", "bio": "Four brothers known for their height and spiritual wisdom.", "link": "#" },
     { "id": 23, "label": "Isaac of the Cells", "level": 2, "x": 1950, "image": "images/isaac-cells.png", "bio": "Isaac was a humble hermit known for his teachings on prayer.", "link": "#" },
+    { "id": 55, "label": "Abraham", "level": 2, "x": 2200, "image": "images/abraham.png", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
 
     // Generation 4 (level 3)
     { "id": 34, "label": "John Cassian", "level": 3, "x": -1200, "image": "images/cassian.png", "bio": "John Cassian (c. 360–435) brought desert spirituality to the West.", "link": "https://en.wikipedia.org/wiki/John_Cassian" },
@@ -64,6 +65,7 @@ const data = {
     // Generation 5 (level 4)
     { "id": 45, "label": "Peter the Pionite", "level": 4, "x": -700, "image": "images/peter.png", "bio": "Peter was a disciple known for his simplicity.", "link": "#" },
     { "id": 46, "label": "Agathon", "level": 4, "x": -500, "image": "images/agathon.png", "bio": "Agathon was famous for his control over his tongue.", "link": "#" },
+    { "id": 54, "label": "Abraham", "level": 4, "x": 550, "image": "images/abraham.png", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
     { "id": 47, "label": "Alexander", "level": 4, "x": 1100, "image": "images/alexander.png", "bio": "Alexander served Arsenius with great devotion.", "link": "#" },
     { "id": 48, "label": "Zoilus", "level": 4, "x": 1300, "image": "images/zoilus.png", "bio": "Zoilus was another faithful disciple of Arsenius.", "link": "#" },
     { "id": 49, "label": "Daniel", "level": 4, "x": 1500, "image": "images/daniel.png", "bio": "Daniel was Arsenius's closest disciple and successor.", "link": "#" },
