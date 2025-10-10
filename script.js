@@ -94,7 +94,7 @@ const data = {
     { "from": 25, "to": 40 }, { "from": 26, "to": 41 }, { "from": 26, "to": 42 }, { "from": 26, "to": 43 }, { "from": 29, "to": 44 },
 
     { "from": 36, "to": 45 }, { "from": 36, "to": 46 }, { "from": 37, "to": 46 }, { "from": 44, "to": 47 }, { "from": 44, "to": 48 },
-    { "from": 44, "to": 49 }, { "from": 44, "to": 50 },
+    { "from": 44, "to": 49 }, { "from": 44, "to": 50 }, { "from": 41, "to": 54 },
 
     { "from": 46, "to": 51 }, { "from": 49, "to": 52 },
 
@@ -105,6 +105,7 @@ const data = {
     { "from": 18, "to": 31, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
     { "from": 19, "to": 20, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
     { "from": 23, "to": 30, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
+    { "from": 23, "to": 55, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
     { "from": 27, "to": 28, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
     { "from": 17, "to": 26, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
     { "from": 34, "to": 35, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
