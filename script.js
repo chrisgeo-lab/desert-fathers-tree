@@ -200,9 +200,23 @@ function showInfoPanel(node) {
     <h3>${node.label}</h3>
     <p>${node.bio}</p>
     ${node.link !== '#' ? `<a href="${node.link}" target="_blank">Learn more →</a>` : ''}
+    </div>
   `;
   panel.classList.remove('hidden');
   updatePanelPosition();
+
+// ✅ NEW CODE BLOCK TO REPOSITION AFTER IMAGE LOADS
+  const imgElement = document.getElementById('panel-load-image');
+  if (imgElement) {
+      // Run updatePanelPosition() once the image has fully rendered
+      imgElement.onload = updatePanelPosition;
+      
+      // Handle cached images (which don't fire 'onload')
+      if (imgElement.complete) {
+          updatePanelPosition();
+      }
+  }
+  // ----------------------------------------------------
 }
 
 function hideInfoPanel() {
