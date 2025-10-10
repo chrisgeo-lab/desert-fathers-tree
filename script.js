@@ -13,11 +13,11 @@ const data = {
   "nodes": [
     // Generation 1 (level 0)
     { "id": 1, "label": "Anthony the Great", "level": 0, "x": 350, "image": "images/anthony.png", "bio": "Anthony (c. 251–356) is considered the father of monasticism. He lived as a hermit in the Egyptian desert and inspired countless disciples.", "link": "https://en.wikipedia.org/wiki/Anthony_the_Great" },
-    { "id": 2, "label": "Palamon", "level": 0, "x": 1900, "image": "images/palamon.png", "bio": "Palamon was an early hermit and teacher who guided young monks in the desert.", "link": "#" },
+    { "id": 2, "label": "Palamon", "level": 0, "x": 1800, "image": "images/palamon.png", "bio": "Palamon was an early hermit and teacher who guided young monks in the desert.", "link": "#" },
     { "id": 3, "label": "Paul of Thebes", "level": 0, "x": 1000, "image": "images/paul.png", "bio": "Paul of Thebes (c. 227–341) is traditionally considered the first Christian hermit.", "link": "https://en.wikipedia.org/wiki/Paul_of_Thebes" },
     
     // Generation 2 (level 1)
-    { "id": 4, "label": "Pachomius the Great", "level": 1, "x": 1950, "image": "images/pachomius.png", "bio": "Pachomius (c. 292–348) founded the first Christian cenobitic monastery and wrote the first monastic rule.", "link": "https://en.wikipedia.org/wiki/Pachomius_the_Great" },
+    { "id": 4, "label": "Pachomius the Great", "level": 1, "x": 1900, "image": "images/pachomius.png", "bio": "Pachomius (c. 292–348) founded the first Christian cenobitic monastery and wrote the first monastic rule.", "link": "https://en.wikipedia.org/wiki/Pachomius_the_Great" },
     { "id": 6, "label": "Macarius the Younger", "level": 0.75, "x": -1050, "image": "images/macarius2.png", "bio": "Macarius of Alexandria, known as 'the Younger', was a contemporary of Macarius the Great.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Alexandria" },
     { "id": 5, "label": "Macarius the Great", "level": 0.75, "x": -800, "image": "images/macarius.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
     { "id": 56, "label": "Thedore of Pherme", "level": 1.5, "x": -750, "image": "images/macarius.png", "bio": "Macarius of Egypt (c. 300–391) was a disciple of Anthony and founder of Scetis.", "link": "https://en.wikipedia.org/wiki/Macarius_of_Egypt" },
