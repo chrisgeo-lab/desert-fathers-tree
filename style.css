@@ -143,6 +143,46 @@ header p {
     }
 }
 
+/* --- Close Button Styling --- */
+#close-info-panel {
+    /* Position the button in the top right corner of the panel */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    
+    /* Appearance */
+    background: rgba(255, 255, 255, 0.7); /* Slightly transparent background */
+    color: #4A3B2F; 
+    border: 1px solid rgba(107, 93, 79, 0.3);
+    border-radius: 50%; /* Makes it circular */
+    width: 25px;
+    height: 25px;
+    font-size: 1.2rem;
+    line-height: 1; /* Centers the '×' */
+    cursor: pointer;
+    text-align: center;
+    padding: 0;
+    z-index: 100; /* Ensure it's above all panel content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.15s ease;
+}
+
+#close-info-panel:hover {
+    background: #ffffff;
+    color: #990000; /* Subtle color change on hover */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Improve styling for mobile's pinned panel */
+@media (max-width: 768px) {
+    #close-info-panel {
+        top: 10px;
+        right: 15px;
+        width: 30px; /* Slightly larger target area */
+        height: 30px;
+        font-size: 1.4rem;
+    }
+}
 
 /* === Modern Zoom Controls === */
 .zoom-controls {
