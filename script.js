@@ -180,7 +180,7 @@ const options = {
     navigationButtons: false,
     hover: true
   },
-  physics: { enabled: false }
+  physics: { enabled: false },
     //  VIEW BOUNDS
   manipulation: {
     enabled: false
@@ -192,7 +192,7 @@ const options = {
   minZoom: 0.5, // Minimum scale (farthest out) - e.g., 10% zoom
   maxZoom: 3.0, // Maximum scale (closest in) - e.g., 200% zoom
   // -------------------------
-};
+  };
 
 const network = new vis.Network(container, networkData, options);
 
