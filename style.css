@@ -142,15 +142,9 @@ header p {
         height: 50px;
     }
 
-    /* Adjusts location of zoom buttons on mobile device*/
-    .zoom-controls {
-        top: 130px; /* A safe position below the mobile header */
-        right: 15px;
-    }
-
     /* HIDE THE INSTRUCTIONS PANEL */
     .instructions {
-        display: none;
+        display: none !important;
     }
   
 }
