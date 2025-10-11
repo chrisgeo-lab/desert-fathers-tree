@@ -420,9 +420,21 @@ container.addEventListener('touchend', (event) => {
 // =====================
 // 7. INITIAL VIEW
 // =====================
+// Define an initial center offset: Shift the view up by 150 pixels only on mobile
+const MOBILE_CENTER_Y_OFFSET = IS_MOBILE ? -150 : 0;
+
 // Center on Anthony the Great initially
 network.once('stabilizationIterationsDone', () => {
-  network.focus(1, { scale: 0.8, animation: { duration: 1000, easingFunction: 'easeInOutQuad' } });
-});
+    // 1. Get the world coordinates of node 1 (Anthony the Great)
+    const anthonyPos = network.getPositions([1])[1];
 
+    network.moveTo({ 
+        // 2. Adjust the position's Y coordinate for better vertical centering on mobile
+        position: {
+            x: anthonyPos.x,
+            y: anthonyPos.y + MOBILE_CENTER_Y_OFFSET
+        },
+        scale: INITIAL_SCALE, // Use the adjusted initial scale
+        animation: { duration: 1000, easingFunction: 'easeInOutQuad' } 
+    });
 });
