@@ -9,23 +9,6 @@ const LEVEL_SEPARATION = 200;
 // Zoom limits
 const MIN_ZOOM = 0.5;
 const MAX_ZOOM = 3.0;
-
-// Calculate boundaries for panning
-let minX = Infinity, maxX = -Infinity;
-let minY = Infinity, maxY = -Infinity;
-
-data.nodes.forEach(node => {
-  minX = Math.min(minX, node.x);
-  maxX = Math.max(maxX, node.x);
-  minY = Math.min(minY, node.y);
-  maxY = Math.max(maxY, node.y);
-});
-
-const BOUNDARY_PADDING = 300;
-minX -= BOUNDARY_PADDING;
-maxX += BOUNDARY_PADDING;
-minY -= BOUNDARY_PADDING;
-maxY += BOUNDARY_PADDING;
   
 // =====================
 // 1. DATA: NODES & EDGES
@@ -139,6 +122,23 @@ const data = {
   ]
 };
 
+// Calculate boundaries for panning
+let minX = Infinity, maxX = -Infinity;
+let minY = Infinity, maxY = -Infinity;
+
+data.nodes.forEach(node => {
+  minX = Math.min(minX, node.x);
+  maxX = Math.max(maxX, node.x);
+  minY = Math.min(minY, node.y);
+  maxY = Math.max(maxY, node.y);
+});
+
+const BOUNDARY_PADDING = 300;
+minX -= BOUNDARY_PADDING;
+maxX += BOUNDARY_PADDING;
+minY -= BOUNDARY_PADDING;
+maxY += BOUNDARY_PADDING;
+  
   // ======================================
 // ✅ MANUAL X/Y ASSIGNMENT AND FIXING
 // ======================================
