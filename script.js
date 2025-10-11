@@ -203,7 +203,8 @@ const options = {
     zoomView: false,   // Disable vis-network's wheel handling
     multiselect: false,
     navigationButtons: false,
-    hover: true
+    hover: true,
+    zoom: false
   },
    limits: {
     x: [minX, maxX],
