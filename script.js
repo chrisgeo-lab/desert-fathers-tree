@@ -205,9 +205,6 @@ const options = {
 };
 
 const network = new vis.Network(container, networkData, options);
-// Disable vis-network's internal wheel event handling
-network.body.eventListeners.wheel = [];
-
   
 // =====================
 // 3. INFO PANEL
