@@ -195,7 +195,7 @@ const options = {
   },
   interaction: {
     dragNodes: false,  // Don't drag individual nodes
-    dragView: false,    // Enable mouse/touch drag panning
+    dragView: true,    // Enable mouse/touch drag panning
     zoomView: false,   // Disable vis-network's wheel handling
     multiselect: false,
     navigationButtons: false,
@@ -301,43 +301,50 @@ document.getElementById('zoomOut').addEventListener('click', () => {
 // =====================
   
 container.addEventListener('wheel', (event) => {
-  event.preventDefault();
-  
-  if (event.ctrlKey) {
-    // Pinch-to-zoom with limits
-    const zoomSpeed = 0.01;
-    const currentScale = network.getScale();
-    const delta = -event.deltaY;
-    let newScale = currentScale * (1 + delta * zoomSpeed);
-    
-    // Enforce zoom limits
-    newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newScale));
-    
-    network.moveTo({
-      scale: newScale,
-      animation: false
-    });
-    updatePanelPosition();
-    return;
-  }
-  
-  // Regular scroll - pan with limits and corrected direction
-  const panSpeed = 1.5;
-  const currentPos = network.getViewPosition();
-  
-  let newX = currentPos.x - (event.deltaX * panSpeed);
-  let newY = currentPos.y - (event.deltaY * panSpeed);
+  event.preventDefault();
+  
+  const currentScale = network.getScale();
+  
+  if (event.ctrlKey || event.metaKey) { // Added metaKey for Mac pinch-zoom
+    // Pinch-to-zoom with limits
+    const zoomSpeed = 0.01;
+    const delta = -event.deltaY;
+    let newScale = currentScale * (1 + delta * zoomSpeed);
+    
+    // Enforce zoom limits
+    newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newScale));
+    
+    network.moveTo({
+      scale: newScale,
+      animation: false
+    });
+    updatePanelPosition();
+    return;
+  }
+  
+  // Regular scroll - PANNING ONLY
+  const panSpeed = 1.5;
+  const currentPos = network.getViewPosition();
+  
+  let newX = currentPos.x - (event.deltaX * panSpeed / currentScale);
+  let newY = currentPos.y - (event.deltaY * panSpeed / currentScale);
 
-  // Manually enforce pan limits for the wheel event
-  newX = Math.max(minX, Math.min(maxX, newX));
-  newY = Math.max(minY, Math.min(maxY, newY));
-  
-  network.moveTo({
-    position: { x: newX, y: newY },
-    animation: false
-  });
-  
-  updatePanelPosition();
+  // The key correction: Divide pan-speed deltas by the current scale.
+  // This ensures the panning speed is consistent regardless of zoom level.
+
+  // You can remove the manual boundary checks here,
+  // as `vis.Network`'s `limits` option will apply when you use `moveTo` 
+  // for a position change.
+  // However, to be fully safe and respect your pre-calculated limits:
+  // newX = Math.max(minX, Math.min(maxX, newX));
+  // newY = Math.max(minY, Math.min(maxY, newY));
+  
+  network.moveTo({
+    position: { x: newX, y: newY },
+    animation: false
+  });
+  
+  updatePanelPosition();
 }, { passive: false });
 
 
