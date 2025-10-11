@@ -29,28 +29,6 @@ const PAN_SPEED = IS_MOBILE ? 1.0 : 1.5; // Adjusted pan sensitivity
 const MIN_ZOOM = 0.1;
 const MAX_ZOOM = 2.0;
 
-  // Recalculate node positions and boundaries using the new LEVEL_SEPARATION
-data.nodes.forEach(node => {
-    node.y = node.level * LEVEL_SEPARATION; // Use the new constant
-    node.fixed = { x: true, y: true };
-});
-
-// Recalculate boundaries using the new BOUNDARY_PADDING
-let minX = Infinity, maxX = -Infinity;
-let minY = Infinity, maxY = -Infinity;
-
-data.nodes.forEach(node => {
-    minX = Math.min(minX, node.x);
-    maxX = Math.max(maxX, node.x);
-    minY = Math.min(minY, node.y);
-    maxY = Math.max(maxY, node.y);
-});
-
-minX -= BOUNDARY_PADDING;
-maxX += BOUNDARY_PADDING;
-minY -= BOUNDARY_PADDING;
-maxY += BOUNDARY_PADDING;
-
   
 // =====================
 // 1. DATA: NODES & EDGES
@@ -175,7 +153,6 @@ data.nodes.forEach(node => {
   maxY = Math.max(maxY, node.y);
 });
 
-const BOUNDARY_PADDING = 300;
 minX -= BOUNDARY_PADDING;
 maxX += BOUNDARY_PADDING;
 minY -= BOUNDARY_PADDING;
@@ -274,17 +251,6 @@ function showInfoPanel(node) {
   panel.classList.remove('hidden');
   updatePanelPosition();
 
-// ✅ NEW CODE BLOCK TO REPOSITION AFTER IMAGE LOADS
-  const imgElement = document.getElementById('panel-load-image');
-  if (imgElement) {
-      // Run updatePanelPosition() once the image has fully rendered
-      imgElement.onload = updatePanelPosition;
-      
-      // Handle cached images (which don't fire 'onload')
-      if (imgElement.complete) {
-          updatePanelPosition();
-      }
-  }
   // ----------------------------------------------------
 }
 
