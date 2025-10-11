@@ -147,6 +147,11 @@ header p {
         top: 130px; /* A safe position below the mobile header */
         right: 15px;
     }
+
+    /* HIDE THE INSTRUCTIONS PANEL */
+    .instructions {
+        display: none;
+    }
   
 }
 
