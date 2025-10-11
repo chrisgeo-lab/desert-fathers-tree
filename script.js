@@ -339,8 +339,8 @@ container.addEventListener('wheel', (event) => {
  // Regular scroll - pan with limits
   const panSpeed = 1.5;
   const currentPos = network.getViewPosition(); // Gets the current center of the view
-  let newX = currentPos.x - (event.deltaX * panSpeed); // Note: Subtract for intuitive pan direction
-  let newY = currentPos.y - (event.deltaY * panSpeed); // Note: Subtract for intuitive pan direction
+  let newX = currentPos.x + (event.deltaX * panSpeed); // Note: Switch sign to invert pan direction
+  let newY = currentPos.y + (event.deltaY * panSpeed); // Note: Switch sign to invert pan direction
   
   // Vis-network coordinates are inverted for panning, so we correct delta sign for 'wheel' event
     
