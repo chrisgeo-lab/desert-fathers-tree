@@ -194,9 +194,9 @@ const options = {
     width: 3
   },
   interaction: {
-    dragNodes: true,
-    dragView: false,
-    zoomView: false,
+    dragNodes: false,  // Don't drag individual nodes
+    dragView: true,    // Enable mouse/touch drag panning
+    zoomView: false,   // Disable built-in zoom (we use custom)
     multiselect: false,
     navigationButtons: false,
     hover: true
