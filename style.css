@@ -48,94 +48,71 @@ header p {
               linear-gradient(to bottom, #f5ebe0, #ede0d4);
 }
 
-/* === Modern Info Panel === */
+/* === Info panel for node details === */
 #info-panel {
   position: absolute;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(139, 115, 85, 0.3);
-  border-radius: 16px;
-  padding: 0;
-  overflow: hidden;
-  max-width: 340px;
-  min-width: 280px;
-  z-index: 100;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  background: linear-gradient(to bottom, #fcfcfc, #ffffff);
+  border: 1px solid #6B5D4F;
+  border-radius: 8px;
+  padding: 0px; /* Changed to 0 for edge-to-edge image */
+  overflow: hidden; /* New: Clips the image at the top edge */
+  max-width: 300px;
+  min-width: 250px; /* Ensures a decent width */
+  z-index: 10;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.3);
 }
 
+/* New/Revised Image Styling for the HTML structure provided earlier */
 .panel-image-container {
-  width: 100%;
-  height: 180px;
-  overflow: hidden;
-  position: relative;
-  background: linear-gradient(135deg, #e3d5ca, #d4c4b0);
-}
-
-.panel-image-container::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40%;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent);
-  pointer-events: none;
+    width: 100%;
+    height: 100%; /* Fixed height for visual consistency */
+    overflow: hidden;
 }
 
 #info-panel .panel-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Ensures the image covers the container */
   display: block;
-  transition: transform 0.3s ease;
 }
 
-#info-panel:hover .panel-image {
-  transform: scale(1.05);
-}
-
+/* New: Container for text content to restore the padding */
 .panel-content {
-  padding: 20px;
+    padding: 15px; /* Adds internal padding to the text */
 }
 
-#info-panel h3 {
-  margin: 0 0 0.8em 0;
-  font-size: 1.6rem;
-  color: #3a2f28;
-  font-weight: 600;
-  letter-spacing: 0.3px;
+/* Adjusting internal elements to work with new text container */
+#info-panel h3 { /* Changed from h2 to h3 based on your script.js */
+  margin: 0 0 0.5em 0;
+  font-size: 1.5rem;
+  color: #4A3B2F;
+  border-bottom: 1px solid #E9E3D4; /* Subtle divider */
+  padding-bottom: 5px;
 }
 
 #info-panel p {
   font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 1.2em;
-  color: #5a4d42;
+  line-height: 1.5;
+  margin-bottom: 1em;
 }
 
 #info-panel a {
-  color: #8b5a3c;
+  color: #990000; /* Darker, richer red */
   text-decoration: none;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  background: linear-gradient(135deg, rgba(139, 115, 85, 0.1), rgba(139, 115, 85, 0.15));
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  margin-top: 6px;
+  font-weight: bold;
+  display: block; /* Makes the link take up its own line */
+  margin-top: 10px;
+  transition: color 0.2s;
 }
 
 #info-panel a:hover {
-  background: linear-gradient(135deg, rgba(139, 115, 85, 0.2), rgba(139, 115, 85, 0.25));
-  transform: translateX(3px);
+    color: #4A3B2F; /* Hover effect */
 }
 
 #info-panel.hidden {
   display: none;
 }
+
 
 /* === Modern Zoom Controls === */
 .zoom-controls {
