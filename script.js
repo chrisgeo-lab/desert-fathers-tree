@@ -295,44 +295,58 @@ document.getElementById('zoomOut').addEventListener('click', () => {
 // =====================
 // 5. SCROLL + PINCH ZOOM
 // =====================
-container.addEventListener('wheel', (event) => {
-  event.preventDefault();
-  
+// Attach on window in capture phase and only handle events originating inside container
+function wheelEventOriginatesInContainer(event) {
+  // composedPath() is robust across shadow DOM / canvas wrappers
+  const path = event.composedPath ? event.composedPath() : (event.path || []);
+  return path && path.includes(container);
+}
+
+window.addEventListener('wheel', (event) => {
+  // Only act if the wheel event started inside our container
+  if (!wheelEventOriginatesInContainer(event)) return;
+
+  event.preventDefault(); // we want to override default scrolling
+
+  // Handle ctrl/command + wheel as pinch-to-zoom
   if (event.ctrlKey) {
-    // Pinch-to-zoom with limits
     const zoomSpeed = 0.01;
     const currentScale = network.getScale();
     const delta = -event.deltaY;
     let newScale = currentScale * (1 + delta * zoomSpeed);
-    
-    // Enforce zoom limits
     newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newScale));
-    
-    network.moveTo({
-      scale: newScale,
-      animation: false
-    });
+
+    network.moveTo({ scale: newScale, animation: false });
     updatePanelPosition();
     return;
   }
-  
-  // Regular scroll - pan with limits
-  const panSpeed = 1.5;
-  const currentPos = network.getViewPosition();
-  let newX = currentPos.x + (event.deltaX * panSpeed);
-  let newY = currentPos.y + (event.deltaY * panSpeed);
-  
-  // Enforce pan limits
+
+  // Normalize delta depending on deltaMode (0 = pixel, 1 = line, 2 = page)
+  let deltaX = event.deltaX;
+  let deltaY = event.deltaY;
+  if (event.deltaMode === 1) { // lines
+    deltaX *= 16;
+    deltaY *= 16;
+  } else if (event.deltaMode === 2) { // pages
+    deltaX *= window.innerHeight;
+    deltaY *= window.innerHeight;
+  }
+
+  // Pan speed tweak — reduce for smoother trackpad, increase for mouse wheel
+  const panSpeed = 1.2;
+
+  const viewPos = network.getViewPosition();
+  let newX = viewPos.x + (deltaX * panSpeed);
+  let newY = viewPos.y + (deltaY * panSpeed);
+
+  // Enforce pan boundaries if you want
   newX = Math.max(minX, Math.min(maxX, newX));
   newY = Math.max(minY, Math.min(maxY, newY));
-  
-  network.moveTo({
-    position: { x: newX, y: newY },
-    animation: false
-  });
-  
+
+  network.moveTo({ position: { x: newX, y: newY }, animation: false });
   updatePanelPosition();
-}, { passive: false });
+
+}, { passive: false, capture: true });
 
 // =====================
 // 6. INITIAL VIEW
