@@ -1,22 +1,42 @@
-/* === General page styling === */
-body {
+/* === Modern Design with Desert Theme === */
+* {
   margin: 0;
-  font-family: "Times New Roman", serif;
-  background: #E9E3D4;
-  color: #4A3B2F;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Georgia', serif;
+  background: linear-gradient(135deg, #f5ebe0 0%, #e3d5ca 100%);
+  color: #3a2f28;
 }
 
 header {
-  text-align: center;
-  padding: 1rem;
-  background: #B7A287;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, rgba(139, 115, 85, 0.95) 0%, rgba(107, 93, 79, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 5;
+  border-bottom: 3px solid rgba(139, 115, 85, 0.3);
 }
 
 h1 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+header p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  margin: 0;
 }
 
 /* === Tree container === */
@@ -24,101 +44,160 @@ h1 {
   width: 100%;
   height: 85vh;
   border-top: 1px solid #ccc;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.3), transparent),
+              linear-gradient(to bottom, #f5ebe0, #ede0d4);
 }
 
-/* === Info panel for node details === */
+/* === Modern Info Panel === */
 #info-panel {
   position: absolute;
-  background: linear-gradient(to bottom, #fcfcfc, #ffffff);
-  border: 1px solid #6B5D4F;
-  border-radius: 8px;
-  padding: 0px; /* Changed to 0 for edge-to-edge image */
-  overflow: hidden; /* New: Clips the image at the top edge */
-  max-width: 300px;
-  min-width: 250px; /* Ensures a decent width */
-  z-index: 10;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 115, 85, 0.3);
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  max-width: 340px;
+  min-width: 280px;
+  z-index: 100;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
-/* New/Revised Image Styling for the HTML structure provided earlier */
 .panel-image-container {
-    width: 100%;
-    height: 100%; /* Fixed height for visual consistency */
-    overflow: hidden;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #e3d5ca, #d4c4b0);
+}
+
+.panel-image-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent);
+  pointer-events: none;
 }
 
 #info-panel .panel-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image covers the container */
+  object-fit: cover;
   display: block;
+  transition: transform 0.3s ease;
 }
 
-/* New: Container for text content to restore the padding */
+#info-panel:hover .panel-image {
+  transform: scale(1.05);
+}
+
 .panel-content {
-    padding: 15px; /* Adds internal padding to the text */
+  padding: 20px;
 }
 
-/* Adjusting internal elements to work with new text container */
-#info-panel h3 { /* Changed from h2 to h3 based on your script.js */
-  margin: 0 0 0.5em 0;
-  font-size: 1.5rem;
-  color: #4A3B2F;
-  border-bottom: 1px solid #E9E3D4; /* Subtle divider */
-  padding-bottom: 5px;
+#info-panel h3 {
+  margin: 0 0 0.8em 0;
+  font-size: 1.6rem;
+  color: #3a2f28;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 #info-panel p {
   font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 1em;
+  line-height: 1.7;
+  margin-bottom: 1.2em;
+  color: #5a4d42;
 }
 
 #info-panel a {
-  color: #990000; /* Darker, richer red */
+  color: #8b5a3c;
   text-decoration: none;
-  font-weight: bold;
-  display: block; /* Makes the link take up its own line */
-  margin-top: 10px;
-  transition: color 0.2s;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, rgba(139, 115, 85, 0.1), rgba(139, 115, 85, 0.15));
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  margin-top: 6px;
 }
 
 #info-panel a:hover {
-    color: #4A3B2F; /* Hover effect */
+  background: linear-gradient(135deg, rgba(139, 115, 85, 0.2), rgba(139, 115, 85, 0.25));
+  transform: translateX(3px);
 }
 
 #info-panel.hidden {
   display: none;
 }
 
-/* === Zoom Controls === */
+/* === Modern Zoom Controls === */
 .zoom-controls {
-    /* Changed from 'fixed' (bottom: 20px, right: 20px) */
-    position: fixed;
-    
-    /* ✅ NEW POSITION: Align to the top-right corner */
-    top: 135px; /* Adjust this value down slightly so they are below the header */
-    right: 20px;
-    
-    /* ❌ Remove/override bottom and left if they were set */
-    bottom: auto;
-    left: auto;
-    
-    z-index: 20;
+  position: fixed;
+  top: 140px;
+  right: 24px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .zoom-controls button {
- background: #B7A287; 
- border: 1px solid #4A3B2F; 
- color: #4A3B2F; 
- width: 30px;
- height: 30px;
- border-radius: 5px;
- font-size: 1.2rem;
- cursor: pointer;
- margin-left: 5px;
- box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 115, 85, 0.3);
+  color: #5a4d42;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.zoom-controls button:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+  transform: translateY(-2px);
+}
 
+.zoom-controls button:active {
+  transform: translateY(0);
+}
 
+/* === Instructions overlay (optional) === */
+.instructions {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(139, 115, 85, 0.2);
+  z-index: 10;
+  max-width: 280px;
+}
+
+.instructions p {
+  font-size: 0.9rem;
+  color: #5a4d42;
+  margin: 4px 0;
+  line-height: 1.5;
+}
+
+.instructions strong {
+  color: #3a2f28;
+}
