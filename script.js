@@ -1,6 +1,10 @@
 // === Desert Fathers Family Tree Script  ===
 // Fixed: Missing node references, improved centering, better panel positioning, fixed node ordering
 
+// Enable pinch to zoom on mobile devices
+let initialPinchDistance = null;
+let initialScale = null;
+
 document.addEventListener('DOMContentLoaded', function() {
 
 // Define the vertical separation distance between levels
@@ -343,9 +347,72 @@ container.addEventListener('wheel', (event) => {
   updatePanelPosition();
 }, { passive: false });
 
-
 // =====================
-// 6. INITIAL VIEW
+// 6. MOBILE TOUCH ZOOM (Pinch-to-Zoom)
+// =====================
+
+container.addEventListener('touchstart', (event) => {
+    // Check if two fingers are touching
+    if (event.touches.length === 2) {
+        // Prevent default browser behavior (like page zoom/scroll)
+        event.preventDefault(); 
+        
+        // Calculate the initial distance between the two touches
+        const dx = event.touches[0].clientX - event.touches[1].clientX;
+        const dy = event.touches[0].clientY - event.touches[1].clientY;
+        initialPinchDistance = Math.sqrt(dx * dx + dy * dy);
+        
+        // Store the current network scale
+        initialScale = network.getScale();
+    } else {
+        initialPinchDistance = null;
+        initialScale = null;
+    }
+}, { passive: false });
+
+
+container.addEventListener('touchmove', (event) => {
+    // Check if we are currently in a pinch gesture
+    if (initialPinchDistance !== null && event.touches.length === 2) {
+        event.preventDefault(); // Keep preventing default behavior during movement
+
+        // Calculate the current distance between the two touches
+        const dx = event.touches[0].clientX - event.touches[1].clientX;
+        const dy = event.touches[0].clientY - event.touches[1].clientY;
+        const currentPinchDistance = Math.sqrt(dx * dx + dy * dy);
+        
+        // Calculate the ratio of the current distance to the initial distance
+        const scaleRatio = currentPinchDistance / initialPinchDistance;
+        
+        // Determine the new scale
+        let newScale = initialScale * scaleRatio;
+        
+        // Enforce zoom limits (MIN_ZOOM and MAX_ZOOM are defined globally)
+        newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newScale));
+        
+        // Move/zoom the network
+        network.moveTo({
+            scale: newScale,
+            animation: false
+        });
+        
+        // Update the info panel position during the continuous zoom
+        updatePanelPosition();
+    }
+}, { passive: false });
+
+
+container.addEventListener('touchend', (event) => {
+    // Reset state when touches end
+    initialPinchDistance = null;
+    initialScale = null;
+    
+    // A touchend might represent the end of a drag, so update the panel one last time
+    updatePanelPosition(); 
+});
+  
+// =====================
+// 7. INITIAL VIEW
 // =====================
 // Center on Anthony the Great initially
 network.once('stabilizationIterationsDone', () => {
