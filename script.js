@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
 const LEVEL_SEPARATION = 200; 
 
 // Zoom limits
-const MIN_ZOOM = 0.5;
-const MAX_ZOOM = 3.0;
+const MIN_ZOOM = 0.2;
+const MAX_ZOOM = 2.0;
   
 // =====================
 // 1. DATA: NODES & EDGES
@@ -202,9 +202,6 @@ const options = {
     hover: true
   },
   physics: { enabled: false },
-  minZoom: 0.5, // Minimum scale (farthest out) - e.g., 10% zoom
-  maxZoom: 3.0 // Maximum scale (closest in) - e.g., 200% zoom
-  
 };
 
 const network = new vis.Network(container, networkData, options);
@@ -303,7 +300,7 @@ container.addEventListener('wheel', (event) => {
   
   if (event.ctrlKey) {
     // Pinch-to-zoom with limits
-    const zoomSpeed = 0.002;
+    const zoomSpeed = 0.01;
     const currentScale = network.getScale();
     const delta = -event.deltaY;
     let newScale = currentScale * (1 + delta * zoomSpeed);
