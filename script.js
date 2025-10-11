@@ -195,7 +195,7 @@ const options = {
   },
   interaction: {
     dragNodes: false,  // Don't drag individual nodes
-    dragView: true,    // Enable mouse/touch drag panning
+    dragView: false,    // Enable mouse/touch drag panning
     zoomView: false,   // Disable vis-network's wheel handling
     multiselect: false,
     navigationButtons: false,
