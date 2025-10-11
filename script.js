@@ -178,7 +178,9 @@ const options = {
     zoomView: false,
     multiselect: false,
     navigationButtons: false,
-    hover: true
+    hover: true,
+    minZoom: 0.5, // Minimum scale (farthest out) - e.g., 10% zoom
+    maxZoom: 3.0, // Maximum scale (closest in) - e.g., 200% zoom
   },
   physics: { enabled: false },
     //  VIEW BOUNDS
@@ -188,11 +190,7 @@ const options = {
   configure: {
     enabled: false
   },
-  // -------------------------
-  minZoom: 0.5, // Minimum scale (farthest out) - e.g., 10% zoom
-  maxZoom: 3.0, // Maximum scale (closest in) - e.g., 200% zoom
-  // -------------------------
-  };
+};
 
 const network = new vis.Network(container, networkData, options);
 
