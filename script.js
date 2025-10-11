@@ -295,6 +295,26 @@ document.getElementById('zoomOut').addEventListener('click', () => {
 // =====================
 // 5. SCROLL + PINCH ZOOM
 // =====================
+
+// --- Helper function to enforce pan limits ---
+function enforcePanLimits() {
+  const currentPos = network.getViewPosition();
+  let newX = currentPos.x;
+  let newY = currentPos.y;
+
+  // Enforce pan limits
+  newX = Math.max(minX, Math.min(maxX, newX));
+  newY = Math.max(minY, Math.min(maxY, newY));
+  
+  if (newX !== currentPos.x || newY !== currentPos.y) {
+    network.moveTo({
+      position: { x: newX, y: newY },
+      animation: false
+    });
+  }
+}
+// ---------------------------------------------
+  
 container.addEventListener('wheel', (event) => {
   event.preventDefault();
   
@@ -316,24 +336,39 @@ container.addEventListener('wheel', (event) => {
     return;
   }
   
-  // Regular scroll - pan with limits
+ // Regular scroll - pan with limits
   const panSpeed = 1.5;
-  const currentPos = network.getViewPosition();
-  let newX = currentPos.x + (event.deltaX * panSpeed);
-  let newY = currentPos.y + (event.deltaY * panSpeed);
+  const currentPos = network.getViewPosition(); // Gets the current center of the view
+  let newX = currentPos.x - (event.deltaX * panSpeed); // Note: Subtract for intuitive pan direction
+  let newY = currentPos.y - (event.deltaY * panSpeed); // Note: Subtract for intuitive pan direction
   
-  // Enforce pan limits
-  newX = Math.max(minX, Math.min(maxX, newX));
-  newY = Math.max(minY, Math.min(maxY, newY));
-  
+  // Vis-network coordinates are inverted for panning, so we correct delta sign for 'wheel' event
+    
   network.moveTo({
     position: { x: newX, y: newY },
     animation: false
   });
   
+  // The `enforcePanLimits` function will correct it if it moved outside the bounds
+  enforcePanLimits();
   updatePanelPosition();
+
 }, { passive: false });
 
+// ---------------------------------------------
+// ✅ NEW: Enforce limits AFTER vis-network handles the drag
+// ---------------------------------------------
+network.on('dragEnd', () => {
+  enforcePanLimits();
+  updatePanelPosition(); // Important for panel to follow node after drag
+});
+
+// Needed for some touch devices/browsers where long-press cancels drag
+network.on('oncontext', () => {
+  enforcePanLimits();
+  updatePanelPosition();
+});
+// ---------------------------------------------
 
 // =====================
 // 6. INITIAL VIEW
