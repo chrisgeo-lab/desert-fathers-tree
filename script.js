@@ -1,18 +1,56 @@
 // === Desert Fathers Family Tree Script  ===
 // Fixed: Missing node references, improved centering, better panel positioning, fixed node ordering
 
+// Function to detect if the user agent string indicates a mobile device
+function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|Windows Phone|tablet/i.test(navigator.userAgent);
+}
+
+// Global constant to be used throughout the script
+const IS_MOBILE = isMobileDevice();
+
 // Enable pinch to zoom on mobile devices
 let initialPinchDistance = null;
 let initialScale = null;
 
 document.addEventListener('DOMContentLoaded', function() {
 
-// Define the vertical separation distance between levels
-const LEVEL_SEPARATION = 200; 
+// ======================================
+// DEVICE-SPECIFIC VIS.JS CONSTANTS
+// ======================================
+const LEVEL_SEPARATION = IS_MOBILE ? 150 : 200; // Tighter vertical spacing on mobile
+const NODE_FONT_SIZE = IS_MOBILE ? 14 : 16;
+const NODE_MIN_WIDTH = IS_MOBILE ? 100 : 140; // Smaller node size
+const BOUNDARY_PADDING = IS_MOBILE ? 100 : 300; // Tighter panning boundaries
+const PAN_SPEED = IS_MOBILE ? 1.0 : 1.5; // Adjusted pan sensitivity
+// ======================================
 
 // Zoom limits
-const MIN_ZOOM = 0.2;
+const MIN_ZOOM = 0.1;
 const MAX_ZOOM = 2.0;
+
+  // Recalculate node positions and boundaries using the new LEVEL_SEPARATION
+data.nodes.forEach(node => {
+    node.y = node.level * LEVEL_SEPARATION; // Use the new constant
+    node.fixed = { x: true, y: true };
+});
+
+// Recalculate boundaries using the new BOUNDARY_PADDING
+let minX = Infinity, maxX = -Infinity;
+let minY = Infinity, maxY = -Infinity;
+
+data.nodes.forEach(node => {
+    minX = Math.min(minX, node.x);
+    maxX = Math.max(maxX, node.x);
+    minY = Math.min(minY, node.y);
+    maxY = Math.max(maxY, node.y);
+});
+
+minX -= BOUNDARY_PADDING;
+maxX += BOUNDARY_PADDING;
+minY -= BOUNDARY_PADDING;
+maxY += BOUNDARY_PADDING;
+
   
 // =====================
 // 1. DATA: NODES & EDGES
@@ -180,9 +218,9 @@ const options = {
         border: '#8b7355'
       }
     },
-    font: { color: '#333', size: 16, face: 'Georgia, serif' },
+    font: { color: '#333', size: NODE_FONT_SIZE, face: 'Georgia, serif' },
     margin: { top: 12, right: 15, bottom: 12, left: 15 },
-    widthConstraint: { minimum: 140, maximum: 180 },
+    widthConstraint: { minimum: NODE_MIN_WIDTH, maximum: 180 },
     borderWidth: 2,
     shadow: { enabled: true, color: 'rgba(0,0,0,0.15)', size: 8, x: 2, y: 2 },
     shapeProperties: { borderRadius: 12 }
@@ -328,11 +366,10 @@ container.addEventListener('wheel', (event) => {
   }
   
   // Regular scroll - PANNING ONLY
-  const panSpeed = 1.5;
   const currentPos = network.getViewPosition();
   
-  let newX = currentPos.x + (event.deltaX * panSpeed / currentScale);
-  let newY = currentPos.y + (event.deltaY * panSpeed / currentScale);
+  let newX = currentPos.x + (event.deltaX * PAN_SPEED / currentScale);
+  let newY = currentPos.y + (event.deltaY * PAN_SPEED / currentScale);
 
   // Divide pan-speed deltas by the current scale.
   // This ensures the panning speed is consistent regardless of zoom level.
