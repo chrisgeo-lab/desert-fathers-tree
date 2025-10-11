@@ -9,6 +9,23 @@ const LEVEL_SEPARATION = 200;
 // Zoom limits
 const MIN_ZOOM = 0.5;
 const MAX_ZOOM = 3.0;
+
+// Calculate boundaries for panning
+let minX = Infinity, maxX = -Infinity;
+let minY = Infinity, maxY = -Infinity;
+
+data.nodes.forEach(node => {
+  minX = Math.min(minX, node.x);
+  maxX = Math.max(maxX, node.x);
+  minY = Math.min(minY, node.y);
+  maxY = Math.max(maxY, node.y);
+});
+
+const BOUNDARY_PADDING = 300;
+minX -= BOUNDARY_PADDING;
+maxX += BOUNDARY_PADDING;
+minY -= BOUNDARY_PADDING;
+maxY += BOUNDARY_PADDING;
   
 // =====================
 // 1. DATA: NODES & EDGES
@@ -268,12 +285,14 @@ network.on('dragEnd', updatePanelPosition);
 // =====================
 document.getElementById('zoomIn').addEventListener('click', () => {
   const currentScale = network.getScale();
-  network.moveTo({ scale: currentScale * 1.2, animation: { duration: 300, easingFunction: 'easeInOutQuad' } });
+  const newScale = Math.min(currentScale * 1.2, MAX_ZOOM);
+  network.moveTo({ scale: newScale, animation: { duration: 300, easingFunction: 'easeInOutQuad' } });
 });
 
 document.getElementById('zoomOut').addEventListener('click', () => {
   const currentScale = network.getScale();
-  network.moveTo({ scale: currentScale / 1.2, animation: { duration: 300, easingFunction: 'easeInOutQuad' } });
+  const newScale = Math.max(currentScale / 1.2, MIN_ZOOM);
+  network.moveTo({ scale: newScale, animation: { duration: 300, easingFunction: 'easeInOutQuad' } });
 });
 
 // =====================
@@ -282,13 +301,15 @@ document.getElementById('zoomOut').addEventListener('click', () => {
 container.addEventListener('wheel', (event) => {
   event.preventDefault();
   
-  // Check if this is a pinch gesture (ctrlKey is set during pinch on most browsers)
   if (event.ctrlKey) {
-    // This is a pinch-to-zoom gesture - handle zoom
+    // Pinch-to-zoom with limits
     const zoomSpeed = 0.002;
     const currentScale = network.getScale();
     const delta = -event.deltaY;
-    const newScale = currentScale * (1 + delta * zoomSpeed);
+    let newScale = currentScale * (1 + delta * zoomSpeed);
+    
+    // Enforce zoom limits
+    newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newScale));
     
     network.moveTo({
       scale: newScale,
@@ -298,17 +319,21 @@ container.addEventListener('wheel', (event) => {
     return;
   }
   
-  // Regular scroll - pan both horizontally and vertically
+  // Regular scroll - pan with limits
   const panSpeed = 1.5;
+  const currentPos = network.getViewPosition();
+  let newX = currentPos.x + (event.deltaX * panSpeed);
+  let newY = currentPos.y + (event.deltaY * panSpeed);
+  
+  // Enforce pan limits
+  newX = Math.max(minX, Math.min(maxX, newX));
+  newY = Math.max(minY, Math.min(maxY, newY));
+  
   network.moveTo({
-    position: {
-      x: network.getViewPosition().x + (event.deltaX * panSpeed),
-      y: network.getViewPosition().y + (event.deltaY * panSpeed)
-    },
+    position: { x: newX, y: newY },
     animation: false
   });
   
-  // Update panel position after panning
   updatePanelPosition();
 }, { passive: false });
 
