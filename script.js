@@ -201,6 +201,10 @@ const options = {
     navigationButtons: false,
     hover: true
   },
+   limits: {
+    x: [minX, maxX],
+    y: [minY, maxY]
+  },
   physics: { enabled: false },
 };
 
@@ -295,80 +299,47 @@ document.getElementById('zoomOut').addEventListener('click', () => {
 // =====================
 // 5. SCROLL + PINCH ZOOM
 // =====================
-
-// --- Helper function to enforce pan limits ---
-function enforcePanLimits() {
-  const currentPos = network.getViewPosition();
-  let newX = currentPos.x;
-  let newY = currentPos.y;
-
-  // Enforce pan limits
-  newX = Math.max(minX, Math.min(maxX, newX));
-  newY = Math.max(minY, Math.min(maxY, newY));
-  
-  if (newX !== currentPos.x || newY !== currentPos.y) {
-    network.moveTo({
-      position: { x: newX, y: newY },
-      animation: false
-    });
-  }
-}
-// ---------------------------------------------
   
 container.addEventListener('wheel', (event) => {
-  event.preventDefault();
-  
-  if (event.ctrlKey) {
-    // Pinch-to-zoom with limits
-    const zoomSpeed = 0.01;
-    const currentScale = network.getScale();
-    const delta = -event.deltaY;
-    let newScale = currentScale * (1 + delta * zoomSpeed);
-    
-    // Enforce zoom limits
-    newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newScale));
-    
-    network.moveTo({
-      scale: newScale,
-      animation: false
-    });
-    updatePanelPosition();
-    return;
-  }
-  
- // Regular scroll - pan with limits
-  const panSpeed = 1.5;
-  const currentPos = network.getViewPosition(); // Gets the current center of the view
-  let newX = currentPos.x + (event.deltaX * panSpeed); // Note: Switch sign to invert pan direction
-  let newY = currentPos.y + (event.deltaY * panSpeed); // Note: Switch sign to invert pan direction
-  
-  // Vis-network coordinates are inverted for panning, so we correct delta sign for 'wheel' event
-    
-  network.moveTo({
-    position: { x: newX, y: newY },
-    animation: false
-  });
-  
-  // The `enforcePanLimits` function will correct it if it moved outside the bounds
-  enforcePanLimits();
-  updatePanelPosition();
+  event.preventDefault();
+  
+  if (event.ctrlKey) {
+    // Pinch-to-zoom with limits
+    const zoomSpeed = 0.01;
+    const currentScale = network.getScale();
+    const delta = -event.deltaY;
+    let newScale = currentScale * (1 + delta * zoomSpeed);
+    
+    // Enforce zoom limits
+    newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newScale));
+    
+    network.moveTo({
+      scale: newScale,
+      animation: false
+    });
+    updatePanelPosition();
+    return;
+  }
+  
+  // Regular scroll - pan with limits and corrected direction
+  const panSpeed = 1.5;
+  const currentPos = network.getViewPosition();
+  
+  let newX = currentPos.x - (event.deltaX * panSpeed);
+  let newY = currentPos.y - (event.deltaY * panSpeed);
 
+  // Manually enforce pan limits for the wheel event
+  newX = Math.max(minX, Math.min(maxX, newX));
+  newY = Math.max(minY, Math.min(maxY, newY));
+  
+  network.moveTo({
+    position: { x: newX, y: newY },
+    animation: false
+  });
+  
+  updatePanelPosition();
 }, { passive: false });
 
-// ---------------------------------------------
-// ✅ NEW: Enforce limits AFTER vis-network handles the drag
-// ---------------------------------------------
-network.on('dragEnd', () => {
-  enforcePanLimits();
-  updatePanelPosition(); // Important for panel to follow node after drag
-});
-
-// Needed for some touch devices/browsers where long-press cancels drag
-network.on('oncontext', () => {
-  enforcePanLimits();
-  updatePanelPosition();
-});
-// ---------------------------------------------
 
 // =====================
 // 6. INITIAL VIEW
