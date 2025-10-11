@@ -196,7 +196,7 @@ const options = {
   interaction: {
     dragNodes: false,  // Don't drag individual nodes
     dragView: true,    // Enable mouse/touch drag panning
-    zoomView: true, 
+    zoomView: false,   // Disable vis-network's wheel handling
     multiselect: false,
     navigationButtons: false,
     hover: true
@@ -205,7 +205,10 @@ const options = {
 };
 
 const network = new vis.Network(container, networkData, options);
+// Disable vis-network's internal wheel event handling
+network.body.eventListeners.wheel = [];
 
+  
 // =====================
 // 3. INFO PANEL
 // =====================
