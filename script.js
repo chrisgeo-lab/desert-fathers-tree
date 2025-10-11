@@ -326,8 +326,8 @@ container.addEventListener('wheel', (event) => {
   const panSpeed = 1.5;
   const currentPos = network.getViewPosition();
   
-  let newX = currentPos.x - (event.deltaX * panSpeed / currentScale);
-  let newY = currentPos.y - (event.deltaY * panSpeed / currentScale);
+  let newX = currentPos.x + (event.deltaX * panSpeed / currentScale);
+  let newY = currentPos.y + (event.deltaY * panSpeed / currentScale);
 
   // The key correction: Divide pan-speed deltas by the current scale.
   // This ensures the panning speed is consistent regardless of zoom level.
