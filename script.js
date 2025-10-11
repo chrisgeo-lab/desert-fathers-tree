@@ -279,7 +279,7 @@ network.on('click', (params) => {
 
 // Update panel position when view changes
 network.on('zoom', updatePanelPosition);
-network.on('dragEnd', updatePanelPosition);
+network.on('viewChanged', updatePanelPosition);
 
 // =====================
 // 4. ZOOM BUTTONS
