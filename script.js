@@ -239,6 +239,7 @@ let activeNodeId = null;
 function showInfoPanel(node) {
   activeNodeId = node.id;
   panel.innerHTML = `
+  <button id="close-info-panel" aria-label="Close Panel">×</button>
   <div class="panel-image-container">
         <img src="${node.image}" alt="${node.label}" class="panel-image">
     </div>
@@ -251,7 +252,8 @@ function showInfoPanel(node) {
   panel.classList.remove('hidden');
   updatePanelPosition();
 
-  // ----------------------------------------------------
+document.getElementById('close-info-panel').addEventListener('click', hideInfoPanel);
+  
 }
 
 function hideInfoPanel() {
