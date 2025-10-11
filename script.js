@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
 // Define the vertical separation distance between levels
 const LEVEL_SEPARATION = 200; 
 
+// Zoom limits
+const MIN_ZOOM = 0.5;
+const MAX_ZOOM = 3.0;
+  
 // =====================
 // 1. DATA: NODES & EDGES
 // =====================
