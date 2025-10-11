@@ -325,7 +325,6 @@ container.addEventListener('wheel', (event) => {
   // Regular scroll - PANNING ONLY
   const panSpeed = 1.5;
   const currentPos = network.getViewPosition();
-  const currentScale = network.getScale();
   
   let newX = currentPos.x + (event.deltaX * panSpeed / currentScale);
   let newY = currentPos.y + (event.deltaY * panSpeed / currentScale);
@@ -333,8 +332,8 @@ container.addEventListener('wheel', (event) => {
   // Divide pan-speed deltas by the current scale.
   // This ensures the panning speed is consistent regardless of zoom level.
 
-  // newX = Math.max(minX, Math.min(maxX, newX));
-  // newY = Math.max(minY, Math.min(maxY, newY));
+  newX = Math.max(minX, Math.min(maxX, newX));
+  newY = Math.max(minY, Math.min(maxY, newY));
   
   network.moveTo({
     position: { x: newX, y: newY },
