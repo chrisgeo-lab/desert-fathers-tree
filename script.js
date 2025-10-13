@@ -341,12 +341,12 @@ container.addEventListener('wheel', (event) => {
     
     // 3. Calculate the new center of the view
     const viewCenter = network.getViewPosition();
-    const shiftX = (cursorWorld.x - viewCenter.x) * (1 - currentScale / newScale);
-    const shiftY = (cursorWorld.y - viewCenter.y) * (1 - currentScale / newScale);
+    const shiftX = (cursorWorld.x - viewCenter.x) * (currentScale / newScale - 1);
+    const shiftY = (cursorWorld.y - viewCenter.y) * (currentScale / newScale - 1);
     
     const newPosition = {
-        x: viewCenter.x - shiftX,
-        y: viewCenter.y - shiftY
+        x: viewCenter.x + shiftX,
+        y: viewCenter.y + shiftY
     };
     
     network.moveTo({
@@ -436,12 +436,12 @@ container.addEventListener('touchmove', (event) => {
             y: initialPinchCenter.y - container.getBoundingClientRect().top
         });
 
-        const shiftX = (pinchWorld.x - viewCenter.x) * (1 - initialScale / newScale);
-        const shiftY = (pinchWorld.y - viewCenter.y) * (1 - initialScale / newScale);
+        const shiftX = (pinchWorld.x - viewCenter.x) * (initialScale / newScale - 1);
+        const shiftY = (pinchWorld.y - viewCenter.y) * (initialScale / newScale - 1);
 
         const newPosition = {
-            x: viewCenter.x - shiftX,
-            y: viewCenter.y - shiftY
+            x: viewCenter.x + shiftX,
+            y: viewCenter.y + shiftY
         };
 
         network.moveTo({
