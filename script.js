@@ -237,6 +237,7 @@ const network = new vis.Network(container, networkData, options);
 // 3. INFO PANEL
 // =====================
 const panel = document.getElementById('info-panel');
+const backdrop = document.getElementById('panel-backdrop'); 
 let activeNodeId = null;
 
 function showInfoPanel(node) {
@@ -253,18 +254,35 @@ function showInfoPanel(node) {
     </div>
   `;
   panel.classList.remove('hidden');
-  updatePanelPosition();
+ // --- MOBILE OVERLAY LOGIC ---
+    if (IS_MOBILE && backdrop) {
+        backdrop.classList.remove('hidden'); // Show the backdrop
+        // When the user clicks the backdrop, close the panel
+        // Use { once: true } so the listener is automatically removed after one click
+        backdrop.addEventListener('click', hideInfoPanel, { once: true }); 
+    } else {
+        // Desktop: Position near the node
+        updatePanelPosition();
+    }
 
-document.getElementById('close-info-panel').addEventListener('click', hideInfoPanel);
-  
+document.getElementById('close-info-panel').addEventListener('click', hideInfoPanel);  
 }
 
 function hideInfoPanel() {
   panel.classList.add('hidden');
+    // --- MOBILE OVERLAY LOGIC ---
+    if (IS_MOBILE && backdrop) {
+        backdrop.classList.add('hidden'); // Hide the backdrop
+        // Clean up the event listener just in case {once: true} didn't catch it
+        backdrop.removeEventListener('click', hideInfoPanel); 
+    }
   activeNodeId = null;
 }
 
 function updatePanelPosition() {
+  // Only execute desktop positioning if we are NOT on mobile
+  if (IS_MOBILE) return; 
+    
   if (!activeNodeId) return;
   const pos = network.getPositions([activeNodeId])[activeNodeId];
   if (!pos) return;
@@ -291,9 +309,11 @@ network.on('click', (params) => {
   }
 });
 
-// Update panel position when view changes
-network.on('zoom', updatePanelPosition);
-network.on('viewChanged', updatePanelPosition);
+// Update panel position when view changes (only necessary for desktop mode)
+if (!IS_MOBILE) {
+    network.on('zoom', updatePanelPosition);
+    network.on('viewChanged', updatePanelPosition);
+}
 
 // =====================
 // 4. ZOOM BUTTONS
