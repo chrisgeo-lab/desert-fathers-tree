@@ -398,6 +398,8 @@ container.addEventListener('touchstart', (event) => {
             x: (event.touches[0].clientX + event.touches[1].clientX) / 2,
             y: (event.touches[0].clientY + event.touches[1].clientY) / 2
         };
+
+        initialPinchCenter.view = network.getViewPosition();
         
     } else {
         initialPinchDistance = null;
@@ -426,19 +428,20 @@ container.addEventListener('touchmove', (event) => {
         // Enforce zoom limits (MIN_ZOOM and MAX_ZOOM are defined globally)
         newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newScale));
         
-        const viewCenter = network.getViewPosition();
+       // Use the view center captured at touchstart (so zoom anchors to the pinch center consistently)
+        const viewCenter = initialPinchCenter && initialPinchCenter.view ? initialPinchCenter.view : network.getViewPosition();
         
-        const pinchWorld = network.DOMtoCanvas({
+        // Compute pinch center in DOM coords relative to container, then convert to world coords
+        const pinchDOM = {
             x: initialPinchCenter.x - container.getBoundingClientRect().left,
             y: initialPinchCenter.y - container.getBoundingClientRect().top
-        });
+        };
+        const pinchWorld = network.DOMtoCanvas(pinchDOM);
 
-        const shiftX = (pinchWorld.x - viewCenter.x) * (1 - initialScale / newScale);
-        const shiftY = (pinchWorld.y - viewCenter.y) * (1 - initialScale / newScale);
-
+        // FIXED MATH: keep pinchWorld fixed by computing new center this way
         const newPosition = {
-            x: viewCenter.x - shiftX,
-            y: viewCenter.y - shiftY
+            x: pinchWorld.x - (pinchWorld.x - viewCenter.x) * (initialScale / newScale),
+            y: pinchWorld.y - (pinchWorld.y - viewCenter.y) * (initialScale / newScale)
         };
 
         network.moveTo({
