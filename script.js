@@ -13,6 +13,9 @@ const IS_MOBILE = isMobileDevice();
 let initialPinchDistance = null;
 let initialScale = null;
 
+// NEW: Store the screen position of the pinch start to calculate the center point
+let initialPinchCenter = null; 
+
 document.addEventListener('DOMContentLoaded', function() {
 
 // ======================================
@@ -325,7 +328,29 @@ container.addEventListener('wheel', (event) => {
     // Enforce zoom limits
     newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newScale));
     
+    const containerRect = container.getBoundingClientRect();
+    
+    // 1. Get the DOM position of the cursor
+    const cursorDOM = {
+      x: event.clientX - containerRect.left,
+      y: event.clientY - containerRect.top
+    };
+    
+    // 2. Convert cursor DOM position to World (Canvas) position
+    const cursorWorld = network.DOMtoCanvas(cursorDOM);
+    
+    // 3. Calculate the new center of the view
+    const viewCenter = network.getViewPosition();
+    const shiftX = (cursorWorld.x - viewCenter.x) * (1 - currentScale / newScale);
+    const shiftY = (cursorWorld.y - viewCenter.y) * (1 - currentScale / newScale);
+    
+    const newPosition = {
+        x: viewCenter.x - shiftX,
+        y: viewCenter.y - shiftY
+    };
+    
     network.moveTo({
+      position: newPosition, // Use the calculated position
       scale: newScale,
       animation: false
     });
@@ -370,9 +395,17 @@ container.addEventListener('touchstart', (event) => {
         
         // Store the current network scale
         initialScale = network.getScale();
+
+        // Store the initial pinch center on screen
+        initialPinchCenter = {
+            x: (event.touches[0].clientX + event.touches[1].clientX) / 2,
+            y: (event.touches[0].clientY + event.touches[1].clientY) / 2
+        };
+        
     } else {
         initialPinchDistance = null;
         initialScale = null;
+        initialPinchCenter = null; //  Reset
     }
 }, { passive: false });
 
@@ -396,8 +429,23 @@ container.addEventListener('touchmove', (event) => {
         // Enforce zoom limits (MIN_ZOOM and MAX_ZOOM are defined globally)
         newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newScale));
         
-        // Move/zoom the network
+        const viewCenter = network.getViewPosition();
+        
+        const pinchWorld = network.DOMtoCanvas({
+            x: initialPinchCenter.x - container.getBoundingClientRect().left,
+            y: initialPinchCenter.y - container.getBoundingClientRect().top
+        });
+
+        const shiftX = (pinchWorld.x - viewCenter.x) * (1 - initialScale / newScale);
+        const shiftY = (pinchWorld.y - viewCenter.y) * (1 - initialScale / newScale);
+
+        const newPosition = {
+            x: viewCenter.x - shiftX,
+            y: viewCenter.y - shiftY
+        };
+
         network.moveTo({
+            position: newPosition, // Use the calculated position
             scale: newScale,
             animation: false
         });
@@ -412,6 +460,7 @@ container.addEventListener('touchend', (event) => {
     // Reset state when touches end
     initialPinchDistance = null;
     initialScale = null;
+    initialPinchCenter = null; // Reset
     
     // A touchend might represent the end of a drag, so update the panel one last time
     updatePanelPosition(); 
