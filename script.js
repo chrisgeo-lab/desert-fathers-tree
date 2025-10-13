@@ -129,19 +129,19 @@ const data = {
     { "from": 52, "to": 53 },
     
     // Companion edges (dashed horizontal for contemporaries)
-    { "from": 5, "to": 6, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
-    { "from": 1, "to": 3, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
-    { "from": 18, "to": 31, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
-    { "from": 19, "to": 20, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
+    { "from": 5, "to": 6, "dashes": true, "arrows": "none", "color": { "color": "#999", "highlight": "#C88000" } },
+    { "from": 1, "to": 3, "dashes": true, "arrows": "none", "color": { "color": "#999", "highlight": "#C88000" } },
+    { "from": 18, "to": 31, "dashes": true, "arrows": "none", "color": { "color": "#999", "highlight": "#C88000" } },
+    { "from": 19, "to": 20, "dashes": true, "arrows": "none", "color": { "color": "#999", "highlight": "#C88000" } },
     // { "from": 23, "to": 30, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
-    { "from": 23, "to": 55, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
-    { "from": 27, "to": 28, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
-    { "from": 17, "to": 26, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
-    { "from": 34, "to": 35, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
-    { "from": 37, "to": 38, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
-    { "from": 38, "to": 39, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
-    { "from": 40, "to": 41, "dashes": true, "arrows": "none", "color": { "color": "#999" } },
-    { "from": 42, "to": 43, "dashes": true, "arrows": "none", "color": { "color": "#999" } }
+    { "from": 23, "to": 55, "dashes": true, "arrows": "none", "color": { "color": "#999", "highlight": "#C88000" } },
+    { "from": 27, "to": 28, "dashes": true, "arrows": "none", "color": { "color": "#999", "highlight": "#C88000" } },
+    { "from": 17, "to": 26, "dashes": true, "arrows": "none", "color": { "color": "#999", "highlight": "#C88000" } },
+    { "from": 34, "to": 35, "dashes": true, "arrows": "none", "color": { "color": "#999", "highlight": "#C88000" } },
+    { "from": 37, "to": 38, "dashes": true, "arrows": "none", "color": { "color": "#999", "highlight": "#C88000" } },
+    { "from": 38, "to": 39, "dashes": true, "arrows": "none", "color": { "color": "#999", "highlight": "#C88000" } },
+    { "from": 40, "to": 41, "dashes": true, "arrows": "none", "color": { "color": "#999", "highlight": "#C88000" } },
+    { "from": 42, "to": 43, "dashes": true, "arrows": "none", "color": { "color": "#999", "highlight": "#C88000" } }
   ]
 };
 
@@ -213,7 +213,7 @@ const options = {
       forceDirection: 'vertical',
       roundness: 0.5 
     },
-    color: { color: '#4A3B2F', highlight: '#B45F06' },
+    color: { color: '#4A3B2F', highlight: '#C88000' },
     width: 3
   },
   interaction: {
