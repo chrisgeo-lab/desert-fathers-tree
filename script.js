@@ -195,7 +195,8 @@ const options = {
       border: '#6b5d4f',
       highlight: {
         background: '#e3d9c6',
-        border: '#8b7355'
+        border: '#8b7355',
+        highlight: '#C88000' 
       }
     },
     font: { color: '#333', size: NODE_FONT_SIZE, face: 'Georgia, serif' },
