@@ -345,8 +345,8 @@ container.addEventListener('wheel', (event) => {
     const shiftY = (cursorWorld.y - viewCenter.y) * (1 - currentScale / newScale);
     
     const newPosition = {
-        x: viewCenter.x + shiftX,
-        y: viewCenter.y + shiftY
+        x: viewCenter.x - shiftX,
+        y: viewCenter.y - shiftY
     };
     
     network.moveTo({
@@ -436,12 +436,12 @@ container.addEventListener('touchmove', (event) => {
             y: initialPinchCenter.y - container.getBoundingClientRect().top
         });
 
-        const shiftX = (pinchWorld.x - viewCenter.x) * (initialScale / newScale - 1);
-        const shiftY = (pinchWorld.y - viewCenter.y) * (initialScale / newScale - 1);
+        const shiftX = (pinchWorld.x - viewCenter.x) * (1 - initialScale / newScale);
+        const shiftY = (pinchWorld.y - viewCenter.y) * (1 - initialScale / newScale);
 
         const newPosition = {
-            x: viewCenter.x + shiftX,
-            y: viewCenter.y + shiftY
+            x: viewCenter.x - shiftX,
+            y: viewCenter.y - shiftY
         };
 
         network.moveTo({
