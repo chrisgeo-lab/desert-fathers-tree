@@ -291,7 +291,7 @@ header p {
 /* === Legend Overlay (Top Left) === */
 .legend-container {
     position: fixed;
-    top: 120px; /* Adjust this value to sit right under the header */
+    top: 140px; /* Adjust this value to sit right under the header */
     left: 20px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
