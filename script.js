@@ -213,7 +213,7 @@ const options = {
       forceDirection: 'vertical',
       roundness: 0.5 
     },
-    color: { color: '#4A3B2F', highlight: '#C88000' },
+    color: { color: '#4A3B2F', highlight: '#B45F06' },
     width: 3
   },
   interaction: {
