@@ -201,6 +201,7 @@ const options = {
     font: { color: '#333', size: NODE_FONT_SIZE, face: 'Georgia, serif' },
     margin: { top: 12, right: 15, bottom: 12, left: 15 },
     widthConstraint: { minimum: NODE_MIN_WIDTH, maximum: 180 },
+    heightConstraint: { minimum: 50, maximum: 60 },
     borderWidth: 2,
     shadow: { enabled: true, color: 'rgba(0,0,0,0.15)', size: 8, x: 2, y: 2 },
     shapeProperties: { borderRadius: 12 }
