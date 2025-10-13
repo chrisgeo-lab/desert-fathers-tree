@@ -46,6 +46,9 @@ header p {
   border-top: 1px solid #ccc;
   background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.3), transparent),
               linear-gradient(to bottom, #f5ebe0, #ede0d4);
+  background-image: url('images/sand.jpg');
+  opacity: 0.2; /* Make the image very subtle and fixed in place */
+  background-blend-mode: multiply; /* Optional: Blends the image color with the background-color */
 }
 
 /* === Info panel for node details === */
