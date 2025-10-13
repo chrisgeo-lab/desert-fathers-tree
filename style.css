@@ -117,14 +117,31 @@ header p {
 /* --- MOBILE-SPECIFIC STYLES --- */
 /* ================================================= */
 @media (max-width: 768px) {
-    /* Info Panel Adjustments */
+
+  /* NEW: Full-screen overlay to disable graph interaction */
+    #panel-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay */
+        z-index: 1000; /* Below panel (1001) but above graph */
+    }
+
+    /* We need to define the hidden state for the backdrop */
+    #panel-backdrop.hidden {
+        display: none !important;
+    }
+  
+  /* Info Panel Adjustments */
     #info-panel {
         width: 100%; 
         left: 0 !important; /* Force to left edge */
         bottom: 0; /* Pin to the bottom */
         top: auto !important; /* Ignore JS top position */
         position: fixed; /* Keep panel fixed on screen */
-        max-height: 40vh; /* Limit height to 40% of viewport */
+        max-height: 90vh; /* Limit height to 40% of viewport */
         overflow-y: scroll; /* Allow content to scroll */
         z-index: 1001;
         border-radius: 10px 10px 0 0;
