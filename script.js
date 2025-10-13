@@ -380,77 +380,83 @@ container.addEventListener('wheel', (event) => {
 // =====================
 
 container.addEventListener('touchstart', (event) => {
-    // Check if two fingers are touching
+    // Only proceed if exactly two fingers are touching
     if (event.touches.length === 2) {
-        // Prevent default browser behavior (like page zoom/scroll)
-        event.preventDefault(); 
-        
-        // Calculate the initial distance between the two touches
+        event.preventDefault();
+
+        // 1. Calculate the initial distance
         const dx = event.touches[0].clientX - event.touches[1].clientX;
         const dy = event.touches[0].clientY - event.touches[1].clientY;
         initialPinchDistance = Math.sqrt(dx * dx + dy * dy);
-        
-        // Store the current network scale
-        initialScale = network.getScale();
 
-        // Store the initial pinch center on screen
-        initialPinchCenter = {
+        // 2. Store the current network state
+        initialScale = network.getScale();
+        
+        // 3. Calculate and store the initial pinch center (DOM coordinates on screen)
+        const pinchCenterDOM = {
             x: (event.touches[0].clientX + event.touches[1].clientX) / 2,
             y: (event.touches[0].clientY + event.touches[1].clientY) / 2
         };
 
-        initialPinchCenter.view = network.getViewPosition();
-        
+        // 4. Convert pinch center to the vis.js world/canvas coordinates
+        // This is the point we want the zoom to anchor around.
+        const containerRect = container.getBoundingClientRect();
+        const pinchCenterContainerDOM = {
+            x: pinchCenterDOM.x - containerRect.left,
+            y: pinchCenterDOM.y - containerRect.top
+        };
+        const pinchCenterWorld = network.DOMtoCanvas(pinchCenterContainerDOM);
+
+        // Store all initial data needed for consistent zooming
+        initialPinchCenter = {
+            world: pinchCenterWorld, // The fixed point in the graph we're zooming towards/away from
+            view: network.getViewPosition() // The view center at the start of the gesture
+        };
     } else {
+        // Reset if fewer or more than 2 touches
         initialPinchDistance = null;
         initialScale = null;
-        initialPinchCenter = null; //  Reset
+        initialPinchCenter = null;
     }
 }, { passive: false });
 
 
 container.addEventListener('touchmove', (event) => {
-    // Check if we are currently in a pinch gesture
-    if (initialPinchDistance !== null && event.touches.length === 2) {
-        event.preventDefault(); // Keep preventing default behavior during movement
+    // Check if we are currently in a valid pinch gesture
+    if (initialPinchDistance !== null && initialPinchCenter !== null && event.touches.length === 2) {
+        event.preventDefault();
 
         // Calculate the current distance between the two touches
         const dx = event.touches[0].clientX - event.touches[1].clientX;
         const dy = event.touches[0].clientY - event.touches[1].clientY;
         const currentPinchDistance = Math.sqrt(dx * dx + dy * dy);
-        
-        // Calculate the ratio of the current distance to the initial distance
+
+        // Calculate the scale ratio
         const scaleRatio = currentPinchDistance / initialPinchDistance;
-        
+
         // Determine the new scale
         let newScale = initialScale * scaleRatio;
-        
-        // Enforce zoom limits (MIN_ZOOM and MAX_ZOOM are defined globally)
-        newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newScale));
-        
-       // Use the view center captured at touchstart (so zoom anchors to the pinch center consistently)
-        const viewCenter = initialPinchCenter && initialPinchCenter.view ? initialPinchCenter.view : network.getViewPosition();
-        
-        // Compute pinch center in DOM coords relative to container, then convert to world coords
-        const pinchDOM = {
-            x: initialPinchCenter.x - container.getBoundingClientRect().left,
-            y: initialPinchCenter.y - container.getBoundingClientRect().top
-        };
-        const pinchWorld = network.DOMtoCanvas(pinchDOM);
 
-        // FIXED MATH: keep pinchWorld fixed by computing new center this way
+        // Enforce zoom limits
+        newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newScale));
+
+        // Pull the initial center and view from the stored object
+        const pinchWorld = initialPinchCenter.world;
+        const initialViewCenter = initialPinchCenter.view;
+        
+        // Correct calculation for the new view center:
+        // This formula ensures the world point (`pinchWorld`) remains under the finger center.
         const newPosition = {
-            x: pinchWorld.x - (pinchWorld.x - viewCenter.x) * (initialScale / newScale),
-            y: pinchWorld.y - (pinchWorld.y - viewCenter.y) * (initialScale / newScale)
+            x: pinchWorld.x - (pinchWorld.x - initialViewCenter.x) * (initialScale / newScale),
+            y: pinchWorld.y - (pinchWorld.y - initialViewCenter.y) * (initialScale / newScale)
         };
 
         network.moveTo({
-            position: newPosition, // Use the calculated position
+            position: newPosition,
             scale: newScale,
             animation: false
         });
         
-        // Update the info panel position during the continuous zoom
         updatePanelPosition();
     }
 }, { passive: false });
@@ -460,10 +466,9 @@ container.addEventListener('touchend', (event) => {
     // Reset state when touches end
     initialPinchDistance = null;
     initialScale = null;
-    initialPinchCenter = null; // Reset
+    initialPinchCenter = null;
     
-    // A touchend might represent the end of a drag, so update the panel one last time
-    updatePanelPosition(); 
+    updatePanelPosition();
 });
   
 // =====================
