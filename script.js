@@ -341,8 +341,8 @@ container.addEventListener('wheel', (event) => {
     
     // 3. Calculate the new center of the view
     const viewCenter = network.getViewPosition();
-    const shiftX = (cursorWorld.x - viewCenter.x) * (currentScale / newScale - 1);
-    const shiftY = (cursorWorld.y - viewCenter.y) * (currentScale / newScale - 1);
+    const shiftX = (cursorWorld.x - viewCenter.x) * (1 - currentScale / newScale);
+    const shiftY = (cursorWorld.y - viewCenter.y) * (1 - currentScale / newScale);
     
     const newPosition = {
         x: viewCenter.x + shiftX,
