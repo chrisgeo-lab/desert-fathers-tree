@@ -108,7 +108,7 @@ header p {
   color: #990000; /* Darker, richer red */
   text-decoration: none;
   font-weight: bold;
-  display: block; /* Makes the link take up its own line */
+  display: inline; /* Makes the link take up its own line */
   margin-top: 10px;
   transition: color 0.2s;
   pointer-events: auto; /* Re-enables clicking on the link */
