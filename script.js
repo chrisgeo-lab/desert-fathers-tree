@@ -421,7 +421,7 @@ container.addEventListener('touchend', (event) => {
 // 7. INITIAL VIEW
 // =====================
 // Center on Anthony the Great initially
-network.once('stabilizationIterationsDone', () => {
+network.once('afterDrawing', () => {
   network.focus(1, { scale: 0.8, animation: { duration: 1000, easingFunction: 'easeInOutQuad' } });
 });
 
