@@ -282,3 +282,59 @@ header p {
 .instructions strong {
   color: #3a2f28;
 }
+
+/* === Legend Overlay (Top Left) === */
+.legend-container {
+    position: fixed;
+    top: 100px; /* Adjust this value to sit right under the header */
+    left: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(139, 115, 85, 0.2);
+    z-index: 15; /* Ensure it is above the tree and instructions */
+    max-width: 300px;
+    font-size: 0.9rem;
+    color: #5a4d42;
+}
+
+.legend-container p {
+    margin: 0 0 8px 0;
+    color: #3a2f28;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.legend-line {
+    display: inline-block;
+    width: 30px; /* Length of the line segment */
+    height: 3px; /* Thickness of the line */
+    margin-right: 8px;
+    border-radius: 1px;
+    background-color: #4A3B2F; /* Default line color from your edges */
+}
+
+/* Solid Line Style */
+.legend-line.solid {
+    border-bottom: 3px solid #4A3B2F;
+}
+
+/* Dashed Line Style */
+.legend-line.dashed {
+    /* Uses CSS border-style to create the dashed look */
+    border-bottom: 3px dashed #999; 
+    background: none; /* Clear background to see the dashes */
+    height: 0; /* Ensures only the border is visible */
+}
+
+.legend-text {
+    line-height: 1.2;
+}
+
+
