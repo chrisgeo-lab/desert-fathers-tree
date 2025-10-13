@@ -422,9 +422,11 @@ container.addEventListener('touchend', (event) => {
 // =====================
 // Initial view is of the entire tree
 network.once('afterDrawing', () => {
+  console.log('afterDrawing fired, IS_MOBILE:', IS_MOBILE);
   network.fit({ 
     animation: { duration: 1000, easingFunction: 'easeInOutQuad' } 
   });
+  console.log('fit() called, scale:', network.getScale());
 });
 
 });
