@@ -51,7 +51,7 @@ header p {
 /* === BACKGROUND IMAGE LAYER === */
 #tree-container::before {
     content: ""; /* CRITICAL: Must be present for ::before to render */
-    background-image: url('images/sand-texture.jpg');
+    background-image: url('images/sand.jpg');
     background-attachment: fixed; /* Optional: Makes the background static during scroll/pan */
 
     /* Positioning to cover the entire container */
