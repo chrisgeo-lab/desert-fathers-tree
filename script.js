@@ -426,7 +426,8 @@ const MOBILE_CENTER_Y_OFFSET = IS_MOBILE ? -150 : 0;
 const INITIAL_SCALE = IS_MOBILE ? 0.6 : 0.8; 
 
 // Center on Anthony the Great initially
-network.once('stabilizationIterationsDone', () => {
+// Use 'afterDrawing' instead of 'stabilizationIterationsDone' since physics is disabled
+network.once('afterDrawing', () => {
     // 1. Get the world coordinates of node 1 (Anthony the Great)
     const anthonyPos = network.getPositions([1])[1];
 
@@ -439,4 +440,6 @@ network.once('stabilizationIterationsDone', () => {
         scale: INITIAL_SCALE, // Use the adjusted initial scale
         animation: { duration: 1000, easingFunction: 'easeInOutQuad' } 
     });
+});
+
 });
