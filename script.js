@@ -214,7 +214,7 @@ const options = {
       forceDirection: 'vertical',
       roundness: 0.5 
     },
-    color: { color: '#4A3B2F', highlight: '#C88000', hover: {color: '#C88000'} },
+    color: { color: '#4A3B2F', highlight: '#C88000'},
     width: 3
   },
   interaction: {
