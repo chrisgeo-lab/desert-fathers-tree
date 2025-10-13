@@ -420,9 +420,11 @@ container.addEventListener('touchend', (event) => {
 // =====================
 // 7. INITIAL VIEW
 // =====================
-// Center on Anthony the Great initially
+// Initial view is of the entire tree
 network.once('afterDrawing', () => {
-  network.focus(1, { scale: 0.8, animation: { duration: 1000, easingFunction: 'easeInOutQuad' } });
+  network.fit({ 
+    animation: { duration: 1000, easingFunction: 'easeInOutQuad' } 
+  });
 });
 
 });
