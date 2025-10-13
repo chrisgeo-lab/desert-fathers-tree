@@ -136,7 +136,7 @@ header p {
   
   /* Info Panel Adjustments */
     #info-panel {
-        width: 100%; 
+        width: 80%; 
         max-width: 80%;
         left: 50% !important;
         transform: translateX(-50%); /* Centers the element horizontally */
