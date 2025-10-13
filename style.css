@@ -137,8 +137,8 @@ header p {
   /* Info Panel Adjustments */
     #info-panel {
         width: 100%; 
-        left: 25 !important; /* Force to left edge */
-        bottom: 25; /* Pin to the bottom */
+        left: 0 !important; /* Force to left edge */
+        bottom: 0; /* Pin to the bottom */
         top: auto !important; /* Ignore JS top position */
         position: fixed; /* Keep panel fixed on screen */
         max-height: 90vh; /* Limit height to 90% of viewport */
