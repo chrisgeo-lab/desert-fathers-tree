@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // ======================================
 // DEVICE-SPECIFIC VIS.JS CONSTANTS
 // ======================================
-const LEVEL_SEPARATION = IS_MOBILE ? 250 : 200; // Tighter vertical spacing on mobile
-const NODE_FONT_SIZE = IS_MOBILE ? 18 : 24;
+const LEVEL_SEPARATION = IS_MOBILE ? 250 : 250; // Tighter vertical spacing on mobile
+const NODE_FONT_SIZE = IS_MOBILE ? 16 : 20;
 const NODE_MIN_WIDTH = IS_MOBILE ? 100 : 140; // Smaller node size
 const BOUNDARY_PADDING = IS_MOBILE ? 100 : 300; // Tighter panning boundaries
 const PAN_SPEED = IS_MOBILE ? 1.0 : 1.5; // Adjusted pan sensitivity
@@ -201,7 +201,7 @@ const options = {
     font: { color: '#333', size: NODE_FONT_SIZE, face: 'Georgia, serif' },
     margin: { top: 12, right: 15, bottom: 12, left: 15 },
     widthConstraint: { minimum: NODE_MIN_WIDTH, maximum: 180 },
-    heightConstraint: { minimum: 50, maximum: 60 },
+    heightConstraint: { minimum: 40, maximum: 60 },
     borderWidth: 2,
     shadow: { enabled: true, color: 'rgba(0,0,0,0.15)', size: 8, x: 2, y: 2 },
     shapeProperties: { borderRadius: 12 }
