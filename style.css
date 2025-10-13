@@ -60,6 +60,7 @@ header p {
   min-width: 250px; /* Ensures a decent width */
   z-index: 10;
   box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+  pointer-events: none; /* Let mouse events pass through the panel itself */
 }
 
 /* New/Revised Image Styling for the HTML structure provided earlier */
@@ -79,6 +80,12 @@ header p {
 /* New: Container for text content to restore the padding */
 .panel-content {
     padding: 15px; /* Adds internal padding to the text */
+}
+
+/* Restores pointer events for content the user must click/interact with */
+#info-panel .panel-content,
+#close-info-panel {
+    pointer-events: auto;
 }
 
 /* Adjusting internal elements to work with new text container */
@@ -103,6 +110,7 @@ header p {
   display: block; /* Makes the link take up its own line */
   margin-top: 10px;
   transition: color 0.2s;
+  pointer-events: auto; /* Re-enables clicking on the link */
 }
 
 #info-panel a:hover {
