@@ -422,6 +422,8 @@ container.addEventListener('touchend', (event) => {
 // =====================
 // Define an initial center offset: Shift the view up by 150 pixels only on mobile
 const MOBILE_CENTER_Y_OFFSET = IS_MOBILE ? -150 : 0;
+// Define the scale constant
+const INITIAL_SCALE = IS_MOBILE ? 0.6 : 0.8; 
 
 // Center on Anthony the Great initially
 network.once('stabilizationIterationsDone', () => {
