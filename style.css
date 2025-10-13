@@ -137,7 +137,9 @@ header p {
   /* Info Panel Adjustments */
     #info-panel {
         width: 100%; 
-        left: 0 !important; /* Force to left edge */
+        max-width: 100%;
+        left: 50% !important;
+        transform: translateX(-50%); /* Centers the element horizontally */
         bottom: 0; /* Pin to the bottom */
         top: auto !important; /* Ignore JS top position */
         position: fixed; /* Keep panel fixed on screen */
