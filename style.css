@@ -78,14 +78,16 @@ header p {
 }
 
 /* New: Container for text content to restore the padding */
-.panel-content {
-    padding: 15px; /* Adds internal padding to the text */
+#info-panel .panel-content {
+  pointer-events: none; /* Let mouse events pass through the panel itself */  
+  padding: 15px; /* Adds internal padding to the text */
 }
 
-/* Restores pointer events for content the user must click/interact with */
-#info-panel .panel-content,
+#info-panel .panel-content h3,
+#info-panel .panel-content p,
+#info-panel .panel-content a,
 #close-info-panel {
-    pointer-events: auto;
+    pointer-events: auto; /* Re-enable pointer events for specific content/controls */
 }
 
 /* Adjusting internal elements to work with new text container */
