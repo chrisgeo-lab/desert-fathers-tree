@@ -54,7 +54,7 @@ const data = {
     { "id": 8, "label": "Paphnutius of Thebes", "level": 1, "x": 700, "image": "images/paphnutiusofthebes.jpg", "bio": "Paphnutius was a confessor and spiritual father to many desert monks.", "link": "https://orthodoxwiki.org/Paphnutius" },
     { "id": 10, "label": "Serapion of Thmuis", "level": 1, "x": 450, "image": "images/serapion.jpg", "bio": "Serapion was known for his humility and travels among the desert fathers.", "link": "#" },
    // { "id": 14, "label": "Isaac of Fayoum", "level": 1, "x": 200, "image": "images/isaac.png", "bio": "Isaac was a spiritual father who emphasized stillness and contemplation.", "link": "#" },
-    { "id": 11, "label": "Amoun", "level": 1, "x": 950, "image": "images/amoun.jpg", "bio": "Amoun (c. 295–356) founded the monastic community at Nitria.", "link": "https://en.wikipedia.org/wiki/Amoun" },
+    { "id": 11, "label": "Amoun", "level": 1, "x": 950, "image": "images/amoun.png", "bio": "Amoun (c. 295–356) founded the monastic community at Nitria.", "link": "https://en.wikipedia.org/wiki/Amoun" },
     { "id": 16, "label": "Paul the Simple", "level": 1, "x": 1200, "image": "images/paulthesimple.jpg", "bio": "Paul the Simple was renowned for his childlike faith and obedience to Anthony.", "link": "#" },
     { "id": 15, "label": "Pambo", "level": 1, "x": 1450, "image": "images/pambo.jpg", "bio": "Pambo (c. 303–373) was known for his silence and profound spiritual wisdom.", "link": "https://en.wikipedia.org/wiki/Pambo" },
     { "id": 13, "label": "Chronius", "level": 1, "x": -550, "image": "images/monk.jpg", "bio": "Chronius was known for his wisdom and teachings on prayer.", "link": "#" },
