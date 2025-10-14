@@ -89,7 +89,7 @@ const data = {
     { "id": 41, "label": "Sisoes the Great", "level": 3, "x": 500, "image": "images/sisoes.png", "bio": "Sisoes (d. 429) lived in Anthony's former cell and was known for humility.", "link": "#" },
     { "id": 42, "label": "Paul", "level": 3, "x": 700, "image": "images/monk.jpg", "bio": "Paul was a hermit who practiced extreme asceticism.", "link": "#" },
     { "id": 43, "label": "Athre", "level": 3, "x": 900, "image": "images/monk.jpg", "bio": "Athre was a monk known for his gentle spirit.", "link": "#" },
-    { "id": 44, "label": "Arsenius the Great", "level": 3, "x": 1400, "image": "images/arsenius.jpg", "bio": "Arsenius (c. 350–445) left the imperial court to become a desert hermit.", "link": "https://en.wikipedia.org/wiki/Arsenius_the_Great" },
+    { "id": 44, "label": "Arsenius the Great", "level": 3, "x": 1400, "image": "images/arsenius.jpg", "bio": "Arsenius (c. 354–450) left the imperial court to become a desert hermit.", "link": "https://en.wikipedia.org/wiki/Arsenius_the_Great" },
 
     // Generation 5 (level 4)
     { "id": 45, "label": "Peter the Pionite", "level": 4, "x": -700, "image": "images/monk.jpg", "bio": "Peter was a disciple known for his simplicity.", "link": "#" },
