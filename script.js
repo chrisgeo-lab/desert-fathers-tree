@@ -81,26 +81,26 @@ const data = {
     // Generation 4 (level 3)
     { "id": 34, "label": "John Cassian", "level": 3, "x": -1200, "image": "images/johncassian.jpeg", "bio": "John Cassian (c. 360–435) brought desert spirituality to the West.", "link": "https://en.wikipedia.org/wiki/John_Cassian" },
     { "id": 35, "label": "Germanus", "level": 3, "x": -950, "image": "images/germanus.jpg", "bio": "Germanus was Cassian's companion in the desert journeys.", "link": "#" },
-    { "id": 36, "label": "Lot", "level": 3, "x": -600, "image": "images/monk.jpg", "bio": "Lot was a disciple known for his devotion to prayer.", "link": "#" },
-    { "id": 37, "label": "Poemen the Great", "level": 3, "x": -400, "image": "images/poemen.jpg", "bio": "Poemen (c. 340–450) was one of the most quoted desert fathers.", "link": "https://en.wikipedia.org/wiki/Poemen" },
-    { "id": 38, "label": "Anoub", "level": 3, "x": -200, "image": "images/monk.jpg", "bio": "Anoub was a monk of Scetis known for his patience.", "link": "#" },
-    { "id": 39, "label": "Paisius", "level": 3, "x": 0, "image": "images/monk.jpg", "bio": "Paisius was a contemplative monk devoted to silence.", "link": "#" },
-    { "id": 40, "label": "Isaiah the Solitary", "level": 3, "x": 350, "image": "images/isaiah.jpg", "bio": "Isaiah of Scetis was an influential spiritual writer.", "link": "#" },
-    { "id": 41, "label": "Sisoes the Great", "level": 3, "x": 650, "image": "images/sisoes.png", "bio": "Sisoes (d. 429) lived in Anthony's former cell and was known for humility.", "link": "#" },
-    { "id": 42, "label": "Paul", "level": 3, "x": 850, "image": "images/monk.jpg", "bio": "Paul was a hermit who practiced extreme asceticism.", "link": "#" },
-    { "id": 43, "label": "Athre", "level": 3, "x": 1050, "image": "images/monk.jpg", "bio": "Athre was a monk known for his gentle spirit.", "link": "#" },
+    { "id": 36, "label": "Lot", "level": 3, "x": 300, "image": "images/monk.jpg", "bio": "Lot was a disciple known for his devotion to prayer.", "link": "#" },
+    { "id": 37, "label": "Poemen the Great", "level": 3, "x": 100, "image": "images/poemen.jpg", "bio": "Poemen (c. 340–450) was one of the most quoted desert fathers.", "link": "https://en.wikipedia.org/wiki/Poemen" },
+    { "id": 38, "label": "Anoub", "level": 3, "x": -100, "image": "images/monk.jpg", "bio": "Anoub was a monk of Scetis known for his patience.", "link": "#" },
+    { "id": 39, "label": "Paisius", "level": 3, "x": -300, "image": "images/monk.jpg", "bio": "Paisius was a contemplative monk devoted to silence.", "link": "#" },
+    { "id": 40, "label": "Isaiah the Solitary", "level": 3, "x": 500, "image": "images/isaiah.jpg", "bio": "Isaiah of Scetis was an influential spiritual writer.", "link": "#" },
+    { "id": 41, "label": "Sisoes the Great", "level": 3, "x": 750, "image": "images/sisoes.png", "bio": "Sisoes (d. 429) lived in Anthony's former cell and was known for humility.", "link": "#" },
+    { "id": 42, "label": "Paul", "level": 3, "x": 950, "image": "images/monk.jpg", "bio": "Paul was a hermit who practiced extreme asceticism.", "link": "#" },
+    { "id": 43, "label": "Athre", "level": 3, "x": 1150, "image": "images/monk.jpg", "bio": "Athre was a monk known for his gentle spirit.", "link": "#" },
     { "id": 44, "label": "Arsenius the Great", "level": 3, "x": 1400, "image": "images/arsenius.jpg", "bio": "Arsenius (c. 354–450) left the imperial court to become a desert hermit.", "link": "https://en.wikipedia.org/wiki/Arsenius_the_Great" },
 
     // Generation 5 (level 4)
-    { "id": 45, "label": "Peter the Pionite", "level": 4, "x": -700, "image": "images/monk.jpg", "bio": "Peter was a disciple known for his simplicity.", "link": "#" },
-    { "id": 46, "label": "Agathon", "level": 4, "x": -500, "image": "images/agathon.jpg", "bio": "Agathon was famous for his control over his tongue.", "link": "#" },
-    { "id": 54, "label": "Abraham", "level": 4, "x": 700, "image": "images/monk.jpg", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
+    { "id": 45, "label": "Peter the Pionite", "level": 4, "x": 400, "image": "images/monk.jpg", "bio": "Peter was a disciple known for his simplicity.", "link": "#" },
+    { "id": 46, "label": "Agathon", "level": 4, "x": 200, "image": "images/agathon.jpg", "bio": "Agathon was famous for his control over his tongue.", "link": "#" },
+    { "id": 54, "label": "Abraham", "level": 4, "x": 800, "image": "images/monk.jpg", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
     { "id": 47, "label": "Alexander", "level": 4, "x": 1150, "image": "images/monk.jpg", "bio": "Alexander served Arsenius with great devotion.", "link": "#" },
     { "id": 48, "label": "Zoilus", "level": 4, "x": 1350, "image": "images/monk.jpg", "bio": "Zoilus was another faithful disciple of Arsenius.", "link": "#" },
     { "id": 49, "label": "Daniel", "level": 4, "x": 1550, "image": "images/daniel.jpg", "bio": "Daniel was Arsenius's closest disciple and successor.", "link": "#" },
 
     // Generation 6 (level 5)
-    { "id": 51, "label": "Abraham", "level": 5, "x": -450, "image": "images/monk.jpg", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
+    { "id": 51, "label": "Abraham", "level": 5, "x": 150, "image": "images/monk.jpg", "bio": "Abraham continued the spiritual lineage with dedication.", "link": "#" },
     { "id": 52, "label": "Ammoes", "level": 5, "x": 1500, "image": "images/monk.jpg", "bio": "Ammoes was a wise elder in the later desert generation.", "link": "#" },
 
     // Generation 7 (level 6)
