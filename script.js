@@ -66,7 +66,7 @@ const data = {
     { "id": 20, "label": "Onuphrius", "level": 2, "x": -850, "image": "images/onuphrius.jpg", "bio": "Onuphrius was a hermit who lived in complete solitude for sixty years.", "link": "https://en.wikipedia.org/wiki/Onuphrius" },
     { "id": 21, "label": "Moses the Black", "level": 2, "x": -450, "image": "images/moses.jpg", "bio": "Moses the Black (c. 330–405) was a reformed robber who became a great desert father.", "link": "https://en.wikipedia.org/wiki/Moses_the_Black" },
     { "id": 22, "label": "Bessarion the Great", "level": 2, "x": -250, "image": "images/bessarion.jpg", "bio": "Bessarion was known for his wandering life and miraculous works.", "link": "#" },
-    { "id": 24, "label": "Joseph", "level": 2, "x": -50, "image": "images/joseph.jpg", "bio": "Joseph practiced silence and unceasing prayer in the desert.", "link": "#" },
+    { "id": 24, "label": "Joseph", "level": 2, "x": 0, "image": "images/joseph.jpg", "bio": "Joseph practiced silence and unceasing prayer in the desert.", "link": "#" },
     { "id": 25, "label": "Achilles", "level": 1.75, "x": 300, "image": "images/monk.jpg", "bio": "Achilles continued the spiritual tradition of his teachers.", "link": "#" },
     { "id": 26, "label": "Or", "level": 1.75, "x": 550, "image": "images/or.jpg", "bio": "Or was renowned for his hospitality and kindness to visitors.", "link": "#" },
     { "id": 17, "label": "Theodore", "level": 1.75, "x": 800, "image": "images/monk.jpg", "bio": "Theodore was a devoted monk and successor to Pachomius.", "link": "#" },
@@ -81,6 +81,7 @@ const data = {
     // Generation 4 (level 3)
     { "id": 34, "label": "John Cassian", "level": 3, "x": -1200, "image": "images/johncassian.jpeg", "bio": "John Cassian (c. 360–435) brought desert spirituality to the West.", "link": "https://en.wikipedia.org/wiki/John_Cassian" },
     { "id": 35, "label": "Germanus", "level": 3, "x": -950, "image": "images/germanus.jpg", "bio": "Germanus was Cassian's companion in the desert journeys.", "link": "#" },
+    { "id": 58, "label": "Doulas", "level": 3, "x": -550, "image": "images/monk.jpg", "bio": "Doulas was the disciple of Bessarion and authored his sayings.", "link": "#" },
     { "id": 36, "label": "Lot", "level": 3, "x": 300, "image": "images/monk.jpg", "bio": "Lot was a disciple known for his devotion to prayer.", "link": "#" },
     { "id": 37, "label": "Poemen the Great", "level": 3, "x": 100, "image": "images/poemen.jpg", "bio": "Poemen (c. 340–450) was one of the most quoted desert fathers.", "link": "https://en.wikipedia.org/wiki/Poemen" },
     { "id": 38, "label": "Anoub", "level": 3, "x": -100, "image": "images/monk.jpg", "bio": "Anoub was a monk of Scetis known for his patience.", "link": "#" },
