@@ -1,4 +1,4 @@
-/* === Modern Design with Desert Theme === */
+/* === Desert Theme === */
 * {
   margin: 0;
   padding: 0;
@@ -80,7 +80,6 @@ header p {
   pointer-events: none; /* Let mouse events pass through the panel itself */
 }
 
-/* New/Revised Image Styling for the HTML structure provided earlier */
 .panel-image-container {
     width: 100%;
     height: 100%; /* Fixed height for visual consistency */
@@ -96,7 +95,7 @@ header p {
   pointer-events: none; /* Let mouse events pass through the panel itself */
 }
 
-/* New: Container for text content to restore the padding */
+/* Container for text content to restore the padding */
 #info-panel .panel-content {
   pointer-events: none; /* Let mouse events pass through the panel itself */  
   padding: 15px; /* Adds internal padding to the text */
@@ -106,8 +105,7 @@ header p {
     pointer-events: auto; /* Re-enable pointer events for specific content/controls */
 }
 
-/* Adjusting internal elements to work with new text container */
-#info-panel h3 { /* Changed from h2 to h3 based on your script.js */
+#info-panel h3 { 
   margin: 0 0 0.5em 0;
   font-size: 1.5rem;
   color: #4A3B2F;
@@ -144,7 +142,7 @@ header p {
 /* ================================================= */
 @media (max-width: 768px) {
 
-  /* NEW: Full-screen overlay to disable graph interaction */
+  /* Full-screen overlay to disable graph interaction */
     #panel-backdrop {
         position: fixed;
         top: 0;
