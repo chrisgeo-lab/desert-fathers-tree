@@ -42,7 +42,7 @@ const MAX_ZOOM = 2.0;
 const data = {
   "nodes": [
     // Generation 1 (level 0)
-    { "id": 1, "label": "Anthony the Great", "level": 0, "x": 350, "image": "images/anthony.jpg", "bio": "Anthony (c. 251–356) is considered the father of monasticism. He lived as a hermit in the Egyptian desert and inspired countless disciples.", "link": BASE_PAGE_PATH + "anthony-the-great/" },
+    { "id": 1, "label": "Anthony the Great", "level": 0, "x": 350, "image": "images/anthony.jpg", "bio": "Anthony (c. 251–356) is considered the father of monasticism. He lived as a hermit in the Egyptian desert for over 80 years, leaving briefly only twice to fight against Arianism in Alexandria.", "link": BASE_PAGE_PATH + "anthony-the-great/" },
     { "id": 2, "label": "Palamon", "level": 0, "x": 1800, "image": "images/palamon.jpg", "bio": "Palamon was an early hermit and teacher who guided young monks in the desert.", "link": "#" },
     { "id": 3, "label": "Paul of Thebes", "level": 0, "x": 1000, "image": "images/paulofthebes.jpeg", "bio": "Paul of Thebes (c. 227–341) is traditionally considered the first Christian hermit.", "link": "https://en.wikipedia.org/wiki/Paul_of_Thebes" },
     
