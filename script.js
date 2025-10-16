@@ -9,6 +9,9 @@ function isMobileDevice() {
 // Global constant to be used throughout the script
 const IS_MOBILE = isMobileDevice();
 
+// NEW: Define the base path for your custom webpages
+const BASE_PAGE_PATH = './'; // Links from index.html are relative to the root
+
 // Enable pinch to zoom on mobile devices
 let initialPinchDistance = null;
 let initialScale = null;
@@ -39,7 +42,7 @@ const MAX_ZOOM = 2.0;
 const data = {
   "nodes": [
     // Generation 1 (level 0)
-    { "id": 1, "label": "Anthony the Great", "level": 0, "x": 350, "image": "images/anthony.jpg", "bio": "Anthony (c. 251–356) is considered the father of monasticism. He lived as a hermit in the Egyptian desert and inspired countless disciples.", "link": "https://en.wikipedia.org/wiki/Anthony_the_Great" },
+    { "id": 1, "label": "Anthony the Great", "level": 0, "x": 350, "image": "images/anthony.jpg", "bio": "Anthony (c. 251–356) is considered the father of monasticism. He lived as a hermit in the Egyptian desert and inspired countless disciples.", "link": BASE_PAGE_PATH + "anthony-the-great/" },
     { "id": 2, "label": "Palamon", "level": 0, "x": 1800, "image": "images/palamon.jpg", "bio": "Palamon was an early hermit and teacher who guided young monks in the desert.", "link": "#" },
     { "id": 3, "label": "Paul of Thebes", "level": 0, "x": 1000, "image": "images/paulofthebes.jpeg", "bio": "Paul of Thebes (c. 227–341) is traditionally considered the first Christian hermit.", "link": "https://en.wikipedia.org/wiki/Paul_of_Thebes" },
     
@@ -254,7 +257,7 @@ function showInfoPanel(node) {
     <div class="panel-content">
       <h3>${node.label}</h3>
       <p>${node.bio}</p>
-      ${node.link !== '#' ? `<a href="${node.link}" target="_blank">Learn more →</a>` : ''}
+      ${node.link !== '#' ? `<a href="${node.link}">Learn more →</a>` : ''}
     </div>
   `;
   panel.classList.remove('hidden');
