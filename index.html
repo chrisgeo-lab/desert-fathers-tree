@@ -8,7 +8,7 @@
   <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
 
   <!-- ✅ Our custom stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- Allows us to override/custom some mobile settings -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,13 @@
 <body>
   <header>
     <h1>Desert Fathers Genealogy</h1>
-    <p>Explore the spiritual lineage and companionships among early Egyptian Desert Fathers.</p>
+    <div class="header-controls">
+      <p>Explore the spiritual lineage and companionships among early Egyptian Desert Fathers.</p>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search by name...">
+        <button id="search-button">Search</button>
+      </div>
+    </div>
   </header>
 
   <div class="legend-container">
@@ -51,6 +57,13 @@
   <p><strong>Pinch</strong> to zoom</p>
   </div>
 
-  <script src="script.js"></script>
+  <div id="timeline-container"></div>
+
+  <script src="js/network.js"></script>
+  <script src="js/panel.js"></script>
+  <script src="js/zoom.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
